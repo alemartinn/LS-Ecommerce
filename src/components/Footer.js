@@ -1,9 +1,12 @@
+import { useSelector } from "react-redux";
 
 function Footer() {
 
+    const { bcgColor, fontColor } = useSelector(state => state.color)
+
     return (
-        <footer>
-            <h3>Footer</h3>
+        <footer style={{backgroundColor: bcgColor}}>
+            <h3 style={{color: fontColor}}>Footer</h3>
         </footer>
     )
 }
