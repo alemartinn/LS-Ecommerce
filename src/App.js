@@ -6,14 +6,14 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <WebsiteLayout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <WebsiteLayout>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/*' element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
-    </WebsiteLayout>
+      </WebsiteLayout>
+    </BrowserRouter>
   );
 }
 
