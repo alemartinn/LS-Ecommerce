@@ -19,6 +19,7 @@
     "redux": "^4.2.0",
     "save": "^2.9.0",
     "serve": "^14.0.1",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
