@@ -9,5 +9,8 @@ body {
   --second-color: #e9e2c6; 
   --third-color: #e89431; 
   --fourth-color: #86a466;
-  --bkg-color: #d4d9dd;
+  --font-color-light: #111;
+  --bcg-color-light: #d4d9dd;
+  --bcg-color-dark: #313131;
+  --font-color-dark: #ccc;
 }
