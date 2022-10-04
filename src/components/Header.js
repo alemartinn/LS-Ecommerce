@@ -42,6 +42,7 @@ function Header() {
     return (
         <header className='header' style={{ backgroundColor: bcgColor }}>
             <h1 style={{ color: fontColor }}>Header</h1>
+            {navLinks.map(pages)}
             <ToggleTheme
                 type="button"
                 onClick={() => setThemeMode(!themeMode)}
@@ -54,7 +55,6 @@ function Header() {
                     swapOpacity
                 />
             </ToggleTheme>
-            {navLinks.map(pages)}
         </header>
     )
 }
