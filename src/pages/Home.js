@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { Link as LinkR } from "react-router-dom";
 import styled from "styled-components"
+import Card from '../components/Card.js'
+
 function Home() {
 
     const { bcgColor, fontColor, thirdColor } = useSelector(state => state.color)
@@ -15,6 +17,8 @@ function Home() {
                         bcgcolor={thirdColor}
                     >*inserte frase*</LinkRouter>
                 </Banner>
+            <Card />
+            
             </MainContent>
         </MainHome>
     )
