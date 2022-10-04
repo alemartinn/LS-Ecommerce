@@ -32,7 +32,7 @@ const MainHome = styled.main`
 const MainContent = styled.div`
     width: 100%;
     max-width: 1400px;
-    padding-top: 10vh ;
+
 
 ` 
 const Banner = styled.div`
