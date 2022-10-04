@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faToggleOff, faToggleOn } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Header.css";
+import "../styles/Header.css";
 import Headroom from "headroom.js";
 import Dropdown from "./Dropdown";
 
