@@ -3,7 +3,7 @@ import { darkMode, lightMode } from "../features/theme/themeSlice";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faToggleOff, faToggleOn } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import Headroom from "headroom.js";
@@ -12,9 +12,15 @@ import Dropdown from "./Dropdown";
 function Header() {
   /* Seccion para cambiar el tema de modo claro a modo oscuro */
   const [themeMode, setThemeMode] = useState(true);
-  const { bcgColor, fontColor, fourthColor } = useSelector((state) => state.color);
+  const { fontColor, fourthColor } = useSelector((state) => state.color);
   const dispatch = useDispatch();
-
+  const navEl = useRef(null)
+  const headerEl = useRef(null)
+  const [heightNav, setHeightNav] = useState("10vh")
+  const handleResize = () => {
+    window.addEventListener("resize",() =>
+      setHeightNav(headerEl.current.clientHeight))
+  }
   useEffect(() => {
     if (themeMode) {
       dispatch(lightMode());
@@ -22,13 +28,13 @@ function Header() {
       dispatch(darkMode());
     }
     //implementacion de libreria headroom para togglear header con scroll up/down
-    var myHeader = document.querySelector("header");
-    var headroom = new Headroom(myHeader);
+    let headroom = new Headroom(navEl.current);
     headroom.init();
+    setHeightNav(headerEl.current.clientHeight)
   }, [themeMode, dispatch]);
 
   const navLink = [
-    { name: "HIW", to: "/" },
+    { name: "HIW", to: "/hiw" },
     {
       name: "Products",
       to: "/",
@@ -67,41 +73,48 @@ function Header() {
     );
 
   return (
-    <header className="header" style={{ backgroundColor: fourthColor }}>
-        <div className="header-top">
+    <>
+      <div style={{ backgroundColor: fourthColor, height: heightNav, width: "100%" }} />
+      <header className="header" ref={headerEl} onLoad={handleResize}>
+        <div style={{ backgroundColor: fourthColor}} className="header-top-conteiner">
+          <div className="header-top">
             <h2>logo</h2>
-            <h1 style={{ color: fontColor }}>LS FOOD CO</h1>
+            <h1 style={{ color: fontColor, flexGrow:1,textAlign:"center" }}>LS FOOD CO</h1>
             <div className="header-buttons">
-            <ToggleTheme
-            type="button"
-            onClick={() => setThemeMode(!themeMode)}
-            color={fontColor}
-            bcgColor={fourthColor}
-            >
+              <ToggleTheme
+                type="button"
+                onClick={() => setThemeMode(!themeMode)}
+                color={fontColor}
+                bcgColor={fourthColor}
+              >
                 <FontAwesomeIcon
-                    icon={themeMode ? faToggleOff : faToggleOn}
-                    size="3x"
-                    swapOpacity
-                    />
-                </ToggleTheme>
-            <Link to={"/"}>
-            <img
-                className="header-buttons-img"
-                src="https://cdn-icons-png.flaticon.com/512/6733/6733817.png"
+                  icon={themeMode ? faToggleOff : faToggleOn}
+                  size="3x"
+                  swapOpacity
+                />
+              </ToggleTheme>
+              <Link to={"/"}>
+                <img
+                  className="header-buttons-img"
+                  src="https://cdn-icons-png.flaticon.com/512/6733/6733817.png"
                 ></img>
-            </Link>
-            <Link to={"/"}>
-            <img
-                className="header-buttons-img"
-                src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
+              </Link>
+              <Link to={"/"}>
+                <img
+                  className="header-buttons-img"
+                  src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
                 ></img>
-            </Link>
+              </Link>
             </div>
+          </div>
         </div>
+        <div className="header-nav-conteiner" style={{ backgroundColor: fourthColor }} ref={navEl}>
         <div className="header-nav">
-            {navLink.map(pages)}
+          {navLink.map(pages)}
         </div>
-    </header>
+        </div>
+      </header>
+    </>
   );
 }
 
