@@ -26,6 +26,7 @@
 .header-buttons-img {
     width: 40px;
     margin: 0 5px;
+    cursor: pointer;
 }
 .header-buttons{
     display: flex;

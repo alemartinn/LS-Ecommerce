@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import "../styles/Header.css";
 import Headroom from "headroom.js";
 import Dropdown from "./Dropdown";
+import BasicModal from "./ModalSign";
 
 function Header() {
   /* Seccion para cambiar el tema de modo claro a modo oscuro */
@@ -93,12 +94,12 @@ function Header() {
                   swapOpacity
                 />
               </ToggleTheme>
-              <Link to={"/"}>
-                <img
+              <BasicModal>
+                <img 
                   className="header-buttons-img"
-                  src="https://cdn-icons-png.flaticon.com/512/6733/6733817.png"
-                ></img>
-              </Link>
+                  src="https://cdn-icons-png.flaticon.com/512/6733/6733817.png">
+                </img>
+              </BasicModal>
               <Link to={"/"}>
                 <img
                   className="header-buttons-img"
