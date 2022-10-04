@@ -6,9 +6,15 @@
 
 :root{  
   --main-color: #f0ce85;
+  --main-color-dark: #625335;
   --second-color: #e9e2c6; 
+  --second-color-dark: #615e52; 
   --third-color: #e89431; 
+  --third-color-dark: #704718; 
   --fourth-color: #86a466;
+  --fourth-color-dark: #445334;
+  --fiveth-color: #4F5748;
+  --fiveth-color-dark: #232720;
   --font-color-light: #111;
   --bcg-color-light: #d4d9dd;
   --bcg-color-dark: #313131;

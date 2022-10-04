@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components"
 import {Link as LinkR} from "react-router-dom"
+import ScrollToTop from "./ScrollToTop";
 function Footer() {
 
-    const { bcgColor, fontColor } = useSelector(state => state.color)
+    const { fourthColor, fontColor } = useSelector(state => state.color)
 
     return (
-        <FooterContainer bcgColor={bcgColor}>
+        <FooterContainer bcgcolor={fourthColor}>
         <FooterContent>
             <ColFooter>
                 <TextFooter color={fontColor}>Social Media...</TextFooter>
@@ -16,14 +17,15 @@ function Footer() {
                     <TextFooter color={fontColor}>LOGO</TextFooter>
                     <p style={{color:fontColor}}>
                     <LinkRouter to={"/terms"}
-                            textColor={fontColor}>Terms </LinkRouter>
+                            textcolor={fontColor}>Terms </LinkRouter>
                         /
                     <LinkRouter to={"/about"}
-                        textColor={fontColor}> About Us</LinkRouter>
+                        textcolor={fontColor}> About Us</LinkRouter>
                     </p>
             </ColFooter>
             <ColFooter>
                 <TextFooter color={fontColor}>Footer nav</TextFooter>
+                <ScrollToTop></ScrollToTop>
             </ColFooter>
         </FooterContent>
         </FooterContainer>
@@ -34,7 +36,7 @@ const FooterContainer = styled.footer`
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color:${props=>props.bcgColor};
+    background-color:${props=>props.bcgcolor};
     padding: 0 2rem;
 `
 const FooterContent = styled.div`
@@ -57,6 +59,7 @@ const ColFooter = styled.div`
 `
 const LinkRouter = styled(LinkR)`
     text-decoration: none;
-    color: ${props=> props.textColor}
+    color: ${props=> props.textcolor}
 `
+
 export default Footer
