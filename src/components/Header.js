@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faToggleOff, faToggleOn } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import './Header.css'
 import Headroom from "headroom.js"
 
@@ -27,6 +28,17 @@ function Header() {
         headroom.init();
     }, [themeMode, dispatch])
 
+    const navLinks = [ // links del navbar
+        {name: "All" , to: "/"},
+        {name: "Healthy" , to: "/"},
+        {name: "Vegan" , to: "/"},
+        {name: "Family" , to: "/"},
+        {name: "Gluten-Free" , to: "/"},
+        {name: "Pescatarian" , to: "/"},
+        {name: "High Protein" , to: "/"},
+    ]
+    const pages = (item) => (<Link styles={{display:"flex"}} key={item.name} to={item.to}>{item.name}</Link>)
+
     return (
         <header className='header' style={{ backgroundColor: bcgColor }}>
             <h1 style={{ color: fontColor }}>Header</h1>
@@ -42,6 +54,7 @@ function Header() {
                     swapOpacity
                 />
             </ToggleTheme>
+            {navLinks.map(pages)}
         </header>
     )
 }
