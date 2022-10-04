@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components"
 import {Link as LinkR} from "react-router-dom"
+import ScrollToTop from "./ScrollToTop";
 function Footer() {
 
     const { fourthColor, fontColor } = useSelector(state => state.color)
@@ -24,6 +25,7 @@ function Footer() {
             </ColFooter>
             <ColFooter>
                 <TextFooter color={fontColor}>Footer nav</TextFooter>
+                <ScrollToTop></ScrollToTop>
             </ColFooter>
         </FooterContent>
         </FooterContainer>
