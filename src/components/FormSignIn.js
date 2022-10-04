@@ -1,4 +1,5 @@
 import Form from "./Form";
+import GoogleForm from "./GoogleForm";
 
 
 const FormSignIn = () => {
@@ -21,7 +22,10 @@ const FormSignIn = () => {
     };
     
     return ( 
-        <Form modelForm={modelSignIn} handleSubmit={handleSubmit} Title={'Sign In'}/>
+        <>
+            <Form modelForm={modelSignIn} handleSubmit={handleSubmit} Title={'Sign In'}/>
+            <GoogleForm/>
+        </>
      );
 }
  
