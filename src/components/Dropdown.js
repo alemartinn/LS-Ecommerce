@@ -2,10 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Dropdown(props) {
-    const name = props.name
-    const navLinks = props.links
+    const {name, links, textColor, styles} = props
     const [drop, setDrop] = useState(false)
-
     const showDrop = ()=>{
         setDrop(true)
     }
@@ -14,13 +12,15 @@ export default function Dropdown(props) {
     }
 
     
-    const pages = (item) => (<Link className='link' styles={{display:"flex"}} key={item.name} to={item.to}>{item.name}</Link>)
+    const pages = (item) => (<Link className='link' style={{color:textColor}} key={item.name} to={item.to}>{item.name}</Link>)
 
   return (
-        <div onMouseEnter={showDrop} onMouseLeave={hideDrop}>{name} 
+      <div onMouseEnter={showDrop} onMouseLeave={hideDrop}
+          style={{ color: textColor }}>
+        {name}
         {drop ?( 
-            <div className='header-dropdown'>
-                {navLinks.map(pages)}
+            <div style={styles}>
+                {links.map(pages)}
             </div>)
             :
             null}
