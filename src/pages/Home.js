@@ -23,7 +23,7 @@ const MainHome = styled.main`
     display: flex;
     justify-content: center;
     width: 100%;
-    min-height: 70vh;
+    min-height: 170vh;
 `
 const MainContent = styled.div`
     width: 100%;
