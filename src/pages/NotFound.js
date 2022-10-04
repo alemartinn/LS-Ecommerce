@@ -25,7 +25,7 @@ const MainNotFound = styled.main`
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
-    min-height: 60vh;
+    min-height: 80vh;
 `
 const TitleNotFound = styled.h2`
     font-size: 3rem;

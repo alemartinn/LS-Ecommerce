@@ -59,4 +59,5 @@ const LinkRouter = styled(LinkR)`
     text-decoration: none;
     color: ${props=> props.textcolor}
 `
+
 export default Footer
