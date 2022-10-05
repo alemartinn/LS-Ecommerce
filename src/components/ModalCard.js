@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Card.css'
+import '../styles/ModalCard.css'
 const style = {
   position: 'absolute',
   top: '50%',
