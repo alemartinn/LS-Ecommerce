@@ -39,9 +39,16 @@
     padding: 0 1rem;
     min-width: 33%
 }
-.header-logo{
+.header-logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-width: 33%;
-    text-align: center;
+}
+.header-logo{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
 }
 .header-title{
     text-align: center;
