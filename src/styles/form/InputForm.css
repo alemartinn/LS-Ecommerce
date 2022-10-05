@@ -1,0 +1,47 @@
+.inputForm-field{
+    display: flex;
+    flex-direction: column;
+    gap: .5vh;
+    width: 80%;
+}
+
+.inputForm-label{
+    color: rgb(80, 80, 80);
+    font-family: Agrandir, Verdana, Geneva, sans-serif;
+    font-size: 18px;
+}
+
+.inputForm-label::first-letter{
+    text-transform: capitalize;
+}
+
+.inputForm-input{
+    font-family: Source Sans Pro, "Trebuchet MS", Helvetica, sans-serif;
+    font-weight: 200;
+    color: rgb(80, 80, 80);
+    padding: 12px;
+    font-size: 17px;
+
+    height: 48px;
+    width: 100%;
+    padding: 1vh;
+    outline: none;
+    border: 1px solid var(--third-color);
+    border-radius: 10px;
+}
+.inputForm-input:hover{
+    border: 3px solid var(--third-color);
+}
+.inputForm-input:focus{
+    border: 3px solid var(--third-color);
+}
+
+
+@media (max-width: 768px){
+    .inputForm-field{
+        width: 75%;
+    }
+    .inputForm-input{
+        width: 100%;
+    }
+}
