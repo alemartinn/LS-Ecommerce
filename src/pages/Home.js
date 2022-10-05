@@ -1,15 +1,18 @@
+import { useState } from 'react'
 import { useSelector } from "react-redux";
 import { Link as LinkR } from "react-router-dom";
 import styled from "styled-components"
 import Card from '../components/Card.js'
+import Modal from '../components/Modal'
 
 function Home() {
-
+  const [isOpen, setIsOpen] = useState(false)
+  const closeModal = () => setIsOpen(false)
   const { bcgColor, fontColor, thirdColor } = useSelector(state => state.color)
   return (
     <MainHome style={{ backgroundColor: bcgColor }}>
       <MainContent>
-        <Banner>
+        <Banner onClick={()=>setIsOpen(true)}>
           <BannerImg
             src="https://www.wellandgood.com/wp-content/uploads/2015/05/meal_delivery_provenance.jpg" />
           <LinkRouter to="/recipes"
@@ -23,6 +26,10 @@ function Home() {
           <Card />
         </CardsContainer>
       </MainContent>
+      <Modal
+        isOpen={isOpen}
+        closeModal={closeModal}
+      />
     </MainHome>
   )
 }

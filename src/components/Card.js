@@ -4,7 +4,8 @@ import ModalCard from './ModalCard'
 
 export default function Card() {
   const [isClicked, setIsClicked] = useState(false);
-
+  const [isOpen, setIsOpen] = useState(false)
+  const closeModal = () => setIsOpen(false)
   return (
     <div className="wrapper">
       <div className="container">
@@ -63,7 +64,7 @@ export default function Card() {
               <td>Something</td>
             </tr>
           </table>
-          <ModalCard/>
+          <button onClick={() => setIsOpen(true)}>MORE INFO</button>
         </div>
       </div>
     </div>
