@@ -1,4 +1,5 @@
 import Form from "./Form";
+import styled from "styled-components";
 
 
 const FormSignUp = () => {
@@ -22,8 +23,33 @@ const FormSignUp = () => {
     };
     
     return ( 
-        <Form modelForm={modelSignIn} handleSubmit={handleSubmit} Title={'Sign In'}/>
+        <SignUpContainer>
+            <Form modelForm={modelSignIn} handleSubmit={handleSubmit} Title={'Sign Up'}/>
+        </SignUpContainer>
      );
 }
  
+
+const SignUpContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 456px;
+    border: 1px solid var(--third-color);
+    border-radius: 10px;
+    padding: 3vh 0;
+
+    @media (max-width: 768px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 3vh 0;
+        margin: 0;
+    }
+    
+`
+
 export default FormSignUp;
