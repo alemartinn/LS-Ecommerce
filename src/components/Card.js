@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 import '../styles/sass/Card.css'
 import ModalCard from './ModalCard'
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
-import DoneIcon from '@mui/icons-material/Done'
-import ClearIcon from '@mui/icons-material/Clear'
-import InfoIcon from '@mui/icons-material/Info'
 
 export default function Card() {
   const [isClicked, setIsClicked] = useState(false);
@@ -19,20 +15,20 @@ export default function Card() {
               <p>Spicy Peruvian Chicken</p>
               <p>$250</p>
             </div>
-            <div className="buy" onClick={() => setIsClicked(true)}><i className="material-icons"><AddShoppingCartIcon /></i></div>
+            <div className="buy" onClick={() => setIsClicked(true)}><i className="material-icons">Add</i></div>
           </div>
           <div className="right">
-            <div className="done"><i className="material-icons"><DoneIcon /></i></div>
+            <div className="done"><i className="material-icons">Done</i></div>
             <div className="details">
               <p>Spicy Peruvian Chicken</p>
               <p>Added to your cart</p>
             </div>
-            <div className="remove" onClick={() => setIsClicked(false)}><i className="material-icons"><ClearIcon /></i></div>
+            <div className="remove" onClick={() => setIsClicked(false)}><i className="material-icons">Clear</i></div>
           </div>
         </div>
       </div>
       <div className="inside">
-        <div className="icon"><i className="material-icons"><InfoIcon /></i></div>
+        <div className="icon"><i className="material-icons">Info</i></div>
         <div className="contents">
           <table>
             <tr>
