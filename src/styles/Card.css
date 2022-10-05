@@ -53,4 +53,9 @@
 }
 .modalCard-button{
     padding: 3px 40px;
+    border-radius: 20px;
+}
+.modalCard-recipe{
+    font-size: 25px;
+    text-decoration: none;
 }

@@ -2,6 +2,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Card.css'
 const style = {
   position: 'absolute',
@@ -49,7 +50,8 @@ export default function ModalCard() {
                 <span>Ingredients</span>
             </div>
             <div className='modalCard-link-add'>
-                <span>Recipe Link</span>
+                {/* <span>Recipe Link</span> */}
+                <Link to={"/detail"} className="modalCard-recipe">Recipe Link</Link>
                 <button className='modalCard-button'>ADD</button>
             </div>
           
