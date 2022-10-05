@@ -1,0 +1,52 @@
+.cartBag-container{
+
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    flex-wrap: wrap;
+
+}
+.payment-img{
+    max-width: 200px;
+}
+.cartBag-img{
+    width: 90px;
+}
+.cartBag-products > h2{
+    font-size: 40px;
+}
+.cartBag-products{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+.cartBag-payment{
+    flex-wrap: wrap;
+}
+.cartBag-login, .cartBag-payment, .cartBag-address, .cartBag-productDetail{
+    margin: 5px;
+    background-color: antiquewhite;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+}
+.cartBag-totalPrice, .cartBag-discount, .cartBag-benefits{
+    max-width: 200px;
+    margin: 5px;
+    padding: 10px;
+    border-bottom: 5px solid black;
+}
+.cartBag-delete{
+    color: Red;
+    font-weight: bold;
+    font-size: 20px;
+}
+.cartBag-total{
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    margin: 10px 10px;
+}
