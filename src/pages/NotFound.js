@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { Link as LinkR } from "react-router-dom";
-import styled from "styled-components"
+import { Link as LinkRouter } from "react-router-dom";
+import "../styles/NotFound.css"
 
 function NotFound() {
     const {
@@ -8,36 +8,18 @@ function NotFound() {
         fontColor,
         thirdColor } = useSelector(state => state.color)
     return (
-        <MainNotFound style={{backgroundColor: bcgColor}}>
-            <TitleNotFound textcolor={fontColor}>404</TitleNotFound>
-            <TitleNotFound textcolor={fontColor}>Are you lost?</TitleNotFound>
+        <main className="not-found-main" style={{backgroundColor: bcgColor}}>
+            <h2 className="not-found-title"
+                style={{ color: fontColor }}>404</h2>
+            <h2 className="not-found-title"
+                style={{ color: fontColor }}>Are you lost?</h2>
             <LinkRouter to="/"
-                        textcolor={fontColor}
-                        bcgcolor={thirdColor}
+                className="not-found-link"
+                style={{color: fontColor, backgroundColor:thirdColor}}
                     >Go Home</LinkRouter>
-        </MainNotFound>
+        </main>
     )
 }
 
-const MainNotFound = styled.main`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    min-height: 80vh;
-`
-const TitleNotFound = styled.h2`
-    font-size: 3rem;
-    color: ${props => props.textcolor};
-`
-const LinkRouter = styled(LinkR)`
-    text-decoration: none;
-    color: ${props => props.textcolor};
-    background-color: ${props => props.bcgcolor};
-    font-size: 3rem;
-    padding: .5rem;
-    border-radius: 1rem;
-`
 
 export default NotFound
