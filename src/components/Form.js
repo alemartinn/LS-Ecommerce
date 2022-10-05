@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const Form = ({modelForm, Title, handleSubmit}) => {
     
-    const { fontColor } = useSelector(state => state.color)
+    const { thirdColor, fontColor } = useSelector(state => state.color)
 
     return (  
         <FormUsers onSubmit={handleSubmit}>
@@ -19,7 +19,7 @@ const Form = ({modelForm, Title, handleSubmit}) => {
                     autoComplete="on"
                 />
             )}
-            <Button bcgcolor={'var(--third-color)'} fontcolor={'white'}>
+            <Button bcgcolor={thirdColor} fontcolor={fontColor}>
                 Send
             </Button>
         </FormUsers>
@@ -30,24 +30,32 @@ const FormUsers = styled.form`
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2vh;
     min-width: 290px;
-    width: 45%;
+    width: 456px;
     max-width: 600px;
-
     color: rgb(36, 36, 36);
     margin: 0px;
-    padding: 1vh 0;
+    padding-top: 1vh;
     font-family: Agrandir, Verdana, Geneva, sans-serif;
     font-weight: 500;
     font-size: 24px;
     line-height: 32px;
-    border: 1px solid var(--third-color);
-    border-radius: 20px;
+
+    @media (max-width: 768px){
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 2vh;
+        padding: 1vh 0;
+        width: 100%;
+        border: none;
+    }
 `
 
 const FormTitle = styled.span`
-    margin: 2vh 0;
+    margin: 0;
+    font-size: 28px;
 `
 
 export default Form;
