@@ -5,23 +5,26 @@ import Card from '../components/Card.js'
 
 function Home() {
 
-    const { bcgColor, fontColor, thirdColor } = useSelector(state => state.color)
-    return (
-        <MainHome style={{ backgroundColor: bcgColor }}>
-            <MainContent>
-                <Banner>
-                    <BannerImg
-                        src="https://www.wellandgood.com/wp-content/uploads/2015/05/meal_delivery_provenance.jpg" />
-                    <LinkRouter to="/recipes"
-                        textcolor={fontColor}
-                        bcgcolor={thirdColor}
-                    >*inserte frase*</LinkRouter>
-                </Banner>
-            <Card />
-            
-            </MainContent>
-        </MainHome>
-    )
+  const { bcgColor, fontColor, thirdColor } = useSelector(state => state.color)
+  return (
+    <MainHome style={{ backgroundColor: bcgColor }}>
+      <MainContent>
+        <Banner>
+          <BannerImg
+            src="https://www.wellandgood.com/wp-content/uploads/2015/05/meal_delivery_provenance.jpg" />
+          <LinkRouter to="/recipes"
+            textcolor={fontColor}
+            bcgcolor={thirdColor}
+          >*inserte frase*</LinkRouter>
+        </Banner>
+        <CardsContainer>
+          <Card />
+          <Card />
+          <Card />
+        </CardsContainer>
+      </MainContent>
+    </MainHome>
+  )
 }
 const MainHome = styled.main`
     display: flex;
@@ -34,7 +37,7 @@ const MainContent = styled.div`
     max-width: 1400px;
 
 
-` 
+`
 const Banner = styled.div`
     position: relative;
     width: 100%;
@@ -59,5 +62,7 @@ const LinkRouter = styled(LinkR)`
     padding: .5rem;
     border-radius: 1rem;
 `
-
+const CardsContainer = styled.div`
+display: flex;
+`
 export default Home
