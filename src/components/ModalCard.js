@@ -18,8 +18,6 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-
-
 export default function ModalCard() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -27,8 +25,7 @@ export default function ModalCard() {
 
   return (
     <div>
-      <Button onClick={handleOpen}  className="card-add">ADD</Button>
-     
+      <Button onClick={handleOpen} className="card-add">More INFO</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -36,25 +33,25 @@ export default function ModalCard() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-            <div className='modalCard-img-description'>
-                <img className='modalCard-img' src='https://cocinateelmundo.com/wp-content/uploads/2018/06/comida-asiatica-cocinateelmundo-16.jpg'></img>
-                <div className='modalCard-description'>
-                    <h2>Description</h2>
-                    <span>Serves 2 or 4 people</span>
-                    <span> Time</span>
-                    <span> Kcal</span>
-                </div>
+          <div className='modalCard-img-description'>
+            <img className='modalCard-img' src='https://cocinateelmundo.com/wp-content/uploads/2018/06/comida-asiatica-cocinateelmundo-16.jpg'></img>
+            <div className='modalCard-description'>
+              <h2>Description</h2>
+              <span>Serves 2 or 4 people</span>
+              <span> Time</span>
+              <span> Kcal</span>
             </div>
-            <div className='modalCard-star-ingredients'>
-                <span>⭐⭐⭐</span>
-                <span>Ingredients</span>
-            </div>
-            <div className='modalCard-link-add'>
-                {/* <span>Recipe Link</span> */}
-                <Link to={"/detail"} className="modalCard-recipe">Recipe Link</Link>
-                <button className='modalCard-button'>ADD</button>
-            </div>
-          
+          </div>
+          <div className='modalCard-star-ingredients'>
+            <span>⭐⭐⭐</span>
+            <span>Ingredients</span>
+          </div>
+          <div className='modalCard-link-add'>
+            {/* <span>Recipe Link</span> */}
+            <Link to={"/detail"} className="modalCard-recipe">Recipe Link</Link>
+            <button className='modalCard-button'>ADD to Cart</button>
+          </div>
+
         </Box>
       </Modal>
     </div>
