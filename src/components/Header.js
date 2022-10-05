@@ -100,7 +100,7 @@ function Header() {
                   src="https://cdn-icons-png.flaticon.com/512/6733/6733817.png">
                 </img>
               </BasicModal>
-              <Link to={"/"}>
+              <Link to={"/cartbag"}>
                 <img
                   className="header-buttons-img"
                   src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
