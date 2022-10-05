@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as jose from 'jose';
-import styled from 'styled-components';
+import '../styles/form/ButtonGoogle.css'
 
 const GoogleForm = () => {
 
@@ -15,8 +15,7 @@ const GoogleForm = () => {
         };
         
         try{
-            console.log('sending data from google')
-            console.log(dataFromGoogle)
+            console.log('Sending data from google', dataFromGoogle)
         } catch(error){
             console.log(error)
         }
@@ -30,22 +29,16 @@ const GoogleForm = () => {
         });
         google.accounts.id.renderButton(
             buttonDiv.current,
-            { theme: "outline", size: "large"}
+            { theme: "outline", size: "medium"}
         );
     },[])
 
     return (  
-        <ButtonGoogle>
+        <div className='googleSign-buttonGoogle'>
             <div ref={buttonDiv}></div>
-        </ButtonGoogle>
+        </div>
     );
 }
 
-const ButtonGoogle = styled.div`
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-`
  
 export default GoogleForm;

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as jose from 'jose';
+import '../styles/form/ButtonGoogle.css'
 
 const SignUpGoogle = () => {
 
@@ -9,14 +10,15 @@ const SignUpGoogle = () => {
         let userObject = jose.decodeJwt(response.credential); 
 
         let dataFromGoogle={
-            name: userObject.name,
+            name: userObject.given_name,
+            lastname: userObject.family_name,
             photo: userObject.picture,
             email: userObject.email,
             password: userObject.sub,
             role: 'user',
             from: 'google'
         }
-        console.log(dataFromGoogle);
+        console.log('Sending data from Google...', dataFromGoogle);
     }
 
     useEffect(()=>{
@@ -32,7 +34,7 @@ const SignUpGoogle = () => {
     },)
 
     return (  
-        <div>
+        <div className='googleSign-buttonGoogle'>
             <div ref={buttonDiv}></div>
         </div>
     );
