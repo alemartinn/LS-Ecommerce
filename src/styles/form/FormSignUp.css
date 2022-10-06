@@ -1,0 +1,41 @@
+.formSignUp-container{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 456px;
+    border: 1px solid var(--third-color);
+    border-radius: 10px;
+    padding: 3vh 0;    
+}
+.formSignIn-optionSignIn{
+    letter-spacing: 0.3px;
+    padding-top: 3vh;
+    font-family: Agrandir, Verdana, Geneva, sans-serif;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.formSign-buttonSignIn{
+    letter-spacing: 0.5px;
+    border: none;
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px){
+    .formSignUp-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 3vh 0;
+    margin: 0;
+    }
+}

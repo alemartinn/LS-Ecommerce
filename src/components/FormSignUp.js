@@ -1,10 +1,11 @@
 import Form from "./Form";
-import styled from "styled-components";
+import '../styles/form/FormSignUp.css'
+import GoogleSignUp from "./GoogleSignUp";
 
-
-const FormSignUp = () => {
+const FormSignUp = ({ showSignInForm }) => {
 
     const modelSignIn = [
+        {name: 'name', type: 'text', required: 'required'},
         {name:'email', type: 'email', required: 'required', autoComplete: 'on'},
         {name:'password', type: 'password', required: 'required', autoComplete: 'on'}
     ]
@@ -15,41 +16,40 @@ const FormSignUp = () => {
         let inputs = Array.from(e.target)
         inputs= inputs.filter((input) => input.name)
         
-        let dataUser = inputs.reduce((data, inputValue)=>{
+        let dataInputs = inputs.reduce((data, inputValue)=>{
             data[inputValue.name] = inputValue.value
             return data
         },{})
-        console.log(dataUser)
+        console.log(dataInputs)
+        let dataUser = {
+            name: dataInputs.name,
+            lastname: '',
+            email: dataInputs.email,
+            password: dataInputs.password,
+            photo: '',
+            role: 'user',
+            from: 'form',
+        }
+        console.log('Sending...',dataUser)
     };
     
-    return ( 
-        <SignUpContainer>
+    return (
+        <div className="formSignUp-container">
             <Form modelForm={modelSignIn} handleSubmit={handleSubmit} Title={'Sign Up'}/>
-        </SignUpContainer>
+            <span className='formSignIn-lineForm'>
+                <div className='formSignIn-DivOrForm'>
+                    <span className='formSignIn-SpanOrForm'>
+                        or
+                    </span>
+                </div>
+            </span>
+            <GoogleSignUp/>
+            <div className='formSignIn-optionSignIn'>
+                <span>Do you have an account? </span>
+                <button type='button' className="formSign-buttonSignIn" onClick={showSignInForm}>Sign In</button>
+            </div>
+        </div>
      );
 }
- 
-
-const SignUpContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 456px;
-    border: 1px solid var(--third-color);
-    border-radius: 10px;
-    padding: 3vh 0;
-
-    @media (max-width: 768px){
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        padding: 3vh 0;
-        margin: 0;
-    }
-    
-`
 
 export default FormSignUp;

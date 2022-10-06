@@ -1,0 +1,79 @@
+.formSignIn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 456px;
+    border: 1px solid var(--third-color);
+    border-radius: 10px;
+    padding: 3vh 0;
+}
+
+.formSignIn-lineForm{
+    color: rgb(187, 187, 187);
+    margin-top: 24px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    width: 400px;
+}
+
+.formSignIn-lineForm::before{
+    content: "";
+    width: 400px;
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+.formSignIn-lineForm::after{
+    content: "";
+    width: 400px;
+    border-top-width: 1px;
+    border-top-style: solid
+}
+
+.formSignIn-DivOrForm{
+    padding: 0 15px;
+}
+
+.formSignIn-SpanOrForm{
+    font-family: "Source Sans Pro", "Trebuchet MS", Helvetica, sans-serif;
+    font-weight: 400;
+    margin: 0px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.formSign-optionSignUp{
+    letter-spacing: 0.3px;
+    padding-top: 3vh;
+    font-family: Agrandir, Verdana, Geneva, sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.formSign-buttonSignUp{
+    letter-spacing: 0.5px;
+    border: none;
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px){
+    .formSignIn-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 3vh 0;
+        margin: 0;
+    }
+    .formSignIn-lineForm{
+        width: 75%;
+    }
+}
