@@ -8,7 +8,6 @@ const Modal = (props) => {
   return (
     <article className='modal' onClick={() => { dispatch(closeModal()) }}>
       <div className="modal-container" onClick={handleModalContainerClick}>
-        <button className="modal-close" onClick={() => { dispatch(closeModal()) }}>x</button>
         {props.children}
       </div>
     </article>
