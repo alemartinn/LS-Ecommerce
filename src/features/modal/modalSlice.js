@@ -4,7 +4,6 @@ const initialState = {
   isOpen: false,
   modalType: ''
 }
-
 const modalSlice = createSlice({
   name: 'modal',
   initialState,
@@ -16,11 +15,10 @@ const modalSlice = createSlice({
       state.isOpen = false
       state.modalType = ''
     },
-    specifyModal: (state, action) =>{
+    specifyModal: (state, action) => {
       state.modalType = action.payload
     }
   }
 })
-export const {openModal, closeModal, specifyModal} = modalSlice.actions
-
+export const { openModal, closeModal, specifyModal } = modalSlice.actions
 export default modalSlice.reducer

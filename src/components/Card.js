@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import '../styles/sass/Card.css'
-import ModalCard from './ModalCard'
-import { openModal, specifyModal } from '../features/modal/modalSlice';
 import { useDispatch } from 'react-redux'
+
+import '../styles/sass/Card.css'
+import { openModal, specifyModal } from '../features/modal/modalSlice';
 
 export default function Card() {
   const dispatch = useDispatch()
-  const actionCreator = () => {
+  const multiDispatcher = (modalType) => {
     dispatch(openModal())
-    dispatch(specifyModal('card'))
+    dispatch(specifyModal(modalType))
   }
   const [isClicked, setIsClicked] = useState(false);
   return (
@@ -69,7 +69,7 @@ export default function Card() {
               <td>Something</td>
             </tr>
           </table>
-          <button onClick={() => actionCreator()}>MORE INFO</button>
+          <button onClick={() => multiDispatcher('card')}>MORE INFO</button>
         </div>
       </div>
     </div>

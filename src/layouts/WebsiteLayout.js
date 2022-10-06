@@ -3,13 +3,13 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Modal from '../components/Modal'
 import FormSignIn from '../components/FormSignIn';
-import ModalCard from '../components/ModalCard';
+import DetailsCard from '../components/DetailsCard';
 
 function WebsiteLayout(props) {
   const { isOpen, modalType } = useSelector((store) => store.modal)
   const showModal = () => {
     switch (modalType) {
-      case 'card': return <Modal><ModalCard></ModalCard></Modal>
+      case 'card': return <Modal><DetailsCard></DetailsCard></Modal>
         break;
       case 'signIn': return <Modal><FormSignIn></FormSignIn></Modal>
         break;
