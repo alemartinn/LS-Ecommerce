@@ -2,7 +2,7 @@ import '../styles/Button.css'
 
 const Button = ({children}) => {
     return (
-        <button type="button" className="btn-main">
+        <button type="submit" className="btn-main">
             {children}
         </button>
     );
