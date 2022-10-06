@@ -1,11 +1,8 @@
 import InputForm from "./InputForm";
 import Button from "./Button";
-import { useSelector } from "react-redux";
 import '../styles/form/Form.css'
 
 const Form = ({modelForm, Title, handleSubmit}) => {
-    
-    const { thirdColor, fontColor } = useSelector(state => state.color)
 
     return (
         <form className="form-container" onSubmit={handleSubmit}>
@@ -19,7 +16,7 @@ const Form = ({modelForm, Title, handleSubmit}) => {
                     autoComplete="on"
                 />
             )}
-            <Button bcgcolor={thirdColor} fontcolor={fontColor}>
+            <Button>
                 Send
             </Button>
         </form>
