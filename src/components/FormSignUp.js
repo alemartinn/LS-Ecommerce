@@ -35,6 +35,7 @@ const FormSignUp = ({ showSignInForm }) => {
     
     return (
         <div className="formSignUp-container">
+            <div className="formSignUp-content">
             <Form modelForm={modelSignIn} handleSubmit={handleSubmit} Title={'Sign Up'}/>
             <span className='formSignIn-lineForm'>
                 <div className='formSignIn-DivOrForm'>
@@ -47,6 +48,7 @@ const FormSignUp = ({ showSignInForm }) => {
             <div className='formSignIn-optionSignIn'>
                 <span>Do you have an account? </span>
                 <button type='button' className="formSign-buttonSignIn" onClick={showSignInForm}>Sign In</button>
+            </div>
             </div>
         </div>
      );
