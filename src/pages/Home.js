@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import { useSelector } from "react-redux";
 import { Link as LinkRouter } from "react-router-dom";
 import Card from '../components/Card.js'
+
 import "../styles/Home.css"
 
 function Home() {
-
+  const [isOpen, setIsOpen] = useState(false)
+  const closeModal = () => setIsOpen(false)
   const { bcgColor, fontColor, thirdColor } = useSelector(state => state.color)
   return (
     <main className="home-main" style={{ backgroundColor: bcgColor }}>
