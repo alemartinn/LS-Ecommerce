@@ -21,7 +21,7 @@ export default function Contact() {
                     <input class="effect-2" type="text" placeholder="Email"/>
                     <span class="focus-border2"></span>
                 </div>
-                <textarea style={{resize:"none"}} rows="10" cols="32" ></textarea>
+                <textarea style={{resize:"none", width:"100%"}} rows="10" cols="32" ></textarea>
             </div>
         </div>
     </div>
