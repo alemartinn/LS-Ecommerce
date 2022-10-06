@@ -6,14 +6,11 @@
     width: 100%;
     min-height: 100vh;
     background-color: rgba(0,0,0,.75);
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-.modal.is-open{
-    display: flex;
 
-}
 .modal-container{
     display: flex;
     flex-direction: column;
@@ -41,13 +38,6 @@
     border:rgb(225, 87, 87); 
     border-radius: 2px;
     
-
-}
-.modal-image{
-    padding-bottom: 10px ;
-    width: 150px;
-    height: 150px;
-
 
 }
 

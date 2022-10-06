@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import '../styles/sass/Card.css'
 import ModalCard from './ModalCard'
+import { openModal } from '../features/modal/modalSlice';
+import { useDispatch } from 'react-redux'
 
 export default function Card() {
+  const dispatch = useDispatch()
   const [isClicked, setIsClicked] = useState(false);
-  const [isOpen, setIsOpen] = useState(false)
-  const closeModal = () => setIsOpen(false)
   return (
     <div className="wrapper">
       <div className="container">
@@ -64,7 +65,7 @@ export default function Card() {
               <td>Something</td>
             </tr>
           </table>
-          <button onClick={() => setIsOpen(true)}>MORE INFO</button>
+          <button onClick={() => dispatch(openModal())}>MORE INFO</button>
         </div>
       </div>
     </div>
