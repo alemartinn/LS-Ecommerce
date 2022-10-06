@@ -20,7 +20,8 @@ export default function Detail() {
                 </div>
                 <div className='detail-sub-description'>
                     <p className='detail-subtitle'>Subtitle</p>
-                    <p className='detail-description'>Description...Description...Description...Description...Description...Description...</p>
+                    <p className='detail-description'>...e..e..escripti  escription..escripti  escription...on  escriptio.escripti  escription...on  escriptio.escripti  escription...on  escriptio..on  escription.....  e  escription...scription...  escription...  escription...  escription...
+                    escription....</p>
                 </div>
                 <div className='detail-all-info'>
                     <div className='detail-info'>
