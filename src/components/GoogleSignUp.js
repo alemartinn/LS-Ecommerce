@@ -29,7 +29,7 @@ const SignUpGoogle = () => {
         });
         google.accounts.id.renderButton(
         buttonDiv.current,
-        { theme: "outline", size: "large" }  // customization attributes
+        { theme: "filled_blue", size: "medium" }
         );
     },)
 

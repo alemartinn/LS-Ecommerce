@@ -29,7 +29,7 @@ const GoogleForm = () => {
         });
         google.accounts.id.renderButton(
             buttonDiv.current,
-            { theme: "outline", size: "medium"}
+            { theme: "filled_blue", size: "medium"}
         );
     },[])
 
