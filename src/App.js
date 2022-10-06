@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound'
 import HIW from './pages/HIW'
 import Detail from './pages/Detail'
 import CartBag from './pages/CartBag'
+import Contact from './pages/Contact'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/*' element={<NotFound />} />
           <Route path='/detail' element={<Detail />} />
           <Route path='/cartBag' element={<CartBag />} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
       </WebsiteLayout>
     </BrowserRouter>
