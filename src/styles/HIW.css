@@ -1,0 +1,55 @@
+.hiw-main{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 80vh;
+}
+.hiw-content{
+    width: 100%;
+    max-width: 1400px;
+    padding-top: 10vh ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hiw-guide{
+    width: 100%;
+    max-width: 1000px;
+    min-height: 250px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5vh;
+}
+.hiw-promo{
+    width: 100%;
+    max-width: 1000px;
+    min-height: 250px;
+    border-radius: 20px;
+    margin-bottom: 5vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.hiw-benefits{
+    width: 100%;
+    max-width: 1000px;
+    min-height: 250px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5vh;
+}
+.hiw-faq{
+    width: 100%;
+    max-width: 1000px;
+    min-height: 250px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5vh;
+}
+.hiw-text{
+    text-align: center;
+    font-size: 1rem;
+}

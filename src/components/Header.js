@@ -65,7 +65,9 @@ function Header() {
     <Headroom wrapperStyle={{ backgroundColor: bcgColor }}>
       <div style={{ backgroundColor: fourthColor }} className="header-top-conteiner">
         <div className="header-top">
-          <h2 className="header-logo">logo</h2>
+          <div className="header-logo-container">
+            <img src="images/logo.png" alt="logo" className="header-logo"/>
+          </div>
           <h1 className="header-title"
             style={{ color: fontColor }}>LS FOOD CO</h1>
           <div className="header-buttons">
