@@ -6,7 +6,6 @@ const FormSignUp = ({ showSignInForm }) => {
 
     const modelSignIn = [
         {name: 'name', type: 'text', required: 'required'},
-        {name: 'lastname', type: 'text', required: 'required'},
         {name:'email', type: 'email', required: 'required', autoComplete: 'on'},
         {name:'password', type: 'password', required: 'required', autoComplete: 'on'}
     ]
@@ -24,7 +23,7 @@ const FormSignUp = ({ showSignInForm }) => {
         console.log(dataInputs)
         let dataUser = {
             name: dataInputs.name,
-            lastname: dataInputs.lastname,
+            lastname: '',
             email: dataInputs.email,
             password: dataInputs.password,
             photo: '',
