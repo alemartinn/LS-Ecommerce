@@ -49,7 +49,7 @@ function Header() {
         { name: "Healthy", to: "/" },
       ],
     },
-    { name: "Contact", to: "/" },
+    { name: "Contact", to: "/contact" },
   ];
   const styleDropdown = {
     position: "absolute",
