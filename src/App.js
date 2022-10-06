@@ -1,21 +1,17 @@
-import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
 
+import './App.css'
 import WebsiteLayout from './layouts/WebsiteLayout'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import HIW from './pages/HIW'
 import Detail from './pages/Detail'
 import CartBag from './pages/CartBag'
-import Modal from './components/Modal'
 
 function App() {
-  const { isOpen } = useSelector((store) => store.modal)
   return (
     <BrowserRouter>
       <WebsiteLayout>
-        {isOpen && <Modal/>}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/hiw' element={<HIW />} />
@@ -27,5 +23,4 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;
