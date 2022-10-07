@@ -18,6 +18,7 @@ function Header() {
   /* Seccion para cambiar el tema de modo claro a modo oscuro */
   const [themeMode, setThemeMode] = useState(true);
   const { fontColor, fourthColor, bcgColor, light } = useSelector((state) => state.color);
+  const {user} = useSelector(state=>state.user)
   useEffect(() => {
     if (themeMode) {
       dispatch(lightMode());
@@ -85,10 +86,10 @@ function Header() {
               <span className="slider" />
             </label>
             <img
-              onClick={() => multiDispatcher('signIn')}
+              onClick={() => multiDispatcher(user?.name?'profile':'signIn')}
               className="header-buttons-img"
               alt="profile"
-              src="https://cdn-icons-png.flaticon.com/512/6733/6733817.png">
+              src={user?.photo || "https://cdn-icons-png.flaticon.com/512/6733/6733817.png"}>
             </img>
             <Link to={"/cartbag"}>
               <img

@@ -10,11 +10,22 @@ function WebsiteLayout(props) {
   const { isOpen, modalType } = useSelector((store) => store.modal)
 
   const showModal = () => {
-    if (modalType === 'card'){
-      return  (<Modal><DetailsCard/></Modal>)
-    } else if (modalType === 'signIn'){
-      return (<Modal><ShowForm/></Modal>)
+    let InnerModal
+    switch (modalType) {
+      case 'card':
+        InnerModal = DetailsCard
+        break;
+      case 'signIn':
+        InnerModal = ShowForm
+        break;
+      case 'profile':
+        InnerModal = () => (<h1>Profile options</h1>)
+        break;
+      default:
+        InnerModal = () => (<h1>no content</h1>)
+        break;
     }
+    return  (<Modal><InnerModal/></Modal>)
   }
 
   return (
