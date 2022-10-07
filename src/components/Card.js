@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCartPlus, faCheck, faMinus, faCircleInfo} from '@fortawesome/free-solid-svg-icons'
 import '../styles/Card.css'
 import { openModal, specifyModal } from '../features/modal/modalSlice';
+import { useAllBoxesQuery } from '../features/boxes/boxesApi'
 
 export default function Card() {
   const {light} = useSelector(state=>state.color)
@@ -13,15 +14,28 @@ export default function Card() {
     dispatch(specifyModal(modalType))
   }
   const [isClicked, setIsClicked] = useState(false);
-  return (
-    <div className={`card-wrapper ${light?"light":""}`}>
+  const {data:boxesRes} = useAllBoxesQuery()
+
+
+  const [boxes, setBoxes ] = useState([])
+
+  useEffect(() => {
+    if(boxesRes){
+      setBoxes(boxesRes)
+    }
+  }, [boxesRes])
+  
+  console.log(boxes)
+
+  const printBoxes = (item) => (
+    <div className={`card-wrapper ${light?"light":""}`} key={item.name}>
       <div className="card-container">
-        <div className="card-top" style={{ 'background': 'url(https://static01.nyt.com/images/2019/01/08/dining/mc-peruvian-chicken/merlin_146806653_43c09c3c-dcc6-42b6-ac62-409d4bde8577-articleLarge.jpg)' }}></div>
+        <div className="card-top" style={{ 'background': `url(${item.recipe.image})` }}></div>
         <div className={isClicked ? 'card-bottom clicked' : 'card-bottom'}>
           <div className="card-left">
             <div className="card-details">
-              <p>Spicy Peruvian Chicken</p>
-              <p>$250</p>
+              <p>{item.name}</p>
+              <p>${item.price}</p>
             </div>
             <div className="card-buy" onClick={() => setIsClicked(true)}>
               <FontAwesomeIcon icon={faCartPlus}
@@ -32,7 +46,7 @@ export default function Card() {
               <FontAwesomeIcon icon={faCheck}
                 className="card-done-icon" /></div>
             <div className="card-details">
-              <p>Spicy Peruvian Chicken</p>
+              <p>{item.name}</p>
               <p>Added to your cart</p>
             </div>
             <div className="card-remove" onClick={() => setIsClicked(false)}> <FontAwesomeIcon icon={faMinus}
@@ -85,5 +99,11 @@ export default function Card() {
         </div>
       </div>
     </div>
+  )
+
+  return (
+    <>
+      {boxes.map(printBoxes)}
+    </>
   )
 }

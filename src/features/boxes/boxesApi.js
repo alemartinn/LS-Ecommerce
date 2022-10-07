@@ -11,7 +11,8 @@ const boxesApi = createApi({
 
     endpoints: (builder) =>({
         allBoxes:builder.query({
-            query: ()=> `/boxes`
+            query: ()=> `/boxes`,
+            transformResponse: res => res.response
         }),
         getOneBox:builder.query({
             query: (id)=> `/boxes/${id}`
