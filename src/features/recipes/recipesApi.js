@@ -19,7 +19,7 @@ const recipeApi = createApi({
             query: (data)=> ({
             url:`/recipes`,
             method: 'POST',
-            headers: {"Authorization": `Bearer ${localStorage.getItem("token").replace(/['"]+/g, '')}`},
+            headers: {"Authorization": `Bearer ${localStorage.getItem("token")}`},
             body: data,
             })
         })
