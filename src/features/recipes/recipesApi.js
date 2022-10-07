@@ -13,7 +13,8 @@ const recipeApi = createApi({
             query: ()=> `/recipes`
         }),
         getOneRecipe:builder.query({
-            query: (id)=> `/recipes/${id}`
+            query: (id)=> `/recipes/${id}`,
+            transformResponse: res => res.response
         }),
         createRecipe:builder.mutation({
             query: (data)=> ({
