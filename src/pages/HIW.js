@@ -1,60 +1,201 @@
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fa1 } from '@fortawesome/free-solid-svg-icons'
+import { fa2 } from '@fortawesome/free-solid-svg-icons'
+import { fa3 } from '@fortawesome/free-solid-svg-icons'
 import "../styles/HIW.css"
-import YoutubeEmbed from "../components/YoutubeEmbed";
 
 function HIW() {
+  const handleOpenFaq = (e) => {
+    let container = e.currentTarget.parentElement
+    var answer = container.children[1].firstChild
+    var trigger = container.firstChild.children[1]
 
+    if (trigger.classList.contains('hiw-faq-o')) {
+      trigger.classList.remove('hiw-faq-o')
+    }
+    else if (!answer.classList.contains('active')) {
+      trigger.classList.add('hiw-faq-o')
+    }
+    if (container.classList.contains('hiw-faq-expanded')) {
+      container.classList.remove('hiw-faq-expanded')
+    }
+    else if (!answer.classList.contains('active')) {
+      container.classList.add('hiw-faq-expanded')
+    }
+
+    if (!answer.classList.contains('active')) {
+      answer.classList.add('active')
+      answer.style.height = 'auto'
+      let height = answer.clientHeight + "px"
+      answer.style.height = '0px'
+      setTimeout(function () {
+        answer.style.height = height
+      }, 0)
+    } else {
+      answer.style.height = '0px'
+      answer.addEventListener('transitionend', function () {
+        answer.classList.remove('active')
+      }, {
+        once: true
+      });
+    }
+  }
   const { bcgColor, fontColor, thirdColor, fourthColor, fivethColor } = useSelector(state => state.color)
+  const triggerStyle = {
+    borderLeft: `2px solid ${fontColor}`,
+    borderBottom: `2px solid ${fontColor}`
+  }
   return (
     <main className="hiw-main" style={{ backgroundColor: bcgColor }}>
       <div className="hiw-content">
-
-        <div className="hiw-guide"
-          style={{ backgroundColor: fivethColor }}>
-
-          <div className="container">
-            <h2>Healthy eating made easy</h2>
-            <div className="flex">
-              <div>
-                <img src="https://mindfulchef-images-production.imgix.net/homepage/how-it-works/hiw-salmon-recipe-hi-res.jpg?auto=format&crop=focalpoint&fit=crop&q=50&w=214&h=160&dpr=1"></img>
-                <h4>Choose recipes</h4>
-                <p>Build your first box of 2-5 recipes. Choose from 1-4 people boxes</p>
+        <div className="hiw-guide">
+          <div className="hiw-flex hiw-container">
+            <div className="hiw-box">
+              <img src="https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2020/11/Oatmeal-Recipe-5.jpg" alt="Exercise Class" />
+              <div className="hiw-guide-info-container">
+                <div className="hiw-guide-icon" style={{ backgroundColor: thirdColor }}>
+                  <FontAwesomeIcon icon={fa1} />
+                </div>
+                <h4 style={{ color: fontColor }}>Choose recipes</h4>
+                <p style={{ color: fontColor }}>Build your first box of 2-5 recipes. Choose from 1-4 people boxes</p>
               </div>
-
-              <div>
-                <img src="https://mindfulchef-images-production.imgix.net/homepage/how-it-works/hiw-delivery-hi-res.jpg?auto=format&crop=focalpoint&fit=crop&q=50&w=214&h=160&dpr=1" />
-                <h4>Pick your first delivery</h4>
-                <p>Pre-portioned, ethically sourced ingredients, delivered for free</p>
+            </div>
+            <div className="hiw-box">
+              <img src="https://www.smarther.co/wp-content/uploads/2021/07/5-own-food-delivery-app.jpg" alt="Man doing dumbbell rows" />
+              <div className="hiw-guide-info-container">
+                <div className="hiw-guide-icon" style={{ backgroundColor: thirdColor }}>
+                  <FontAwesomeIcon icon={fa2} />
+                </div>
+                <h4 style={{ color: fontColor }}>Pick your first delivery</h4>
+                <p style={{ color: fontColor }}>Pre-portioned, ethically sourced ingredients, delivered for free</p>
               </div>
-
-              <div>
-                <img src="https://mindfulchef-images-production.imgix.net/homepage/how-it-works/hiw-enjoy-box-hi-res.jpg?auto=format&crop=focalpoint&fit=crop&q=50&w=214&h=160&dpr=1" />
-                <h4>Enjoy</h4>
-                <p>Easy to follow recipes with meals on the table in as little as 10 mins</p>
+            </div>
+            <div className="hiw-box">
+              <img src="https://blog.kettleandfire.com/wp-content/uploads/2018/01/Family-Meal.jpg" alt="Woman doing leg press" />
+              <div className="hiw-guide-info-container">
+                <div className="hiw-guide-icon" style={{ backgroundColor: thirdColor }}>
+                  <FontAwesomeIcon icon={fa3} />
+                </div>
+                <h4 style={{ color: fontColor }}>Enjoy</h4>
+                <p style={{ color: fontColor }}>Easy to follow recipes with meals on the table in as little as 10 mins</p>
               </div>
             </div>
           </div>
         </div>
 
         <div className="hiw-promo">
-          <p className="hiw-text"
-            style={{ color: fontColor }} >Mobile App Promo</p>
-          <YoutubeEmbed embedId="gerCrRW7t5s" />
+          <img src="https://drive.google.com/uc?export=view&id=1BHTxfI6vBGxWh3w24ePciX2YZqC43dPe"></img>
         </div>
+
         <div className="hiw-benefits"
           style={{ backgroundColor: fourthColor }}>
-          <p className="hiw-text"
-            style={{ color: fontColor }} >Benefits</p>
+          <div className="choose-us">
+            <div className="heading-area">
+              <h2>Why Choose Us</h2>
+            </div>
+            <div className="image">
+              <div className="overlay"></div>
+              <div className="text">
+                
+              </div>
+
+
+              <div className="box one">
+                <div className="info">
+                  <h4>Elvio</h4>
+                  <p>nasdfvnasdfnñanuaniuñoñdfnsagd
+                  </p>
+                </div>
+                <div className="imgs1">
+                  <img src="https://pbs.twimg.com/media/ED32DsjXYAAPKZn.jpg"></img>
+                </div>
+              </div>
+
+
+
+              <div className="box two">
+                <div className="info">
+                  <h4>Ale</h4>
+                  <p>lnxkbsoietoieyoibdsoisuoibuaeoherwoino</p>
+                </div>
+                <div className="imgs">
+                  <img src="https://i.postimg.cc/Y21WfHb8/network.png" />
+                </div>
+              </div>
+
+
+
+              <div className="box three">
+                <div className="info">
+                  <h4>Andy</h4>
+                  <p>sdjbfnoiuvnuoiruoiqroipwqurvwqneuiowoiqpnrubnweiorpuiwoeiouweqrniw</p>
+                </div>
+                <div className="imgs3">
+                  
+                </div>
+              </div>
+
+
+
+              <div className="box four">
+                <div className="info">
+                  <h4>Dani</h4>
+                  <p>añovfnuiwoinpvoipnaywbfopiabnuoiabdnoidsanbfoasdoifbibusaibsaiofdbioa</p>
+                </div>
+                <div className="imgs4">
+                  
+                </div>
+              </div>
+
+
+            </div>
+          </div>
         </div>
+
         <div className="hiw-faq"
-          style={{ backgroundColor: fourthColor }}>
-          <p className="hiw-text"
-            style={{ color: fontColor }} >FAQ</p>
+          style={{ backgroundColor: thirdColor }}>
+          <h1 style={{ color: fontColor }}>Frequently Asked Questions</h1>
+          <div className="hiw-faq-topic" style={{ borderBottom: `1px solid ${fontColor}` }}>
+            <div className="hiw-faq-open" onClick={handleOpenFaq}>
+              <h2 className="hiw-faq-question" style={{ color: fontColor }}>1. What's in the box?</h2>
+              <span className="hiw-faq-t" style={triggerStyle}></span>
+            </div>
+            <div className="hiw-faq-answer-wrapper">
+              <p className="hiw-faq-answer" style={{ color: fontColor }}>All the pre-portioned ingredients to cook the delicious, healthy recipes you've chosen - all our meat  is free-range and ethically sourced from small farms, fresh fish is sustainably caught and our vegetables are cultivated in the most natural way possible.</p>
+            </div>
+          </div>
+          <div className="hiw-faq-topic" style={{ borderBottom: `1px solid ${fontColor}` }}>
+            <div className="hiw-faq-open" onClick={handleOpenFaq}>
+              <h2 className="hiw-faq-question" style={{ color: fontColor }}>2. How does delivery work?
+              </h2><span className="hiw-faq-t" style={triggerStyle}></span>
+            </div>
+            <div className="hiw-faq-answer-wrapper">
+              <p className="hiw-faq-answer" style={{ color: fontColor }}>We offer free delivery nationwide. On day of delivery, you'll get a text with an eta but you don't need to be in to receive your box. Our insulated boxes will be keep everything fresh for up to 48 hours and your box will be left in your designated safe place.</p>
+            </div>
+          </div>
+          <div className="hiw-faq-topic" style={{ borderBottom: `1px solid ${fontColor}` }}>
+            <div className="hiw-faq-open" onClick={handleOpenFaq}>
+              <h2 className="hiw-faq-question" style={{ color: fontColor }}>3. Do you offer a guarantee?
+              </h2><span className="hiw-faq-t" style={triggerStyle}></span>
+            </div>
+            <div className="hiw-faq-answer-wrapper">
+              <p className="hiw-faq-answer" style={{ color: fontColor }}>If you're not entirely happy, we offer 100% money-back guarantee.</p>
+            </div>
+          </div>
+          <div className="hiw-faq-topic" style={{ borderBottom: `1px solid ${fontColor}` }}>
+            <div className="hiw-faq-open" onClick={handleOpenFaq}>
+              <h2 className="hiw-faq-question" style={{ color: fontColor }}>4. How many tickles does it take to tickle an octopus?
+              </h2><span className="hiw-faq-t" style={triggerStyle}></span>
+            </div>
+            <div className="hiw-faq-answer-wrapper">
+              <p className="hiw-faq-answer" style={{ color: fontColor }}>ten tickles</p>
+            </div>
+          </div>
         </div>
+
       </div>
     </main>
   )
 }
-
-
 export default HIW

@@ -1,74 +1,397 @@
-.hiw-main{
+.hiw-main {
     display: flex;
     justify-content: center;
     width: 100%;
     min-height: 80vh;
+    padding-bottom: 5vh;
+    transition: all .2s ease-in-out;
 }
-.container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-.flex {
-    display: flex;
-    justify-content: space-between;
-}
-.hiw-content{
+
+.hiw-content {
     width: 100%;
-    max-width: 1400px;
-    padding-top: 10vh ;
+    padding-top: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 5vh;
 }
-.hiw-guide{
-    padding: 3rem 0;
+
+.hiw-content h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hiw-content p {
+    color: #7b7b7b;
+    line-height: 2;
+    font-size: 0.95rem;
+}
+
+.hiw-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hiw-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hiw-box {
     text-align: center;
-    width: 100%;
 }
-.hiw-guide h2{
-    margin-bottom: 3rem;
-}
-.hiw-guide .flex > div {
-    width: 30%;
-}
-.hiw-guide h4 {
-    color: #343a40;
-    margin-top: 1rem;
-}
-.hiw-guide img {
-    border-radius: 5px;
-}
-.hiw-promo{
-    /* width: 100%;
-    max-width: 1000px;
-    min-height: 250px;
-    border-radius: 20px;
-    margin-bottom: 5vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; */
-    width: 50%;
-}
-.hiw-benefits{
-    width: 100%;
-    max-width: 1000px;
-    min-height: 250px;
-    border-radius: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 5vh;
-}
-.hiw-faq{
-    width: 100%;
-    max-width: 1000px;
-    min-height: 250px;
-    border-radius: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 5vh;
-}
-.hiw-text{
+
+.hiw-text {
     text-align: center;
     font-size: 1rem;
+}
+
+.hiw-box {
+    width: 31%;
+}
+
+.hiw-guide .hiw-box>img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.hiw-guide .hiw-box .hiw-guide-info-container {
+    position: relative;
+}
+
+.hiw-guide-icon {
+    position: relative;
+    margin: 0 auto;
+    border-radius: 45px;
+    top: -35px;
+    width: 88px;
+    height: 88px;
+    line-height: 83px;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+}
+
+.hiw-promo img {
+    width: 100%;
+    max-width: 1100px;
+    min-height: 250px;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.hiw-benefits {
+    width: 100%;
+    max-width: 1100px;
+    min-height: 250px;
+    border-radius: 5px;
+}
+
+
+.choose-us {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.heading-area {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.heading-area h2 {
+    font-weight: 900;
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-top: 18px;
+}
+
+.heading-area p {
+    font-size: 13px;
+    width: 460px;
+    color: #777;
+    margin: auto;
+}
+
+.image {
+    width: 455px;
+    height: 455px;
+    position: relative;
+    background-image: URL("https://img.wattpad.com/7e396725a27251b6d19641d2a01f5d814eb3f5bd/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f6c71596a764563377255777943413d3d2d3532313137323133382e313530393264656233643361663033353639383539353935343039352e6a7067?s=fit&w=720&h=720");
+    border-radius: 50%;
+    background-position:50% 0%;
+    object-fit:cover;
+}
+
+/* .image .overlay {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(64, 67, 86, .8);
+    border-radius: 50%;
+} */
+
+.image .text {
+    position: relative;
+    text-align: center;
+}
+
+.image .text h3 {
+    margin-top: 120px;
+    font-size: 18px;
+    color: #FFF;
+}
+
+.image .text p {
+    font-size: 12px;
+    color: #cacaca;
+    width: 68%;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.image .box {
+    overflow: hidden;
+    position: absolute;
+    left: -240px;
+    top: 0px;
+    width: 80%
+}
+
+.image .box .info {
+    width: 240px;
+    margin-right: 8%;
+    text-align: right;
+    float: left;
+}
+
+.image .box .info h4 {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.image .box .info p {
+    font-weight: 600;
+    font-size: 11px;
+    color: #949494;
+    width: 90%;
+}
+
+.image .box .imgs {
+    float: left;
+}
+.imgs1 img{
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    border: 8px solid #fff;
+}
+.imgs3{
+    background-image: url('https://i.redd.it/u0cfsbjciak61.jpg');
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    border: 10px solid #fff;
+    background-size: 250%;
+    background-position: 55% 0%;
+}
+.imgs4{
+    background-image: url('https://heraldodemexico.com.mx/u/fotografias/m/2021/2/26/f768x1-327741_327868_71.jpg');
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    border: 10px solid #fff;
+    background-size: 100%;
+    background-position: 55% 0%;
+}
+
+.image .box .imgs img {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 100%;
+    padding: 6px;
+    margin-top: 20px;
+    background-color: #FFF;
+}
+
+.image .box.two {
+    bottom: 0;
+    top: auto;
+}
+
+.image .box.one .info p,
+.image .box.two .info p {
+    margin-left: auto;
+}
+
+.image .box.three {
+    left: auto;
+    right: -240px;
+}
+
+.image .box.three .info,
+.image .box.four .info {
+    float: right;
+    text-align: left;
+    margin-right: 0;
+    margin-left: 8%;
+}
+
+.image .box.four {
+    left: auto;
+    right: -240px;
+    top: auto;
+    bottom: 0;
+}
+
+.hiw-faq {
+    width: 100%;
+    max-width: 1100px;
+    min-height: 250px;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    padding: 30px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.hiw-faq h1 {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.hiw-faq-topic {
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.hiw-faq-open {
+    cursor: pointer;
+    display: block;
+    padding: 0px;
+}
+
+.hiw-faq-open:hover {
+    opacity: 0.7;
+}
+
+.hiw-faq-expanded {
+    background-color: #f5f5f5;
+    transition: all .2s ease-in-out;
+}
+
+.hiw-faq-question {
+    padding-top: 30px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.hiw-faq-answer {
+    font-size: 16px;
+    line-height: 26px;
+    text-align: justify;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: height .2s ease-in-out;
+    overflow: hidden;
+}
+
+.hiw-faq-answer:not(.active) {
+    display: none;
+}
+
+.hiw-faq-answer-wrapper {
+    padding-bottom: 12px;
+}
+
+.hiw-faq-t {
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    float: right;
+    position: relative;
+    top: -55px;
+    right: 10px;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    transition: all .2s ease-in-out;
+}
+
+.hiw-faq-o {
+    top: -50px;
+    -moz-transform: rotate(-224deg);
+    -ms-transform: rotate(-224deg);
+    -webkit-transform: rotate(-224deg);
+    transform: rotate(-224deg);
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 992px) {
+    .hiw-h2 {
+        font-size: 6rem;
+    }
+
+    @media (max-width: 767px) {
+        .hiw-h2 {
+            font-size: 4rem;
+            margin-top: 2rem;
+        }
+
+        .hiw-flex {
+            display: block;
+        }
+
+        .hiw-flex .hiw-box {
+            margin: 0 auto;
+            width: 100% !important;
+            margin-top: 3rem;
+        }
+
+        .hiw-flex .hiw-box:first-child {
+            margin-top: 0;
+        }
+
+        .hiw-guide .hiw-box .hiw-guide-info-container {
+            padding: 0 1rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .hiw-faq-t {
+        display: none;
+    }
+
+    .hiw-faq-question {
+        padding-right: 0px;
+    }
+
+    .hiw-faq {
+        padding: 10px;
+    }
+
+    .hiw-faq-answer {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
