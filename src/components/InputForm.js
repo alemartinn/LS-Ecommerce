@@ -3,8 +3,11 @@ import '../styles/form/InputForm.css'
 const InputForm = (props) => {
     return (  
         <div className='inputForm-field'>
-            <label className='inputForm-label'>{props.name}</label>
-            <input className='inputForm-input'/>
+            <label className='inputForm-label' style={{ ...props.style }}>
+                <p>{props.label}</p>
+                <input className='inputForm-input' name={props.name}
+                    style={{ ...props.style }} />
+            </label>
         </div>
     );
 }
