@@ -4,21 +4,28 @@ import {Link as LinkRouter} from "react-router-dom"
 import ScrollToTop from "./ScrollToTop";
 function Footer() {
 
-    const { fourthColor, fontColor } = useSelector(state => state.color)
+    const { thirdColor, fontColor } = useSelector(state => state.color)
 
     return (
         <footer className="footer-container"
-            style={{ backgroundColor: fourthColor }}>
+            style={{ backgroundColor: thirdColor }}>
             <div className="footer-content">
-                <div className="footer-col">
+                <div>
                     <p
                         className="footer-text"
                         style={{ color: fontColor }}
-                    >Social Media...</p>
-                    <p style={{ color: fontColor }}>©2022 LS Food Co</p>
-                </div>
+                        >Our Social Media</p>
                 <div className="footer-col">
-                    <p style={{ color: fontColor }}>LOGO</p>
+                    <a href="#"><img className="footer-media-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077042.png" /></a>
+                    <a href="#"><img className="footer-media-icon" src="https://cdn-icons-png.flaticon.com/512/739/739247.png" /></a>
+                    <a href="#"><img className="footer-media-icon" src="https://cdn-icons-png.flaticon.com/512/739/739237.png" /></a>
+                    <a href="#"><img className="footer-media-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077048.png" /></a>
+                    <a href="#"><img className="footer-media-icon" src="https://cdn-icons-png.flaticon.com/512/2190/2190466.png" /></a>
+                </div>
+                    <p style={{ color: fontColor }} className="footer-rights-p">©2022 LS Food Co</p>
+                        </div>
+                <div className="footer-col2">
+                    <img src="images/MinilogoLS.png" alt="minilogo" className="footer-logo" />
                     <p style={{ color: fontColor }}>
                         <LinkRouter
                             to={"/terms"}
@@ -33,7 +40,7 @@ function Footer() {
                         > About Us</LinkRouter>
                     </p>
                 </div>
-                <div className="footer-col">
+                <div className="footer-col3">
                     <p style={{ color: fontColor }}>Footer nav</p>
                     <ScrollToTop />
                 </div>

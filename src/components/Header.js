@@ -17,7 +17,7 @@ function Header() {
   }
   /* Seccion para cambiar el tema de modo claro a modo oscuro */
   const [themeMode, setThemeMode] = useState(true);
-  const { fontColor, fourthColor, bcgColor } = useSelector((state) => state.color);
+  const { fontColor, fourthColor, bcgColor, light } = useSelector((state) => state.color);
   useEffect(() => {
     if (themeMode) {
       dispatch(lightMode());
@@ -56,12 +56,13 @@ function Header() {
     display: "flex",
     flexDirection: "column",
     backgroundColor: bcgColor,
+
   }
   const pages = (item) =>
     item.navLinks ? (
-      <Dropdown name={item.name} links={item.navLinks} textColor={fontColor} key={item.name} styles={styleDropdown} />
+      <Dropdown name={item.name} links={item.navLinks} textColor={!light? fontColor: 'var(--fifth-color)'} key={item.name} styles={styleDropdown} />
     ) : (
-      <Link className="link" style={{ color: fontColor }} key={item.name} to={item.to}>
+      <Link className="link" style={!light?{ color: fontColor }:{ color: 'var(--fifth-color)'}} key={item.name} to={item.to}>
         {item.name}
       </Link>
     );
