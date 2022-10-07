@@ -3,16 +3,19 @@ import { usersAPI } from "./actions/usersAPI"
 import userReducer from "./user/userSlice"
 import modalReducer from "./modal/modalSlice"
 import colorReducer from "./theme/themeSlice"
+import recipeApi from "./recipes/recipesApi"
 
 export const store = configureStore({
     reducer:{
             [usersAPI.reducerPath]: usersAPI.reducer,
             user: userReducer,
             color: colorReducer,
-            modal: modalReducer
+            modal: modalReducer,
+
+            [recipeApi.reducerPath] : recipeApi.reducer,
         },
         middleware: (getDefaultMiddleware)=> getDefaultMiddleware({
             inmutableCheck:false,
             serializableCheck: false,
-        }).concat(usersAPI.middleware)
+        }).concat(usersAPI.middleware,recipeApi.middleware)
 })
