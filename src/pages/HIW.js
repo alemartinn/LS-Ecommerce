@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fa1 } from '@fortawesome/free-solid-svg-icons'
 import { fa2 } from '@fortawesome/free-solid-svg-icons'
@@ -6,6 +7,8 @@ import { fa3 } from '@fortawesome/free-solid-svg-icons'
 import "../styles/HIW.css"
 
 function HIW() {
+  const { bcgColor, fontColor, thirdColor, fourthColor, fivethColor } = useSelector(state => state.color)
+  //faq-opening handling function
   const handleOpenFaq = (e) => {
     let container = e.currentTarget.parentElement
     var answer = container.children[1].firstChild
@@ -17,12 +20,12 @@ function HIW() {
     else if (!answer.classList.contains('active')) {
       trigger.classList.add('hiw-faq-o')
     }
-    if (container.classList.contains('hiw-faq-expanded')) {
-      container.classList.remove('hiw-faq-expanded')
-    }
-    else if (!answer.classList.contains('active')) {
-      container.classList.add('hiw-faq-expanded')
-    }
+    // if (container.classList.contains('hiw-faq-expanded')) {
+    //   container.classList.remove('hiw-faq-expanded')
+    // }
+    // else if (!answer.classList.contains('active')) {
+    //   container.classList.add('hiw-faq-expanded')
+    // }
 
     if (!answer.classList.contains('active')) {
       answer.classList.add('active')
@@ -41,7 +44,6 @@ function HIW() {
       });
     }
   }
-  const { bcgColor, fontColor, thirdColor, fourthColor, fivethColor } = useSelector(state => state.color)
   const triggerStyle = {
     borderLeft: `2px solid ${fontColor}`,
     borderBottom: `2px solid ${fontColor}`
@@ -49,6 +51,8 @@ function HIW() {
   return (
     <main className="hiw-main" style={{ backgroundColor: bcgColor }}>
       <div className="hiw-content">
+
+        {/* step-by-step guide section */}
         <div className="hiw-guide">
           <div className="hiw-flex hiw-container">
             <div className="hiw-box">
@@ -84,75 +88,59 @@ function HIW() {
           </div>
         </div>
 
+        {/* mobile app promo section */}
         <div className="hiw-promo">
           <img src="https://drive.google.com/uc?export=view&id=1BHTxfI6vBGxWh3w24ePciX2YZqC43dPe"></img>
         </div>
 
+        {/* why choose us section */}
         <div className="hiw-benefits"
-          style={{ backgroundColor: fourthColor }}>
-          <div className="choose-us">
-            <div className="heading-area">
-              <h2>Why Choose Us</h2>
+          style={{ backgroundColor: 'transparent' }}>
+          <div className="hiw-why-us-head">
+            <h4><span>Why Choose</span> Us?</h4>
+            <p>When you choose us, you'll feel the benefit of 10 years' experience of Web Development. Because we know the digital world and we know that how to handle it. With working knowledge of online, SEO and social media.</p>
+          </div>
+          <div className="hiw-why-us-container">
+            <div className="hiw-why-us-box" >
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature_box_col_one"><i className="fa fa-globe"></i></span>
+                <h4>Modern Design</h4>
+                <p>We use latest technology for the latest world because we know the demand of peoples.</p>
+              </div>
             </div>
-            <div className="image">
-              <div className="overlay"></div>
-              <div className="text">
-                
+            <div className="hiw-why-us-box">
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature_box_col_two"><i className="fa fa-anchor"></i></span>
+                <h4>Creative Design</h4>
+                <p>We are always creative and and always lisen our costomers and we mix these two things and make beast design.</p>
               </div>
-
-
-              <div className="box one">
-                <div className="info">
-                  <h4>Elvio</h4>
-                  <p>nasdfvnasdfnñanuaniuñoñdfnsagd
-                  </p>
-                </div>
-                <div className="imgs1">
-                  <img src="https://pbs.twimg.com/media/ED32DsjXYAAPKZn.jpg"></img>
-                </div>
+            </div>
+            <div className="hiw-why-us-box">
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature_box_col_three"><i className="fa fa-hourglass-half"></i></span>
+                <h4>24 x 7 User Support</h4>
+                <p>If our customer has any problem and any query we are always happy to help then.</p>
               </div>
-
-
-
-              <div className="box two">
-                <div className="info">
-                  <h4>Ale</h4>
-                  <p>lnxkbsoietoieyoibdsoisuoibuaeoherwoino</p>
-                </div>
-                <div className="imgs">
-                  <img src="https://i.postimg.cc/Y21WfHb8/network.png" />
-                </div>
+            </div>
+            <div className="hiw-why-us-box">
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature_box_col_four"><i className="fa fa-database"></i></span>
+                <h4>Business Growth</h4>
+                <p>Everyone wants to live on top of the mountain, but all the happiness and growth occurs while you're climbing it</p>
               </div>
-
-
-
-              <div className="box three">
-                <div className="info">
-                  <h4>Andy</h4>
-                  <p>sdjbfnoiuvnuoiruoiqroipwqurvwqneuiowoiqpnrubnweiorpuiwoeiouweqrniw</p>
-                </div>
-                <div className="imgs3">
-                  
-                </div>
+            </div>
+            <div className="hiw-why-us-box">
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature_box_col_five"><i className="fa fa-upload"></i></span>
+                <h4>Market Strategy</h4>
+                <p>Holding back technology to preserve broken business models is like allowing blacksmiths to veto the internal combustion engine in order to protect their horseshoes.</p>
               </div>
-
-
-
-              <div className="box four">
-                <div className="info">
-                  <h4>Dani</h4>
-                  <p>añovfnuiwoinpvoipnaywbfopiabnuoiabdnoidsanbfoasdoifbibusaibsaiofdbioa</p>
-                </div>
-                <div className="imgs4">
-                  
-                </div>
+            </div>
+            <div className="hiw-why-us-box">
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature_box_col_six"><i className="fa fa-camera"></i></span>
+                <h4>Affordable cost</h4>
+                <p>Love is a special word, and I use it only when I mean it. You say the word too much and it becomes cheap.</p>
               </div>
-
-
             </div>
           </div>
         </div>
 
+        {/* frequently asked question section */}
         <div className="hiw-faq"
           style={{ backgroundColor: thirdColor }}>
           <h1 style={{ color: fontColor }}>Frequently Asked Questions</h1>
