@@ -1,0 +1,204 @@
+
+  .card-wrapper {
+    width: 300px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px 10px 10px 10px;
+    transform: scale(0.95);
+    transition: box-shadow 0.5s, transform 0.5s;
+  }
+  
+  .card-wrapper:hover {
+    transform: scale(1);
+    box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .card-top {
+    height: 80%;
+    width: 100%;
+    background: no-repeat center center;
+    background-size: 100%;
+  }
+  
+  .card-bottom {
+    width: 200%;
+    height: 20%;
+    transition: transform 0.5s;
+    color: var(--font-color-dark)
+  }
+  .light .card-bottom{
+    color:var(--font-color-light)
+  }
+  .card-bottom.clicked {
+    transform: translateX(-50%);
+  }
+  
+  .card-left {
+    height: 100%;
+    width: 50%;
+    background: var(--font-color-light);
+    position: relative;
+    float: left;
+  }
+  .light .card-left{
+    background: var(--fourth-color)
+  }
+  .card-details {
+    float: left;
+    width: calc(70% - 40px);
+  }
+  
+  .card-buy {
+    float: right;
+    width: calc(30% - 2px);
+    height: 100%;
+    transition: background 0.5s;
+    border-left: solid thin rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .card-buy-icon {
+    width: 100%;
+    max-width: 100px;
+    height: 100%;
+    transition: transform 0.5s;
+  }
+  .light .card-buy-icon{
+    color: rgb(37, 64, 83)
+  }
+  .card-buy:hover {
+    background: var(--font-color-dark);
+  }
+  .light .card-buy:hover{
+    background: rgb(166, 205, 222);
+  }
+  
+  .card-buy:hover .card-buy-icon {
+    transform: translateY(5px);
+    color: rgb(0, 57, 75);
+  }
+  
+  .card-right {
+    width: 50%;
+    background: rgb(0, 57, 75);
+    float: right;
+    height: 200%;
+    overflow: hidden;
+  }
+  .light .card-right{
+    background: rgb(166, 205, 222);
+  }
+  
+  .card-done {
+    width: calc(30% - 2px);
+    float: left;
+    transition: transform 0.5s;
+    height: 50%;
+  }
+  
+  .card-done-icon {
+    width: 100%;
+    max-width: 100px;
+    height: 100%;
+    color: white;
+  }
+  
+  .card-remove {
+    width: calc(30% - 1px);
+    clear: both;
+    height: 50%;
+    background: #BC3B59;
+    transition: transform 0.5s, background 0.5s;
+  }
+  
+  .card-remove:hover {
+    background: #9B2847;
+  }
+  
+  .card-remove:hover .card-remove-icon {
+    transform: translateY(5px);
+  }
+  
+  .card-remove-icon {
+    transition: transform 0.5s;
+    width: 100%;
+    max-width: 100px;
+    height: 100%;
+    color: #fff;
+  }
+  
+  .card-right:hover .card-remove, .card-right:hover .card-done {
+    transform: translateY(-100%);
+  }
+  
+  .card-inside {
+    z-index: 9;
+    background: var(--main-color);
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 0;
+    border-bottom-left-radius: 100%;
+    transition: all 0.5s, border-radius 2s, top 1s;
+    overflow: hidden;
+  }
+  
+  .card-info {
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
+  }
+  .card-info-icon{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    bottom: 7px;
+    left: 7px;
+  }
+  .card-inside:hover {
+    width: 100%;
+    border-radius: 0;
+    height: 80%;
+  }
+  
+  .card-inside:hover .card-info {
+    display: none;
+  }
+  
+  .card-inside:hover .card-contents {
+    opacity: 1;
+    display: block;
+  }
+  
+  .card-contents {
+    padding: 5%;
+    opacity: 0;
+    display: none;
+    transition: display 0.2s, opacity 0.8s;
+  }
+  
+  .card-contents table {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .card-contents h1,.card-contents p,.card-contents table {
+    color: white;
+  }
+  
+  .card-contents p {
+    font-size: 13px;
+  }
