@@ -1,18 +1,20 @@
 import Form from "./Form";
 import GoogleSignIn from "./GoogleSignIn";
 import { useDispatch, useSelector } from "react-redux";
+import { setCredentials } from "../features/user/userSlice"
+import { closeModal } from "../features/modal/modalSlice"
 import { useUserSignInMutation } from "../features/actions/usersAPI";
 import '../styles/form/FormSignIn.css'
 
 const FormSignIn = ({ showSignUpForm }) => {
 
-    const { fontColor } = useSelector(state => state.color)
+    const { fontColor, fourthColor, thirdColor } = useSelector(state => state.color)
     const dispatch = useDispatch();
     const [userSignIn] = useUserSignInMutation();
     
     const modelSignIn = [
-        {name:'email', type: 'email', required: 'required', autoComplete: 'on'},
-        {name:'password', type: 'password', required: 'required', autoComplete: 'on'}
+        {name:'email',label:"Name", type: 'email', required: 'required', autoComplete: 'on'},
+        {name:'password',label:"Password", type: 'password', required: 'required', autoComplete: 'on'}
     ]
     
     const handleSubmit = async (e) => {
@@ -25,19 +27,25 @@ const FormSignIn = ({ showSignUpForm }) => {
             return data
         },{});
 
-        console.log('Sending... ',dataInputs)
-        // const {data, error} = await userSignIn(dataUser);
-        // if(error){
-        //     console.log(error);
-        // } else{
-        //     console.log(data);
-        //      dispatch()
-        // }
+        userSignIn(dataInputs).unwrap().then(res => {
+            if (res.success) {
+                dispatch(setCredentials(res.response))
+                dispatch(closeModal())
+            }
+            // aca se activaria la alerta y se usaria la respuesta
+        })
     };
 
     return ( 
-        <div className='formSignIn-container'>
-            <div className="formSignIn-content">
+        <div className='formSignIn-container'
+            style={{
+                color: fontColor,
+                backgroundColor: fourthColor
+            }}>
+            <div className="formSignIn-content"
+                style={{
+                borderColor: thirdColor
+            }}>
             <Form modelForm={modelSignIn} handleSubmit={handleSubmit} Title={'Sign In'}/>
             <span className='formSignIn-lineForm'>
                 <div className='formSignIn-DivOrForm'>
@@ -49,7 +57,11 @@ const FormSignIn = ({ showSignUpForm }) => {
             <GoogleSignIn/>
             <div className='formSign-optionSignUp'>
                 <span>Don't have an account? </span>
-                <button type='button' className="formSign-buttonSignUp" onClick={showSignUpForm}>Sign up</button>
+                    <button type='button'
+                        className="formSign-buttonSignUp"
+                        onClick={showSignUpForm}
+                        style={{backgroundColor:fourthColor, color:fontColor}}
+                    >Sign up</button>
             </div>
             </div>
         </div>
