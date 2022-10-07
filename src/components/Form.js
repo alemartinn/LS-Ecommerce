@@ -10,12 +10,14 @@ const Form = ({modelForm, Title, handleSubmit}) => {
             <span className="form-title" style={{color:fontColor}}>{Title}</span>
             {modelForm.map(atrib => 
                 <InputForm 
-                    name={atrib.name}
                     label={atrib.label}
-                    type={atrib.type}
-                    id={atrib.name}
-                    key={atrib.name}
-                    autoComplete="on"
+                    input={{
+                        name:atrib.name,
+                        type:atrib.type,
+                        id:atrib.name,
+                        key:atrib.name,
+                        autoComplete:"on"
+                    }}
                     style={{
                         color: fontColor,
                         backgroundColor: fourthColor
