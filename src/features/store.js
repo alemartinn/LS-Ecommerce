@@ -4,6 +4,7 @@ import userReducer from "./user/userSlice"
 import modalReducer from "./modal/modalSlice"
 import colorReducer from "./theme/themeSlice"
 import recipeApi from "./recipes/recipesApi"
+import boxesApi from "./boxes/boxesApi"
 
 export const store = configureStore({
     reducer:{
@@ -13,9 +14,10 @@ export const store = configureStore({
             modal: modalReducer,
 
             [recipeApi.reducerPath] : recipeApi.reducer,
+            [boxesApi.reducerPath] : boxesApi.reducer,
         },
         middleware: (getDefaultMiddleware)=> getDefaultMiddleware({
             inmutableCheck:false,
             serializableCheck: false,
-        }).concat(usersAPI.middleware,recipeApi.middleware)
+        }).concat(usersAPI.middleware,recipeApi.middleware,boxesApi.middleware)
 })
