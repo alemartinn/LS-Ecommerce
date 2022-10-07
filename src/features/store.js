@@ -5,14 +5,14 @@ import modalReducer from "./modal/modalSlice"
 import colorReducer from "./theme/themeSlice"
 import recipeApi from "./recipes/recipesApi"
 import boxesApi from "./boxes/boxesApi"
-
+import alertReducer from "./alert/alertSlice"
 export const store = configureStore({
     reducer:{
             [usersAPI.reducerPath]: usersAPI.reducer,
             user: userReducer,
             color: colorReducer,
             modal: modalReducer,
-
+            alert: alertReducer,
             [recipeApi.reducerPath] : recipeApi.reducer,
             [boxesApi.reducerPath] : boxesApi.reducer,
         },
