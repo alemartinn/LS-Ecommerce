@@ -14,8 +14,8 @@ const Recipes = () => {
     }
 
     return (  
-        <main className="recipes-main">
-            <div className="recipes-container" style={{backgroundColor: bcgColor, color: fontColor}}>
+        <main className="recipes-main" style={{backgroundColor: bcgColor, color: fontColor}}>
+            <div className="recipes-container">
 
                 <div className='recipes-container-search-input'>
                     {/* <input type='search' className='recipes-search-input'/> */}
