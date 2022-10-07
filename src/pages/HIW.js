@@ -10,7 +10,7 @@ function HIW() {
     let container = e.currentTarget.parentElement
     var answer = container.children[1].firstChild
     var trigger = container.firstChild.children[1]
-    
+
     if (trigger.classList.contains('hiw-faq-o')) {
       trigger.classList.remove('hiw-faq-o')
     }
@@ -90,8 +90,67 @@ function HIW() {
 
         <div className="hiw-benefits"
           style={{ backgroundColor: fourthColor }}>
-          <p className="hiw-text"
-            style={{ color: fontColor }} >Benefits</p>
+          <div className="choose-us">
+            <div className="heading-area">
+              <h2>Why Choose Us</h2>
+            </div>
+            <div className="image">
+              <div className="overlay"></div>
+              <div className="text">
+                
+              </div>
+
+
+              <div className="box one">
+                <div className="info">
+                  <h4>Elvio</h4>
+                  <p>nasdfvnasdfnñanuaniuñoñdfnsagd
+                  </p>
+                </div>
+                <div className="imgs1">
+                  <img src="https://pbs.twimg.com/media/ED32DsjXYAAPKZn.jpg"></img>
+                </div>
+              </div>
+
+
+
+              <div className="box two">
+                <div className="info">
+                  <h4>Ale</h4>
+                  <p>lnxkbsoietoieyoibdsoisuoibuaeoherwoino</p>
+                </div>
+                <div className="imgs">
+                  <img src="https://i.postimg.cc/Y21WfHb8/network.png" />
+                </div>
+              </div>
+
+
+
+              <div className="box three">
+                <div className="info">
+                  <h4>Andy</h4>
+                  <p>sdjbfnoiuvnuoiruoiqroipwqurvwqneuiowoiqpnrubnweiorpuiwoeiouweqrniw</p>
+                </div>
+                <div className="imgs3">
+                  
+                </div>
+              </div>
+
+
+
+              <div className="box four">
+                <div className="info">
+                  <h4>Dani</h4>
+                  <p>añovfnuiwoinpvoipnaywbfopiabnuoiabdnoidsanbfoasdoifbibusaibsaiofdbioa</p>
+                </div>
+                <div className="imgs4">
+                  
+                </div>
+              </div>
+
+
+            </div>
+          </div>
         </div>
 
         <div className="hiw-faq"
@@ -134,7 +193,7 @@ function HIW() {
             </div>
           </div>
         </div>
-        
+
       </div>
     </main>
   )
