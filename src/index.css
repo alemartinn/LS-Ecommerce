@@ -2,14 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Poppins, Agrandir;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 :root{  
   --fourth-color: #fff;
-  --fourth-color-dark: #625335;
-  /* --fiveth-color: #c7d6a4;  */
-  --fiveth-color-dark: #615e52; 
+  --fourth-color-dark: #111211;
+  --fifth-color: #98b691;
+  --fifth-color-dark: #c8e7c0; 
   --main-color: #e89431; 
   --main-color-dark: #704718; 
   --third-color: #becead;
@@ -20,10 +20,11 @@
   --bcg-color-light: #eee;
   --bcg-color-dark: #313131;
   --font-color-dark: #dadada;
+
+
   --col-green-0: #1B231A;
   --col-green-1: #50684B;
   --col-green-2: #64825E;
-  --fiveth-color: #98b691;
   --input-green: #C7D4C4;
   --col-green-5: #EAEDE8;
 }

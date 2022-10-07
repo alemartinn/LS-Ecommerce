@@ -151,7 +151,7 @@
 
 .wrapper .inside {
   z-index: 9;
-  background: #92879B;
+  background: var(--main-color);
   width: 140px;
   height: 140px;
   position: absolute;

@@ -1,6 +1,7 @@
 .footer-container{
     display: flex;
     justify-content: center;
+    align-content: center;
     width: 100%;
     padding: 0 2rem;
 }
@@ -14,13 +15,49 @@
     min-height: 20vh;
 }
 .footer-text{
+    text-align: center;
     margin: 0;
+    font-size: 1.2rem;
+}
+.footer-logo{
+    width: 100px;
 }
 .footer-col{
+    margin: 1rem;
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
 }
 .footer-link{
     text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.footer-rights-p{
+    text-align: center;
+    font-family: 'Edu QLD Beginner', cursive;
+    font-size: 1.2rem;
+}
+
+.footer-media-icon{
+    width: 4vh;
+    margin: 0.4rem;
+}
+
+.footer-col2{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+.footer-col3{
+    margin: 1rem;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }

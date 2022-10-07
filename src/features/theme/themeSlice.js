@@ -10,7 +10,7 @@ export const colorSlice = createSlice({
     secondColor: 'var(--second-color)',
     thirdColor: 'var(--third-color)',
     fourthColor: 'var(--fourth-color)',
-    fivethColor: 'var(--fiveth-color)',
+    fifthColor: 'var(--fifth-color)',
   },
   reducers: {
     darkMode: (state) => {
@@ -21,7 +21,7 @@ export const colorSlice = createSlice({
       state.secondColor = 'var(--second-color-dark)'
       state.thirdColor = 'var(--third-color-dark)'
       state.fourthColor = 'var(--fourth-color-dark)'
-      state.fivethColor = 'var(--fiveth-color-dark)'
+      state.fifthColor = 'var(--fifth-color-dark)'
     },
     lightMode: (state) => {
       state.light = true
@@ -31,7 +31,7 @@ export const colorSlice = createSlice({
       state.secondColor = 'var(--second-color)'
       state.thirdColor = 'var(--third-color)'
       state.fourthColor = 'var(--fourth-color)'
-      state.fivethColor = 'var(--fiveth-color)'
+      state.fifthColor = 'var(--fifth-color)'
     }
   },
 })
