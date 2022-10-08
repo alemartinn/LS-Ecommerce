@@ -8,15 +8,23 @@
     display: flex;
     justify-content: space-around;
     padding-top: 20px;
+    flex-direction: column;
+}
+.detail-back-add{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 .detail-back-add > button{
-    margin: 0 20px;
+    margin: 5px 20px;
     padding: 5px 20px;
     border-radius: 20px;
     font-weight: bold;
+    width: 6rem;
 }
 .detail-description{
-    padding: 20px 0;
+    padding: 20px 5px;
+    text-align: center;
 }
 
 .detail-sub-description{
@@ -31,8 +39,8 @@
 }
 .detail-modal{
     border: 2px solid black;
-    width: 1000px;
-    height: 50vh;
+    min-height: 20rem;
+    max-width: 60rem;
     position: relative;
     background-color: white;
     bottom: 60px;
@@ -52,6 +60,7 @@
 }
 .detail-title{
     font-size: 35px;
+    text-align: center;
 }
 .detail-banner{
     position: relative;

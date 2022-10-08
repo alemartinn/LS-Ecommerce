@@ -22,8 +22,6 @@ function Home() {
         </div>
         <div className="home-cards-container">
           <Card />
-          <Card />
-          <Card />
         </div>
       </div>
     </main>
