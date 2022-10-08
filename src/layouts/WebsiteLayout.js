@@ -4,11 +4,13 @@ import Footer from "../components/Footer";
 import Modal from '../components/Modal'
 import ShowForm from '../components/ShowForm';
 import DetailsCard from '../components/DetailsCard';
+import Alert from '../components/Alert';
 
 function WebsiteLayout(props) {
 
   const { isOpen, modalType } = useSelector((store) => store.modal)
-
+  const {
+    alertIsOpen } = useSelector((store) => store.alert)
   const showModal = () => {
     let InnerModal
     switch (modalType) {
@@ -27,11 +29,12 @@ function WebsiteLayout(props) {
     }
     return  (<Modal><InnerModal/></Modal>)
   }
-
+  
   return (
     <>
       <Header />
       {isOpen && showModal()}
+      {alertIsOpen? <Alert />:null}
       {props.children}
       <Footer />
     </>

@@ -52,6 +52,9 @@
   .card-details {
     float: left;
     width: calc(70% - 40px);
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content: space-between; */
   }
   
   .card-buy {
@@ -180,7 +183,12 @@
   
   .card-inside:hover .card-contents {
     opacity: 1;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    justify-content: space-around;
+    height: 100%;
   }
   
   .card-contents {
@@ -201,4 +209,15 @@
   
   .card-contents p {
     font-size: 13px;
+  }
+  .button-card{
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  .button-card:hover{
+    cursor: pointer;
+  }
+  .card-details-p{
+    font-size: 20px;
   }

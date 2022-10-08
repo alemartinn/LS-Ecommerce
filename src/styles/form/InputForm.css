@@ -15,7 +15,7 @@
     text-transform: capitalize;
 }
 
-.inputForm-input{
+.inputForm-label .inputForm-input{
     font-family: Source Sans Pro, "Trebuchet MS", Helvetica, sans-serif;
     font-weight: 200;
     color: rgb(80, 80, 80);
@@ -29,10 +29,10 @@
     border: 1px solid var(--third-color);
     border-radius: 10px;
 }
-.inputForm-input:hover{
+.inputForm-label .inputForm-input:hover{
     border: 3px solid var(--third-color);
 }
-.inputForm-input:focus{
+.inputForm-label .inputForm-input:focus{
     border: 3px solid var(--third-color);
 }
 

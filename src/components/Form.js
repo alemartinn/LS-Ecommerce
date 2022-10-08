@@ -14,7 +14,6 @@ const Form = ({modelForm, Title, handleSubmit}) => {
                     input={{
                         name:atrib.name,
                         type:atrib.type,
-                        id:atrib.name,
                         key:atrib.name,
                         autoComplete:"on"
                     }}

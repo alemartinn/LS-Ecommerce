@@ -3,6 +3,7 @@ import GoogleSignIn from "./GoogleSignIn";
 import { useDispatch, useSelector } from "react-redux";
 import { setCredentials } from "../features/user/userSlice"
 import { closeModal } from "../features/modal/modalSlice"
+import { openAlert, specifyMessage } from "../features/alert/alertSlice"
 import { useUserSignInMutation } from "../features/actions/usersAPI";
 import '../styles/form/FormSignIn.css'
 
@@ -13,7 +14,7 @@ const FormSignIn = ({ showSignUpForm }) => {
     const [userSignIn] = useUserSignInMutation();
     
     const modelSignIn = [
-        {name:'email',label:"Name", type: 'email', required: 'required', autoComplete: 'on'},
+        {name:'email',label:"Email", type: 'email', required: 'required', autoComplete: 'on'},
         {name:'password',label:"Password", type: 'password', required: 'required', autoComplete: 'on'}
     ]
     
@@ -26,13 +27,16 @@ const FormSignIn = ({ showSignUpForm }) => {
             data[inputValue.name] = inputValue.value
             return data
         },{});
-
         userSignIn(dataInputs).unwrap().then(res => {
             if (res.success) {
                 dispatch(setCredentials(res.response))
                 dispatch(closeModal())
             }
-            // aca se activaria la alerta y se usaria la respuesta
+            dispatch(specifyMessage(res.message))
+            dispatch(openAlert(res.success))
+        }).catch(err => {
+            dispatch(specifyMessage(err.data.message))
+            dispatch(openAlert(false))
         })
     };
 
