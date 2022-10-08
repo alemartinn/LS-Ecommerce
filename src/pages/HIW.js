@@ -97,7 +97,7 @@ function HIW() {
 
         {/* mobile app promo section */}
         <div className="hiw-promo">
-          <h2 style={{ color: fontColor, paddingTop:'2vh' }}>Try out our mobile app!</h2>
+          <h2 style={{ color: fontColor, paddingTop:'5vh' }}>Try out our mobile app!</h2>
           <p style={{ color: fontColor }}>(available for android and ios)</p>
           <MobileAppPreview></MobileAppPreview>
         </div>

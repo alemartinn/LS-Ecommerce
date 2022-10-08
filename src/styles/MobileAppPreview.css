@@ -3,6 +3,7 @@
 .mobile-body {
   display: flex;
   justify-content: center;
+  align-items: center;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -14,18 +15,33 @@
   .phone {
     transform: rotate(-20deg) skewX(20deg) scale(0.9);
   }
+
   @media (max-width: 900px) {
     .phone {
       transform: rotate(-18deg) skewX(18deg) scale(0.8);
     }
+
     @media (max-width: 768px) {
       .phone {
         transform: rotate(-16deg) skewX(16deg) scale(0.7);
       }
 
       @media (max-width: 630px) {
+
         .phone {
-          transform: rotate(-5deg) skewX(5deg) scale(0.5);
+          transform: rotate(-13deg) skewX(13deg) scale(0.65);
+        }
+
+        @media (max-width: 480px) {
+          .phone {
+            transform: rotate(-10deg) skewX(10deg) scale(0.6);
+          }
+
+          @media (max-width: 380px) {
+            .phone {
+              transform: rotate(-2deg) skewX(2deg) scale(0.55);
+            }
+          }
         }
       }
     }
