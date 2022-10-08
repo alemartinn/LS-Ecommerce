@@ -1,9 +1,16 @@
 import { useSelector } from "react-redux"
-import { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { fa1 } from '@fortawesome/free-solid-svg-icons'
-import { fa2 } from '@fortawesome/free-solid-svg-icons'
-import { fa3 } from '@fortawesome/free-solid-svg-icons'
+import {
+  fa1,
+  fa2,
+  fa3,
+  faTruckMoving,
+  faCheckCircle,
+  faListCheck,
+  faPlateWheat,
+  faAward
+} from '@fortawesome/free-solid-svg-icons'
+
 import "../styles/HIW.css"
 
 function HIW() {
@@ -97,44 +104,32 @@ function HIW() {
         <div className="hiw-benefits"
           style={{ backgroundColor: 'transparent' }}>
           <div className="hiw-why-us-head">
-            <h4><span>Why Choose</span> Us?</h4>
-            <p>When you choose us, you'll feel the benefit of 10 years' experience of Web Development. Because we know the digital world and we know that how to handle it. With working knowledge of online, SEO and social media.</p>
+            <h4><span style={{ color: fontColor }}>Why Choose</span> Us?</h4>
+            <p style={{ color: fontColor }}>Our recipes allow you to hit your nutritional and fitness goals, without sacrificing the great flavours and vibrancy that come from a freshly prepared meal.</p>
           </div>
           <div className="hiw-why-us-container">
             <div className="hiw-why-us-box" >
-              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature_box_col_one"><i className="fa fa-globe"></i></span>
-                <h4>Modern Design</h4>
-                <p>We use latest technology for the latest world because we know the demand of peoples.</p>
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature-box-one"><FontAwesomeIcon icon={faCheckCircle} /></span>
+                <h4 style={{ color: fontColor }}>TOP QUALITY AND TASTE</h4>
+                <p style={{ color: fontColor }}>Focusing on quality, LS Food brings only the best products, made with prime ingredients that are selected with care.</p>
               </div>
             </div>
             <div className="hiw-why-us-box">
-              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature_box_col_two"><i className="fa fa-anchor"></i></span>
-                <h4>Creative Design</h4>
-                <p>We are always creative and and always lisen our costomers and we mix these two things and make beast design.</p>
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature-box-two"><FontAwesomeIcon icon={faPlateWheat} /></span>
+                <h4 style={{ color: fontColor }}>FOOD SAFETY</h4>
+                <p style={{ color: fontColor }}>Our ambition is to safeguard the health of our customers. All of our providers are certified according to International Food Standards.</p>
               </div>
             </div>
             <div className="hiw-why-us-box">
-              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature_box_col_three"><i className="fa fa-hourglass-half"></i></span>
-                <h4>24 x 7 User Support</h4>
-                <p>If our customer has any problem and any query we are always happy to help then.</p>
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature-box-three"><FontAwesomeIcon icon={faTruckMoving} /> </span>
+                <h4 style={{ color: fontColor }}>EASY DELIVERIES</h4>
+                <p style={{ color: fontColor }}>Our logistic team is ready to offer a flexible delivery service, in order to ensure the products arrive in optimal conditions.</p>
               </div>
             </div>
             <div className="hiw-why-us-box">
-              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature_box_col_four"><i className="fa fa-database"></i></span>
-                <h4>Business Growth</h4>
-                <p>Everyone wants to live on top of the mountain, but all the happiness and growth occurs while you're climbing it</p>
-              </div>
-            </div>
-            <div className="hiw-why-us-box">
-              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature_box_col_five"><i className="fa fa-upload"></i></span>
-                <h4>Market Strategy</h4>
-                <p>Holding back technology to preserve broken business models is like allowing blacksmiths to veto the internal combustion engine in order to protect their horseshoes.</p>
-              </div>
-            </div>
-            <div className="hiw-why-us-box">
-              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature_box_col_six"><i className="fa fa-camera"></i></span>
-                <h4>Affordable cost</h4>
-                <p>Love is a special word, and I use it only when I mean it. You say the word too much and it becomes cheap.</p>
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature-box-four"><FontAwesomeIcon icon={faAward} /></span>
+                <h4 style={{ color: fontColor }}>INNOVATIVE AND AWARDED</h4>
+                <p style={{ color: fontColor }}>In order to propose new culinary experiences, our staff continuosly create unique recipes and concepts.</p>
               </div>
             </div>
           </div>
@@ -171,17 +166,7 @@ function HIW() {
               <p className="hiw-faq-answer" style={{ color: fontColor }}>If you're not entirely happy, we offer 100% money-back guarantee.</p>
             </div>
           </div>
-          <div className="hiw-faq-topic" style={{ borderBottom: `1px solid ${fontColor}` }}>
-            <div className="hiw-faq-open" onClick={handleOpenFaq}>
-              <h2 className="hiw-faq-question" style={{ color: fontColor }}>4. How many tickles does it take to tickle an octopus?
-              </h2><span className="hiw-faq-t" style={triggerStyle}></span>
-            </div>
-            <div className="hiw-faq-answer-wrapper">
-              <p className="hiw-faq-answer" style={{ color: fontColor }}>ten tickles</p>
-            </div>
-          </div>
         </div>
-
       </div>
     </main>
   )
