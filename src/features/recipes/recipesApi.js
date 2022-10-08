@@ -16,6 +16,9 @@ const recipeApi = createApi({
             query: (id)=> `/recipes/${id}`,
             transformResponse: res => res.response
         }),
+        getRecipeByCategory: builder.query({
+            query: (category) => `/recipes/${category}`
+        }),
         createRecipe:builder.mutation({
             query: (data)=> ({
             url:`/recipes`,

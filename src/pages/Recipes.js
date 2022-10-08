@@ -1,10 +1,10 @@
 import Button from '../components/Button'
 import ButtonRecipes from '../components/ButtonRecipes'
 import React from 'react';
-import InputForm from '../components/InputForm'
-
 import '../styles/Recipes.css'
 import { useSelector } from 'react-redux';
+import InputSearch from '../components/InputSearch';
+import CardRecipe from '../components/CardRecipe';
 
 const Recipes = () => {
 
@@ -19,7 +19,8 @@ const Recipes = () => {
 
                 <div className='recipes-container-search-input'>
                     {/* <input type='search' className='recipes-search-input'/> */}
-                    <InputForm type='search' placeholder={'Search a recipe'} onChange={(e) => handleChange(e)}/>
+                    {/* <InputForm type='search' placeholder={'Search a recipe'} onChange={(e) => handleChange(e)}/> */}
+                    <InputSearch placeholder={'Search'} type={'search'} handleChange={handleChange}/>
                 </div>
 
                 <section className='recipes-container-categories'>
@@ -40,9 +41,16 @@ const Recipes = () => {
                 </article>
                 
                 <section className='recipes-container-recipes-cards'>
-                    container cards
                     <div className='recipes-container-recipe-card'>
-                        card
+                        <CardRecipe title={'Card Recipe'}/>
+                        <CardRecipe title={'Card Recipe'}/>
+                        <CardRecipe title={'Card Recipe'}/>
+                        <CardRecipe title={'Card Recipe'}/>
+                        <CardRecipe title={'Card Recipe'}/>
+                        <CardRecipe title={'Card Recipe'}/>
+                        <CardRecipe title={'Card Recipe'}/>
+                        <CardRecipe title={'Card Recipe'}/>
+                        <CardRecipe title={'Card Recipe'}/>
                     </div>
                     <Button type='button' btnColor={'btn-main-green-light'} onClick={console.log('eaaaaaa')}>More recipes</Button>
 
@@ -50,8 +58,10 @@ const Recipes = () => {
                 
                 <section className='recipes-container-recommended'>
                     <span>Recommended</span>
-                    <div className='recipes-container-recommended-cards'>
-                        Cards recommended
+                    <div className='recipes-container-recipe-card'>
+                        <CardRecipe title={'Recommended Recipe'}/>
+                        <CardRecipe title={'Recommended Recipe'}/>
+                        <CardRecipe title={'Recommended Recipe'}/>
                     </div>
                 </section>
 

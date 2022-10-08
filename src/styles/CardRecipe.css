@@ -1,0 +1,43 @@
+
+.card-recipe {
+    /* --background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%); */
+    --background: linear-gradient(to left, #d2f029 0%, #5f9658 100%);
+    width: 290px;
+    height: 390px;
+    padding: 3px;
+    border-radius: 10px;
+    background: #f7ba2b;
+    background: var(--background);
+    cursor: pointer;
+}
+
+.card-recipe-info {
+    --color: #181818;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+   
+.card-recipe-img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+   
+.card-recipe-name{
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    padding: 0 10px;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.card-recipe:hover {
+    color: #f7ba2b;
+    transition: color 1s;
+    box-shadow: 0px 0px 11px #111;
+}
