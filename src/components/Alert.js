@@ -16,7 +16,7 @@ export default function Alert() {
         },5)
         setTimeout(() => {
             dispatch(closeAlert())
-        },5000)
+        },8000)
     },[])
     return (
         <div className={"alert-container " +
