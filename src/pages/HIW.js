@@ -10,7 +10,7 @@ import {
   faPlateWheat,
   faAward
 } from '@fortawesome/free-solid-svg-icons'
-
+import { MobileAppPreview } from "../components/MobileAppPreview"
 import "../styles/HIW.css"
 
 function HIW() {
@@ -97,7 +97,7 @@ function HIW() {
 
         {/* mobile app promo section */}
         <div className="hiw-promo">
-          <img src="https://drive.google.com/uc?export=view&id=1BHTxfI6vBGxWh3w24ePciX2YZqC43dPe"></img>
+          <MobileAppPreview></MobileAppPreview>
         </div>
 
         {/* why choose us section */}
