@@ -2,7 +2,8 @@ import Form from "./Form";
 import '../styles/form/FormSignUp.css'
 import GoogleSignUp from "./GoogleSignUp";
 import { useUserSignUpMutation } from "../features/actions/usersAPI"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { openAlert, specifyMessage } from "../features/alert/alertSlice"
 
 const FormSignUp = ({ showSignInForm }) => {
 
@@ -13,6 +14,7 @@ const FormSignUp = ({ showSignInForm }) => {
         {name:'email',label:"Email", type: 'email', required: 'required', autoComplete: 'on'},
         {name:'password',label:"Password", type: 'password', required: 'required', autoComplete: 'on'}
     ]
+    const dispatch = useDispatch()
     const [userSignUp] = useUserSignUpMutation()
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -31,7 +33,11 @@ const FormSignUp = ({ showSignInForm }) => {
             from: 'form',
         }
         userSignUp(dataUser).unwrap().then(res => {
-            // aca se activaria la alerta y se usaria la respuesta
+            dispatch(specifyMessage(res.message))
+            dispatch(openAlert(res.success))
+        }).catch(err => {
+            dispatch(specifyMessage(err.data.message))
+            dispatch(openAlert(false))
         })
     };
     
