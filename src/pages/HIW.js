@@ -6,7 +6,6 @@ import {
   fa3,
   faTruckMoving,
   faCheckCircle,
-  faListCheck,
   faPlateWheat,
   faAward
 } from '@fortawesome/free-solid-svg-icons'
@@ -61,6 +60,7 @@ function HIW() {
 
         {/* step-by-step guide section */}
         <div className="hiw-guide">
+          <h2 style={{ color: fontColor }}>How it works?</h2>
           <div className="hiw-flex hiw-container">
             <div className="hiw-box">
               <img src="https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2020/11/Oatmeal-Recipe-5.jpg" alt="Exercise Class" />
@@ -97,8 +97,8 @@ function HIW() {
 
         {/* mobile app promo section */}
         <div className="hiw-promo">
-          <h2 style={{ color: fontColor }}>Try out our mobile app!</h2>
-          <p>(available for android and ios)</p>
+          <h2 style={{ color: fontColor, paddingTop:'2vh' }}>Try out our mobile app!</h2>
+          <p style={{ color: fontColor }}>(available for android and ios)</p>
           <MobileAppPreview></MobileAppPreview>
         </div>
 
