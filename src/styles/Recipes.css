@@ -53,6 +53,23 @@
     font-weight: 300;
     font-size: 30px;
 }
+
+.recipes-container-recipes-cards{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipes-container-recipe-card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5vh;
+    padding: 5vh 0;
+}
+
 .recipes-container-recommended{
     display: flex;
     flex-direction: column;
@@ -61,5 +78,5 @@
 .recipes-container-recommended>span{
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 400;
-    font-size: 50px;
+    font-size: 2rem;
 }
