@@ -8,6 +8,8 @@ import "../styles/Header.css";
 import "../styles/ThemeButton.css";
 import Dropdown from "./Dropdown";
 import { openModal, specifyModal } from '../features/modal/modalSlice';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const dispatch = useDispatch()
@@ -85,18 +87,24 @@ function Header() {
               />
               <span className="slider" />
             </label>
-            <img
+            {/* <img
               onClick={() => multiDispatcher(user?.name?'profile':'signIn')}
               className="header-buttons-img"
               alt="profile"
               src={user?.photo || "https://cdn-icons-png.flaticon.com/512/6733/6733817.png"}>
-            </img>
+            </img> */}
+            <button style={{outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer', color: fontColor}}
+              onClick={() => multiDispatcher(user?.name?'profile':'signIn')}
+            >
+              <FontAwesomeIcon icon={faUser} color={fontColor} size='2x'/>  
+            </button>
             <Link to={"/cartbag"}>
-              <img
+              {/* <img
                 className="header-buttons-img"
                 alt="cart"
                 src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
-              ></img>
+              ></img> */}
+              <FontAwesomeIcon icon={faCartShopping} color={fontColor} size='2x' />
             </Link>
           </div>
         </div>
