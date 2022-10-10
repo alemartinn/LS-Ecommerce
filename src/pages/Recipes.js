@@ -91,6 +91,9 @@ const Recipes = () => {
                         <CardRecipe title={'Recommended Recipe 1'}/>
                         <CardRecipe title={'Recommended Recipe 2'}/>
                         <CardRecipe title={'Recommended Recipe 3'}/>
+                        <CardRecipe title={'Recommended Recipe 4'}/>
+                        <CardRecipe title={'Recommended Recipe 5'}/>
+                        <CardRecipe title={'Recommended Recipe 6'}/>
                     </div>
                 </section>
 
