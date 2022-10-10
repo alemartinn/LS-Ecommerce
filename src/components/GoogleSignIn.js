@@ -1,11 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 import * as jose from 'jose';
 import '../styles/form/ButtonGoogle.css'
+import { useUserSignInMutation } from '../features/actions/usersAPI';
+import { useDispatch } from 'react-redux';
+import { setCredentials } from '../features/user/userSlice'
+import { closeModal } from '../features/modal/modalSlice'
+import { specifyMessage, openAlert} from '../features/alert/alertSlice'
 
 const GoogleForm = () => {
 
     const buttonDiv = useRef(null);
 
+    const [userSignIn] = useUserSignInMutation()
+    const dispatch = useDispatch()
     async function handleCredentialResponse(response){
         let userObject = jose.decodeJwt(response.credential); 
         let dataFromGoogle={
@@ -13,12 +20,17 @@ const GoogleForm = () => {
             password: userObject.sub,
             from: 'google'
         };
-        
-        try{
-            console.log('Sending data from google', dataFromGoogle)
-        } catch(error){
-            console.log(error)
-        }
+        userSignIn(dataFromGoogle).unwrap().then(res => {
+            if (res.success) {
+                dispatch(setCredentials(res.response))
+                dispatch(closeModal())
+            }
+            dispatch(specifyMessage(res.message))
+            dispatch(openAlert(res.success))
+        }).catch(err => {
+            dispatch(specifyMessage(err.data.message))
+            dispatch(openAlert(false))
+        })
     };
 
     useEffect(()=>{
