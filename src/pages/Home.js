@@ -18,7 +18,7 @@ function Home() {
           <LinkRouter to="/recipes"
             className="home-banner-link"
             style={{ backgroundColor: thirdColor, color: fontColor}}
-          >*inserte frase*</LinkRouter>
+          >Look at our recipes!</LinkRouter>
         </div>
         <div className="home-cards-container">
           <Card />
