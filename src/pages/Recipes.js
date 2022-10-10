@@ -5,21 +5,18 @@ import '../styles/Recipes.css'
 import { useSelector } from 'react-redux';
 import InputSearch from '../components/InputSearch';
 import CardRecipe from '../components/CardRecipe';
-import { useGetAllRecipeQuery } from '../features/recipes/recipesApi';
+import { useGetAllRecipeQuery, useGetRecipesByFilterQuery } from '../features/recipes/recipesApi';
 
 const Recipes = () => {
-
-    
-    const [inputRecipe, setInputRecipe] = useState('');
-    const [ categoryRecipe, setCategoryRecipe] = useState();
+    const [ categorySelected, setCategorySelected] = useState('')
+    const [ recipeByFilter, setRecipeByFilter] = useState({title: '', category: ''});
     const [ allRecipes, setAllRecipes] = useState();
-    const { bcgColor, fontColor } = useSelector(state => state.color);
+    const [ allFilteredRecipes, setAllFilteredRecipes] = useState();
     
-    const handleChange = (e) => {
-        setInputRecipe(e.target.value);
-    };
+    const { bcgColor, fontColor } = useSelector(state => state.color);
 
-    const { data } = useGetAllRecipeQuery(`/?recipe=${inputRecipe}/?category=${categoryRecipe}`);
+    const { data } = useGetAllRecipeQuery();
+    const { data: filteredRecipesData } = useGetRecipesByFilterQuery(recipeByFilter);
 
     useEffect(()=>{
         if( data ){
@@ -27,16 +24,26 @@ const Recipes = () => {
         }
     },[data])
 
+    useEffect(()=> {
+        if ( filteredRecipesData ){
+            setAllFilteredRecipes(filteredRecipesData)
+        }
+    }, [filteredRecipesData])
+
     const changeCategorySelected = (category) => {
-        setCategoryRecipe(category)
+        setCategorySelected(category)
+        setRecipeByFilter({...recipeByFilter, category: category})
     }
+    const handleInput = (e) => {
+        setRecipeByFilter({...recipeByFilter, title: e.target.value});
+    };
 
     const showRecipesCategories = (recipes) => {
         let allCategories = recipes.map( recipe => recipe.category )
         let categories = [...new Set(allCategories)]
         return (
             <section className='recipes-container-categories'>
-                <span className='recipes-container-title-category'>Categories</span>
+                <span className='recipes-container-title-category'>Choose a category</span>
                 <div className='recipes-categories-buttons'>
                     <ButtonRecipes changeCategorySelected={changeCategorySelected} category=''>All</ButtonRecipes>
                     {categories.map((category, index) => <ButtonRecipes category={category} key={index} changeCategorySelected={changeCategorySelected}>{category}</ButtonRecipes>)}
@@ -48,6 +55,7 @@ const Recipes = () => {
     const showRecipesCards = (recipes) => {
         return(
             <section className='recipes-container-recipes-cards'>
+                <h2 className='recipes-container-title-category-choosed'>Category: {categorySelected ? categorySelected : 'All'}</h2>
                 <div className='recipes-container-recipe-card'>
                     {recipes.map((recipe, index) => <CardRecipe id={recipe._id} image={recipe.image} title={recipe.title} key={index}/>)}
                 </div>
@@ -59,11 +67,10 @@ const Recipes = () => {
     return (  
         <main className="recipes-main" style={{backgroundColor: bcgColor, color: fontColor}}>
             <div className="recipes-container">
-
                 <div className='recipes-container-search-input'>
                     {/* <input type='search' className='recipes-search-input'/> */}
                     {/* <InputForm type='search' placeholder={'Search a recipe'} onChange={(e) => handleChange(e)}/> */}
-                    <InputSearch placeholder={'Search'} type={'search'} inputRecipe={inputRecipe} handleChange={handleChange}/>
+                    <InputSearch placeholder={'Search'} type={'search'} inputRecipe={recipeByFilter.title} handleInput={handleInput}/>
                 </div>
 
                 {
@@ -77,15 +84,15 @@ const Recipes = () => {
                 </article>
                 
                 {
-                    allRecipes && showRecipesCards(allRecipes)
+                    allFilteredRecipes && showRecipesCards(allFilteredRecipes)
                 }
                 
                 <section className='recipes-container-recommended'>
                     <span>Recommended</span>
                     <div className='recipes-container-recipe-card'>
-                        <CardRecipe title={'Recommended Recipe'}/>
-                        <CardRecipe title={'Recommended Recipe'}/>
-                        <CardRecipe title={'Recommended Recipe'}/>
+                        <CardRecipe title={'Recommended Recipe 1'}/>
+                        <CardRecipe title={'Recommended Recipe 2'}/>
+                        <CardRecipe title={'Recommended Recipe 3'}/>
                     </div>
                 </section>
 
