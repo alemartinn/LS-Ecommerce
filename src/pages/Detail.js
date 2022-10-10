@@ -1,9 +1,9 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useGetOneRecipeQuery } from '../features/recipes/recipesApi'
 import '../styles/Detail.css'
 export default function Detail() {
-    const id = "63401a20e2b05a7ab0e27c0b"
+    const {id} = useParams();
     const {data:recipeRes} = useGetOneRecipeQuery(id)
     const navigate = useNavigate()
 
@@ -19,7 +19,7 @@ export default function Detail() {
                 </div>
                 <div className='detail-sub-description'>
                     <p className='detail-subtitle'>{item.category}</p>
-                    <img src={item.image} />
+                    <img src={item.image} alt='img-item' />
                     <p className='detail-description'>{item.description}</p>
                 </div>
                 <div className='detail-all-info'>
@@ -27,12 +27,13 @@ export default function Detail() {
                         {/* <p>Tags</p> */}
                         <p>Allergens: {item.allergens.map(item => item)}</p>
                         <p>Ingredients:</p>
-                        <p>{item.ingredients.map(item => (
-                            <div style={{display:"flex",gap:"30px",justifyContent:"space-between",fontSize:"24px"}}>
+                        <div>{item.ingredients.map((item, index) => (
+                            <div key={index} style={{display:"flex",gap:"30px",justifyContent:"space-between",fontSize:"24px"}}>
                                 <span>{item.quantity} </span> 
                                 <span>{item.name}</span>
                             </div>
-                        ))}</p>
+                        ))}
+                        </div>
                         {/* <p>Recipe Steps</p> */}
                     </div>
                     <div className='detail-more-info'>
@@ -52,7 +53,7 @@ export default function Detail() {
         <div className='detail-banner'>
             <img className='detail-banner-img' src="https://www.wellandgood.com/wp-content/uploads/2015/05/meal_delivery_provenance.jpg" alt="recipe-banner" />
         </div>
-        {printRecipe(recipeRes)}
+        { recipeRes && printRecipe(recipeRes)}
         
     </main>
   )
