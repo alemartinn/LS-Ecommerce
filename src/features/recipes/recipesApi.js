@@ -10,15 +10,16 @@ const recipeApi = createApi({
 
     endpoints: (builder) =>({
         getAllRecipe:builder.query({
-            query: (inputRecipe)=> `/recipes/`,
+            query: ()=> `/recipes`,
             transformResponse: res => res.response
         }),
         getOneRecipe:builder.query({
             query: (id) => `/recipes/${id}`,
             transformResponse: res => res.response
         }),
-        getRecipeByFilter: builder.query({
-            query: ({inputRecipe, inputCategory}) => `/recipes/?recipe=${inputRecipe}&category=${inputCategory}`
+        getRecipesByFilter: builder.query({
+            query: ({title, category}) => `/recipes/query/?title=${title}&category=${category}`,
+            transformResponse: res => res.response
         }),
         createRecipe:builder.mutation({
             query: (data)=> ({
@@ -33,4 +34,4 @@ const recipeApi = createApi({
 
 
 export default recipeApi
-export const {useGetAllRecipeQuery,useGetOneRecipeQuery,useCreateRecipeMutation} = recipeApi
+export const {useGetAllRecipeQuery, useGetOneRecipeQuery, useGetRecipesByFilterQuery ,useCreateRecipeMutation} = recipeApi
