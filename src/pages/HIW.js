@@ -1,11 +1,20 @@
 import { useSelector } from "react-redux"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { fa1 } from '@fortawesome/free-solid-svg-icons'
-import { fa2 } from '@fortawesome/free-solid-svg-icons'
-import { fa3 } from '@fortawesome/free-solid-svg-icons'
+import {
+  fa1,
+  fa2,
+  fa3,
+  faTruckMoving,
+  faCheckCircle,
+  faPlateWheat,
+  faAward
+} from '@fortawesome/free-solid-svg-icons'
+import { MobileAppPreview } from "../components/MobileAppPreview"
 import "../styles/HIW.css"
 
 function HIW() {
+  const { bcgColor, fontColor, thirdColor, fourthColor, fivethColor } = useSelector(state => state.color)
+  //faq-opening handling function
   const handleOpenFaq = (e) => {
     let container = e.currentTarget.parentElement
     var answer = container.children[1].firstChild
@@ -17,12 +26,12 @@ function HIW() {
     else if (!answer.classList.contains('active')) {
       trigger.classList.add('hiw-faq-o')
     }
-    if (container.classList.contains('hiw-faq-expanded')) {
-      container.classList.remove('hiw-faq-expanded')
-    }
-    else if (!answer.classList.contains('active')) {
-      container.classList.add('hiw-faq-expanded')
-    }
+    // if (container.classList.contains('hiw-faq-expanded')) {
+    //   container.classList.remove('hiw-faq-expanded')
+    // }
+    // else if (!answer.classList.contains('active')) {
+    //   container.classList.add('hiw-faq-expanded')
+    // }
 
     if (!answer.classList.contains('active')) {
       answer.classList.add('active')
@@ -41,7 +50,6 @@ function HIW() {
       });
     }
   }
-  const { bcgColor, fontColor, thirdColor, fourthColor, fivethColor } = useSelector(state => state.color)
   const triggerStyle = {
     borderLeft: `2px solid ${fontColor}`,
     borderBottom: `2px solid ${fontColor}`
@@ -49,7 +57,10 @@ function HIW() {
   return (
     <main className="hiw-main" style={{ backgroundColor: bcgColor }}>
       <div className="hiw-content">
+
+        {/* step-by-step guide section */}
         <div className="hiw-guide">
+          <h2 style={{ color: fontColor }}>How it works?</h2>
           <div className="hiw-flex hiw-container">
             <div className="hiw-box">
               <img src="https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2020/11/Oatmeal-Recipe-5.jpg" alt="Exercise Class" />
@@ -84,75 +95,49 @@ function HIW() {
           </div>
         </div>
 
+        {/* mobile app promo section */}
         <div className="hiw-promo">
-          <img src="https://drive.google.com/uc?export=view&id=1BHTxfI6vBGxWh3w24ePciX2YZqC43dPe"></img>
+          <h2 style={{ color: fontColor, paddingTop:'5vh' }}>Try out our mobile app!</h2>
+          <p style={{ color: fontColor }}>(available for android and ios)</p>
+          <MobileAppPreview></MobileAppPreview>
         </div>
 
+        {/* why choose us section */}
         <div className="hiw-benefits"
-          style={{ backgroundColor: fourthColor }}>
-          <div className="choose-us">
-            <div className="heading-area">
-              <h2>Why Choose Us</h2>
+          style={{ backgroundColor: 'transparent' }}>
+          <div className="hiw-why-us-head">
+            <h4><span style={{ color: fontColor }}>Why Choose</span> Us?</h4>
+            <p style={{ color: fontColor }}>Our recipes allow you to hit your nutritional and fitness goals, without sacrificing the great flavours and vibrancy that come from a freshly prepared meal.</p>
+          </div>
+          <div className="hiw-why-us-container">
+            <div className="hiw-why-us-box" >
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature-box-one"><FontAwesomeIcon icon={faCheckCircle} /></span>
+                <h4 style={{ color: fontColor }}>TOP QUALITY AND TASTE</h4>
+                <p style={{ color: fontColor }}>Focusing on quality, LS Food brings only the best products, made with prime ingredients that are selected with care.</p>
+              </div>
             </div>
-            <div className="image">
-              <div className="overlay"></div>
-              <div className="text">
-                
+            <div className="hiw-why-us-box">
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature-box-two"><FontAwesomeIcon icon={faPlateWheat} /></span>
+                <h4 style={{ color: fontColor }}>FOOD SAFETY</h4>
+                <p style={{ color: fontColor }}>Our ambition is to safeguard the health of our customers. All of our providers are certified according to International Food Standards.</p>
               </div>
-
-
-              <div className="box one">
-                <div className="info">
-                  <h4>Elvio</h4>
-                  <p>nasdfvnasdfnñanuaniuñoñdfnsagd
-                  </p>
-                </div>
-                <div className="imgs1">
-                  <img src="https://pbs.twimg.com/media/ED32DsjXYAAPKZn.jpg"></img>
-                </div>
+            </div>
+            <div className="hiw-why-us-box">
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature-box-three"><FontAwesomeIcon icon={faTruckMoving} /> </span>
+                <h4 style={{ color: fontColor }}>EASY DELIVERIES</h4>
+                <p style={{ color: fontColor }}>Our logistic team is ready to offer a flexible delivery service, in order to ensure the products arrive in optimal conditions.</p>
               </div>
-
-
-
-              <div className="box two">
-                <div className="info">
-                  <h4>Ale</h4>
-                  <p>lnxkbsoietoieyoibdsoisuoibuaeoherwoino</p>
-                </div>
-                <div className="imgs">
-                  <img src="https://i.postimg.cc/Y21WfHb8/network.png" />
-                </div>
+            </div>
+            <div className="hiw-why-us-box">
+              <div className="hiw-why-us-item" style={{ backgroundColor: thirdColor }}> <span className="hiw-why-us-icon feature-box-four"><FontAwesomeIcon icon={faAward} /></span>
+                <h4 style={{ color: fontColor }}>INNOVATIVE AND AWARDED</h4>
+                <p style={{ color: fontColor }}>In order to propose new culinary experiences, our staff continuosly create unique recipes and concepts.</p>
               </div>
-
-
-
-              <div className="box three">
-                <div className="info">
-                  <h4>Andy</h4>
-                  <p>sdjbfnoiuvnuoiruoiqroipwqurvwqneuiowoiqpnrubnweiorpuiwoeiouweqrniw</p>
-                </div>
-                <div className="imgs3">
-                  
-                </div>
-              </div>
-
-
-
-              <div className="box four">
-                <div className="info">
-                  <h4>Dani</h4>
-                  <p>añovfnuiwoinpvoipnaywbfopiabnuoiabdnoidsanbfoasdoifbibusaibsaiofdbioa</p>
-                </div>
-                <div className="imgs4">
-                  
-                </div>
-              </div>
-
-
             </div>
           </div>
         </div>
 
+        {/* frequently asked question section */}
         <div className="hiw-faq"
           style={{ backgroundColor: thirdColor }}>
           <h1 style={{ color: fontColor }}>Frequently Asked Questions</h1>
@@ -183,17 +168,7 @@ function HIW() {
               <p className="hiw-faq-answer" style={{ color: fontColor }}>If you're not entirely happy, we offer 100% money-back guarantee.</p>
             </div>
           </div>
-          <div className="hiw-faq-topic" style={{ borderBottom: `1px solid ${fontColor}` }}>
-            <div className="hiw-faq-open" onClick={handleOpenFaq}>
-              <h2 className="hiw-faq-question" style={{ color: fontColor }}>4. How many tickles does it take to tickle an octopus?
-              </h2><span className="hiw-faq-t" style={triggerStyle}></span>
-            </div>
-            <div className="hiw-faq-answer-wrapper">
-              <p className="hiw-faq-answer" style={{ color: fontColor }}>ten tickles</p>
-            </div>
-          </div>
         </div>
-
       </div>
     </main>
   )

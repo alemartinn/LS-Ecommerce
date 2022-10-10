@@ -28,7 +28,7 @@ const FormSignUp = ({ showSignInForm }) => {
         },{})
         let dataUser = {
             ...dataInputs,
-            photo: 'http://localhost:3000/images/logo.png',
+            photo: 'http://localhost:3000/images/User_pfp.png',
             role: 'user',
             from: 'form',
         }
