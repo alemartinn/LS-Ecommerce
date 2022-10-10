@@ -68,8 +68,6 @@ const Recipes = () => {
         <main className="recipes-main" style={{backgroundColor: bcgColor, color: fontColor}}>
             <div className="recipes-container">
                 <div className='recipes-container-search-input'>
-                    {/* <input type='search' className='recipes-search-input'/> */}
-                    {/* <InputForm type='search' placeholder={'Search a recipe'} onChange={(e) => handleChange(e)}/> */}
                     <InputSearch placeholder={'Search'} type={'search'} inputRecipe={recipeByFilter.title} handleInput={handleInput}/>
                 </div>
 
