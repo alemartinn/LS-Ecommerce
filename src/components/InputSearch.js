@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import '../styles/InputSearch.css'
 
-const InputSearch = ({placeholder, type,handleChange, inputRecipe}) => {
+const InputSearch = ({placeholder, type, handleInput}) => {
     
     const { bcgColor, fontColor } = useSelector(state => state.color)
 
@@ -18,7 +18,7 @@ const InputSearch = ({placeholder, type,handleChange, inputRecipe}) => {
                 type={type} 
                 style={{backgroundColor: bcgColor, color: fontColor}} 
                 className="recipe__input-search" 
-                onChange={(e)=>handleChange(e)}
+                onChange={(e)=>handleInput(e)}
             />
         </div>
     )
