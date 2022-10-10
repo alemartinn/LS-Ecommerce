@@ -50,9 +50,13 @@
     height: 100px;
     object-fit: contain;
 }
+
+.header-title-link{
+    min-width: 33%;
+    text-decoration: none;
+}
 .header-title{
     text-align: center;
-    min-width: 33%;
     font-family: 'Edu QLD Beginner', cursive;
 }
 
