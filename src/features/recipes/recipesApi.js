@@ -14,7 +14,7 @@ const recipeApi = createApi({
             transformResponse: res => res.response
         }),
         getOneRecipe:builder.query({
-            query: (id)=> `/recipes/${id}`,
+            query: (id) => `/recipes/${id}`,
             transformResponse: res => res.response
         }),
         getRecipeByFilter: builder.query({
