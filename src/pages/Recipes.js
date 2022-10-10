@@ -55,7 +55,7 @@ const Recipes = () => {
     const showRecipesCards = (recipes) => {
         return(
             <section className='recipes-container-recipes-cards'>
-                <h2 className='recipes-container-title-category-choosed'>Category: {categorySelected ? categorySelected : 'All'}</h2>
+                <h2 className='recipes-container-title-category-choosed'>Category: {categorySelected ? categorySelected : 'All'} ({allFilteredRecipes.length})</h2>
                 <div className='recipes-container-recipe-card'>
                     {recipes.map((recipe, index) => <CardRecipe id={recipe._id} image={recipe.image} title={recipe.title} key={index}/>)}
                 </div>
