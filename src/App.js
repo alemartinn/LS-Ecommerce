@@ -38,7 +38,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/hiw' element={<HIW />} />
           <Route path='/*' element={<NotFound />} />
-          <Route path='/detail' element={<Detail />} />
+          <Route path='/details/:id' element={<Detail />} />
           <Route path='/cartBag' element={<CartBag />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/recipes' element={<Recipes />} />

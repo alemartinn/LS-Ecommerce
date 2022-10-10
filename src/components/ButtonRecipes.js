@@ -1,11 +1,12 @@
 import '../styles/ButtonRecipes.css'
 
-const Button = ({btnColor= 'btn-recipes', children, handleClick, typeButton}) => {
+const ButtonRecipes = ({btnColor= 'btn-recipes', children, category, changeCategorySelected}) => {
+
     return (
-        <button type={typeButton} className={'btn-recipes'} onClick={handleClick}>
+        <button type='button' className={btnColor} onClick={() => changeCategorySelected(category)}>
             {children}
         </button>
     );
 }
 
-export default Button;
+export default ButtonRecipes;
