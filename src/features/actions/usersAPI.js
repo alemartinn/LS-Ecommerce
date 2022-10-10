@@ -31,7 +31,8 @@ export const usersAPI = createApi({
         }),
         verifyToken: builder.mutation({
             query: (token) => ({
-                url: "/auth/token",
+                url: "/auth/verify-token",
+                method: "POST",
                 headers: { "Authorization": "Bearer " + token }
             })
         })
