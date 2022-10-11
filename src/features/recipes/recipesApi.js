@@ -28,10 +28,16 @@ const recipeApi = createApi({
             headers: {"Authorization": `Bearer ${localStorage.getItem("token")}`},
             body: data,
             })
-        })
+        }),
+        recipesFromUser:builder.query({
+            query: ()=> ({url:`/recipes/queryuser`,
+            headers: {"Authorization": `Bearer ${localStorage.getItem("token")}`}
+            }),
+            transformResponse: res => res.response
+        }),
     }),
 })
 
 
 export default recipeApi
-export const {useGetAllRecipeQuery, useGetOneRecipeQuery, useGetRecipesByFilterQuery ,useCreateRecipeMutation} = recipeApi
+export const {useRecipesFromUserQuery,useGetAllRecipeQuery, useGetOneRecipeQuery, useGetRecipesByFilterQuery ,useCreateRecipeMutation} = recipeApi
