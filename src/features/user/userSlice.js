@@ -7,8 +7,7 @@ const initialState = {
     role: null,
     photo: null,
     addresses: []
-  },
-  token: localStorage.getItem('token')
+  }
 }
 
 export const userSlice = createSlice({
@@ -16,7 +15,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     logOut: (state) => {
-      state = { ...initialState }
+      state.user = { ...initialState.user }
       localStorage.removeItem('token')
     },
     setCredentials: (state, action) => {
