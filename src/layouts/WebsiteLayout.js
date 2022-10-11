@@ -6,10 +6,11 @@ import ShowForm from '../components/ShowForm';
 import DetailsCard from '../components/DetailsCard';
 import Alert from '../components/Alert';
 import ProfileMenu from '../components/ProfileMenu';
+import EditProfile from '../components/dashboard/EditProfile';
 
 function WebsiteLayout(props) {
 
-  const { isOpen, modalType } = useSelector((store) => store.modal)
+  const { isOpen, modalType, modalProps } = useSelector((store) => store.modal)
   const {
     alertIsOpen } = useSelector((store) => store.alert)
   const showModal = (nameModal) => {
@@ -24,11 +25,14 @@ function WebsiteLayout(props) {
       case 'profile':
         InnerModal = ProfileMenu
         break;
+      case 'edit-profile':
+        InnerModal = EditProfile
+        break;
       default:
         InnerModal = () => (<h1>no content</h1>)
         break;
     }
-    return  (<Modal><InnerModal/></Modal>)
+    return (<Modal><InnerModal {...modalProps} /></Modal>)
   }
   return (
     <>

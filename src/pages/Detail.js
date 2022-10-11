@@ -19,29 +19,25 @@ export default function Detail() {
                 </div>
                 <div className='detail-sub-description'>
                     <p className='detail-subtitle'>{item.category}</p>
-                    <img src={item.image} alt='img-item' />
+                    <img className='detail-img' src={item.image} alt='img-item' />
                     <p className='detail-description'>{item.description}</p>
                 </div>
                 <div className='detail-all-info'>
                     <div className='detail-info'>
-                        {/* <p>Tags</p> */}
-                        <p>Allergens: {item.allergens.map(item => item)}</p>
-                        <p>Ingredients:</p>
+                        <p className='detail-info-p'><span style={{fontWeight:"bold"}}>Allergens:</span> {item.allergens.map(item => item)}</p>
+                        <p className='detail-info-p' style={{textAlign:"center",margin:"10px 0"}}><span style={{fontWeight:"bold"}}>Ingredients:</span></p>
                         <div>{item.ingredients.map((item, index) => (
-                            <div key={index} style={{display:"flex",gap:"30px",justifyContent:"space-between",fontSize:"24px"}}>
-                                <span>{item.quantity} </span> 
-                                <span>{item.name}</span>
+                            <div className='detail-table' key={index} style={{display:"flex",gap:"30px",justifyContent:"space-between",fontSize:"24px"}}>
+                                <span className='detail-info-p'>{item.quantity} </span> 
+                                <span className='detail-info-p'>{item.name}</span>
                             </div>
                         ))}
                         </div>
-                        {/* <p>Recipe Steps</p> */}
                     </div>
                     <div className='detail-more-info'>
-                        <p>Details</p>
-                        <p>Time: {item.preptime} min</p>
-                        {/* <p>Prep time : 1h</p> */}
-                        {/* <p>Difficulty: HARSH</p> */}
-                        <p>Calories: {item.calories}</p>
+                        <p className='detail-info-p' style={{marginTop:"10px",fontWeight:"bold"}}>Details</p>
+                        <p className='detail-info-p'><span style={{fontWeight:"bold"}}>Time:</span> {item.preptime} min</p>
+                        <p className='detail-info-p'><span style={{fontWeight:"bold"}}>Calories:</span> {item.calories}</p>
                     </div>
                 </div>
             </div>

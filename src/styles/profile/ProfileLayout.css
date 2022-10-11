@@ -1,0 +1,8 @@
+.layout-profile{
+    margin: 20px;
+    gap: 30px;
+}
+.profile-link{
+    text-decoration: none;
+    font-weight: bold;
+}

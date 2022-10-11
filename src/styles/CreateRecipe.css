@@ -1,0 +1,13 @@
+.recipe-container{
+
+    display: flex;
+    justify-content: center;
+}
+.input-name,.recipe-button-send{
+    padding: 10px 30px;
+    margin: 10px;
+}
+.recipe-button{
+    display: flex;
+    justify-content: center;
+}

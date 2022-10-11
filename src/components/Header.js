@@ -15,7 +15,7 @@ function Header() {
   const dispatch = useDispatch()
   const multiDispatcher = (modalType) => {
     dispatch(openModal())
-    dispatch(specifyModal(modalType))
+    dispatch(specifyModal({name:modalType}))
   }
   /* Seccion para cambiar el tema de modo claro a modo oscuro */
   const [themeMode, setThemeMode] = useState(true);

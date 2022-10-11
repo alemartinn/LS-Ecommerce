@@ -20,6 +20,7 @@ import ControlPanel from './components/dashboard/ControlPanel'
 import UserPanel from './components/dashboard/UserPanel'
 import RecipesPanel from './components/dashboard/RecipesPanel'
 import UsersPanel from './components/dashboard/UsersPanel'
+import MyProfile from './components/dashboard/MyProfile'
 import NewRecipe from './components/NewRecipe'
 
 function App() {
@@ -53,7 +54,7 @@ function App() {
           <Route path="user/:id" element={<UserPanel />} />
           <Route path='/dashboard'
             element={<ProfileLayout/>}>
-            <Route index element={<p>profile</p>} />
+            <Route index element={<MyProfile />} />
             <Route path="recipes" element={<MyRecipes/>}>
               <Route path="create" element={<NewRecipe />} />
               <Route path="edit" element={<p>edit recipe</p>} />
