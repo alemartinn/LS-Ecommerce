@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import InputSearch from '../components/InputSearch';
 import CardRecipe from '../components/CardRecipe';
 import { useGetAllRecipeQuery, useGetRecipesByFilterQuery } from '../features/recipes/recipesApi';
+import { Link as LinkRouter } from 'react-router-dom';
 
 const Recipes = () => {
     const [ categorySelected, setCategorySelected] = useState('')
@@ -67,6 +68,13 @@ const Recipes = () => {
     return (  
         <main className="recipes-main" style={{backgroundColor: bcgColor, color: fontColor}}>
             <div className="recipes-container">
+
+                <article className='recipes-container-article' style={{backgroundColor: '#a7bb9275'}}>
+                    <h3>An ocassion, a recipe</h3>
+                    <span>In our company we take care of provide a lot recipes for each moment you need it.</span>
+                    <p>Get fun discovering a lot of recipes in our menues.</p>
+                </article>
+                
                 <div className='recipes-container-search-input'>
                     <InputSearch placeholder={'Search'} type={'search'} inputRecipe={recipeByFilter.title} handleInput={handleInput}/>
                 </div>
@@ -75,17 +83,12 @@ const Recipes = () => {
                     allRecipes && showRecipesCategories(allRecipes)
                 }
 
-                <article className='recipes-container-article'>
-                    <h3>An ocassion, a recipe</h3>
-                    <span>In our company we take care of provide a lot recipes for each moment you need it.</span>
-                    <p>Get fun discovering a lot of recipes in our menues.</p>
-                </article>
                 
                 {
                     allFilteredRecipes && showRecipesCards(allFilteredRecipes)
                 }
                 
-                <section className='recipes-container-recommended'>
+                {/* <section className='recipes-container-recommended'>
                     <span>Recommended</span>
                     <div className='recipes-container-recipe-card'>
                         <CardRecipe title={'Recommended Recipe 1'}/>
@@ -94,6 +97,16 @@ const Recipes = () => {
                         <CardRecipe title={'Recommended Recipe 4'}/>
                         <CardRecipe title={'Recommended Recipe 5'}/>
                         <CardRecipe title={'Recommended Recipe 6'}/>
+                    </div>
+                </section> */}
+
+                <section className='recipes-container-newrecipe' style={{backgroundColor: '#a7bb9275'}}>
+                    <div className='recipes-container-newrecipe-text'>
+                        <h2>Add your recet, make money!</h2>
+                        <span>Yes, if your recet is aprooved by our professionals chefs you can get a commission for each sale!</span>
+                    </div>
+                    <div className='recipes-container-newrecipe-img'>
+                        <LinkRouter to='/newrecipe' className='recipes-container-newrecipe-button'><span>Let's to start</span></LinkRouter>
                     </div>
                 </section>
 
