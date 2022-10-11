@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPen} from "@fortawesome/free-solid-svg-icons" 
+import { faPen,faArrowRotateLeft} from "@fortawesome/free-solid-svg-icons" 
 import { useDispatch, useSelector } from "react-redux"
 import { Link as LinkRouter } from "react-router-dom"
 import { specifyModal,closeModal } from "../features/modal/modalSlice"
@@ -13,6 +13,14 @@ export default function ProfileMenu() {
     const { fontColor } = useSelector(state=>state.color)
     const dispatch = useDispatch()
     const [signOut] = useUserSignOutMutation()
+    const BackMenu = () => {
+        return (
+            <FontAwesomeIcon
+            icon={faArrowRotateLeft}
+                className="edit-profile-back"
+                onClick={()=>dispatch(specifyModal({name:"profile"}))}
+        />)
+    }
     const signOutProps = {
         onClick: () => {
             const token = localStorage.getItem('token')
@@ -31,7 +39,12 @@ export default function ProfileMenu() {
         type: "button"
     }
     const editProps = {
-        onClick: () => dispatch(specifyModal("edit-profile")),
+        onClick: () => dispatch(specifyModal({
+            name: "edit-profile", props: {
+                user,
+                Children: BackMenu
+            }
+        })),
         type: "button"
     }
     const listOptions = [
