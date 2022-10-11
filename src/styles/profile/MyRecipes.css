@@ -11,7 +11,7 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-h2{
+.title{
     margin: 20px 0 ;
     text-align: center;
     font-size: 40px;
