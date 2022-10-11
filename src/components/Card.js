@@ -13,7 +13,7 @@ export default function Card() {
   const dispatch = useDispatch()
   const multiDispatcher = (modalType) => {
     dispatch(openModal())
-    dispatch(specifyModal(modalType))
+    dispatch(specifyModal({name:modalType}))
   }
   const [isClicked, setIsClicked] = useState(false);
   const {data:boxesRes} = useAllBoxesQuery()
