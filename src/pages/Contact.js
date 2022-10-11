@@ -1,4 +1,3 @@
-import { Link } from '@mui/material'
 import React from 'react'
 import '../styles/Contact.css'
 export default function Contact() {
@@ -13,7 +12,7 @@ export default function Contact() {
                     <p className='contact-me-p'>🏠 San Francisco Solano</p>
                 </div>
                 <div className='contact-map'>
-                    <img className='contact-map-img' src='/images/map.png' />
+                    <img className='contact-map-img' src='/images/map.png' alt="map-location"/>
                 </div>
             </div>  
             <div className='contact-description'>

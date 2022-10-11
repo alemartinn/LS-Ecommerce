@@ -29,8 +29,6 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    /* gap: 10px; */
-
 }
 .contact-title{
     font-size: 35px;
@@ -45,7 +43,6 @@
 
 .contact-description-p{
     font-weight: bold;
-    /* text-align: center; */
 	font-size: 1.7rem;
 
 }
@@ -69,7 +66,7 @@
 	cursor: pointer;
 }
 
-input[type="text"] {
+.contact-inputs input[type="text"] {
 	font: 15px/24px "Lato", Arial, sans-serif;
 	color: #333;
 	width: 100%;
@@ -78,7 +75,7 @@ input[type="text"] {
     margin: 10px 0;
     border: none;
 }
-input:focus {
+.contact-inputs input:focus {
     outline:none;
 }
 
@@ -123,9 +120,6 @@ input:focus {
 	.contact-me-p{
 		font-size: 1.5rem;
 	}
-	/* .contact-inputs{
-		width: 300px;
-	} */
 	.contact-description{
 		width: 270px;
 	}
@@ -140,9 +134,6 @@ input:focus {
 	.contact-me-p{
 		font-size: 1.5rem;
 	}
-	/* .contact-inputs{
-		width: 300px;
-	} */
 	.contact-description{
 		width: 270px;
 	}
@@ -157,9 +148,6 @@ input:focus {
 	.contact-me-p{
 		font-size: 1.5rem;
 	}
-	/* .contact-inputs{
-		width: 300px;
-	} */
 	.contact-description{
 		width: 270px;
 	}
