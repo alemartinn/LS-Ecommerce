@@ -48,7 +48,7 @@
     font-weight: 400;
     font-size: 50px;
 }
-.recipes-container-article>span, p{
+.recipes-container-article>span,.recipes-container-article p{
     text-align: left;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 300;
