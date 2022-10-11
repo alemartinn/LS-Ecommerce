@@ -1,10 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import * as jose from 'jose';
 import '../styles/form/ButtonGoogle.css'
+import { useUserSignUpMutation } from "../features/actions/usersAPI"
+import { useDispatch } from "react-redux"
+import { openAlert, specifyMessage } from "../features/alert/alertSlice"
 
 const SignUpGoogle = () => {
 
     const buttonDiv = useRef(null);
+    const dispatch = useDispatch()
+    const [userSignUp] = useUserSignUpMutation()
 
     async function handleCredentialResponse(response){
         let userObject = jose.decodeJwt(response.credential); 
@@ -18,7 +23,13 @@ const SignUpGoogle = () => {
             role: 'user',
             from: 'google'
         }
-        console.log('Sending data from Google...', dataFromGoogle);
+        userSignUp(dataFromGoogle).unwrap().then(res => {
+            dispatch(specifyMessage(res.message))
+            dispatch(openAlert(res.success))
+        }).catch(err => {
+            dispatch(specifyMessage(err.data.message))
+            dispatch(openAlert(false))
+        })
     }
 
     useEffect(()=>{

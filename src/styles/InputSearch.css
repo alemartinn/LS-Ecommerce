@@ -17,9 +17,9 @@
   border: 1px solid transparent;
   border-radius: 8px;
   outline: none;
-  background-color: #fafafa;
-  color: #0d0c22;
-  transition: .3s ease;
+  background-color: transparent;
+  transition: box-shadow .3s ease;
+  font-size: 16px;
 }
 
 .recipe__input-search::placeholder {
@@ -30,7 +30,7 @@
 .recipe__input-search:hover {
   outline: none;
   border-color: var(--third-color);
-  background-color: #fff;
+  background-color: transparent;
   box-shadow: 0 0 0 4px var(--third-color);
 }
 

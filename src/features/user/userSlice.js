@@ -1,19 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit'
+const initialState = {
+  user: {
+    id: null,
+    name: null,
+    email: null,
+    role: null,
+    photo: null,
+    addresses: []
+  }
+}
 
 export const userSlice = createSlice({
   name: 'user',
-  initialState: {
-    userData: {}
-  },
+  initialState,
   reducers: {
     logOut: (state) => {
-      state.user = {}
+      state.user = { ...initialState.user }
+      localStorage.removeItem('token')
     },
     setCredentials: (state, action) => {
-      let userData = action.payload.user
+      state.user = {...action.payload.user}
       let token = action.payload.token
-      userData? state.user = userData : state.user = {}
-      token && localStorage.setItem("token",token)
+      token && localStorage.setItem("token", token)
     },
   },
 })
