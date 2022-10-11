@@ -6,8 +6,6 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@mui/material": "^5.10.8",
-    "@mui/styled-engine-sc": "^5.10.6",
     "@paypal/react-paypal-js": "^7.8.1",
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
@@ -18,12 +16,11 @@
     "react-dom": "^18.2.0",
     "react-headroom": "^3.2.1",
     "react-redux": "^8.0.4",
-    "react-router-dom": "^6.4.1",
+    "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "save": "^2.9.0",
     "serve": "^14.0.1",
-    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
