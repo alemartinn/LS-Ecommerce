@@ -1,10 +1,10 @@
-.recipes-main{
+.newrecipe-main{
     display: flex;
     justify-content: center;
     width: 100%;
     min-height: 80vh;
 }
-.recipes-container {
+.newrecipe-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,85 +15,46 @@
     gap: 4vh;
 }
 
-.recipes-container-search-input{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.newrecipe-container-steps{
     width: 100%;
-}
-
-.recipes-container-categories{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    gap: 2vh;
-}
-.recipes-container-title-category{
-    font-size: 2rem;
-    font-weight: 400;
-}
-.recipes-categories-buttons{
-    display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
+    gap: 20px;
 }
 
-.recipes-container-article{
-    width: 100%;
-    max-width: 1100px;
-    min-height: 250px;
-    border-radius: 5px;
-    position: relative;
-    box-sizing: border-box;
-    padding: 30px;
-    margin: 0 auto;
-    box-shadow: 0 8px 20px 0px rgb(0 0 0 / 20%);
+.new-recipe-guides{
+    display: flex;
+    justify-content: space-between
 }
-
-.recipes-container-article>h3{
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 400;
-    font-size: 50px;
-}
-.recipes-container-article>span, p{
-    text-align: left;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 300;
-    font-size: 30px;
-}
-
-.recipes-container-recipes-cards{
-    width: 100%;
+.new-recipe-guide-box{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+    text-align: center;
+    width: 31%;
+    position: relative;
 }
-.recipes-container-title-category-choosed{
-    width: 100%;
-    font-size: 2rem;
-    font-weight: 400;
-}
-.recipes-container-recipe-card{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 5vh;
-    padding: 5vh 0;
+.new-recipe-guide-box>p{
+    text-align: center;
 }
 
-.recipes-container-recommended{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-.recipes-container-recommended>span{
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 400;
+.new-recipe-guide-icon{
+    margin: 0 auto;
+    border-radius: 45px;
+    top: -35px;
+    width: 88px;
+    height: 88px;
+    line-height: 83px;
+    text-align: center;
+    color: white;
     font-size: 2rem;
 }
 
-.recipes-container-newrecipe{
+.newrecipes-container-recipe{
     display: flex;
     width: 100%;
     max-width: 1100px;
@@ -103,21 +64,23 @@
     margin: 0 auto;
     box-shadow: 0 8px 20px 0px rgb(0 0 0 / 20%);
 }
-
-.recipes-container-newrecipe-text{
+.newrecipe-form{
+    width: 100%;
+}
+.newrecipes-container-recipe-text{
     padding: 20px;
     width: 50%;
-    text-align: left;
+    text-align: center;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 300;
     font-size: 30px
 }
 
-.recipes-container-newrecipe-text>h2{
+.newrecipes-container-recipe-text>h2{
     font-weight: 400;
 }
 
-.recipes-container-newrecipe-img{
+.newrecipes-container-recipe-img{
     width: 50%;
     background-image: url('https://i0.wp.com/ytimg.googleusercontent.com/vi/ggGnoZsnUtU/maxresdefault.jpg?resize=650,400');
     background-size: cover;
@@ -128,7 +91,7 @@
     align-items: center;
 }
 
-.recipes-container-newrecipe-button{
+.newrecipes-container-recipe-button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,17 +108,33 @@
     text-decoration: none;
 }
 
-.recipes-container-newrecipe-img:hover{
+.newrecipes-container-recipe-img{
+    width: 50%;
+    background-image: url('https://st3.depositphotos.com/4580293/32688/v/600/depositphotos_326887984-stock-video-natural-vegetables-and-green-herbs.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.newrecipes-container-recipe-img:hover{
     box-shadow: 0px 0px 10px 1px #000;
 }
 
+.newrecipe-form{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 @media (max-width: 768px) {
-    .recipes-container-newrecipe{
+    .newrecipes-container-recipe{
         display: block;
         width: 100%;
         height: min-content;
     }
-    .recipes-container-newrecipe-text{
+    .newrecipes-container-recipe-text{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -163,10 +142,10 @@
         width: 100%;
         min-height: 200px;
     }
-    .recipes-container-newrecipe-img{
+    .newrecipes-container-recipe-img{
         width: 100%;
         height: 200px;
-        background-image: url('https://i0.wp.com/ytimg.googleusercontent.com/vi/ggGnoZsnUtU/maxresdefault.jpg?resize=650,400');
+        background-image: url('https://st3.depositphotos.com/4580293/32688/v/600/depositphotos_326887984-stock-video-natural-vegetables-and-green-herbs.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 50% 50%;
@@ -175,4 +154,21 @@
         align-items: center;
     }
 
+    .new-recipe-guides{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    .new-recipe-guide-box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 70%;
+    }
+    .new-recipe-guide-box>p{
+        text-align: center;
+    }
 }
