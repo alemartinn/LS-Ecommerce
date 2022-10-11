@@ -20,6 +20,7 @@ import ControlPanel from './components/dashboard/ControlPanel'
 import UserPanel from './components/dashboard/UserPanel'
 import RecipesPanel from './components/dashboard/RecipesPanel'
 import UsersPanel from './components/dashboard/UsersPanel'
+import NewRecipe from './components/NewRecipe'
 
 function App() {
   const dispatch = useDispatch()
@@ -54,7 +55,7 @@ function App() {
             element={<ProfileLayout/>}>
             <Route index element={<p>profile</p>} />
             <Route path="recipes" element={<MyRecipes/>}>
-              <Route path="create" element={<CreateRecipe />} />
+              <Route path="create" element={<NewRecipe />} />
               <Route path="edit" element={<p>edit recipe</p>} />
             </Route>
             <Route path="control-panel" element={<ControlPanel/>}>
