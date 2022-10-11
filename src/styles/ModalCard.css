@@ -5,10 +5,19 @@
     align-items: center;
     flex-wrap: wrap;
     border: 1px solid black;
+    background-image: url(https://img.freepik.com/fotos-premium/verduras-frescas-colores-coctelera-frutas-pimienta-escritorio-madera-blanca_23-2148062711.jpg);
+    background-size: cover;
 }
 .modal-card-title{
     width: 100%;
 }
+.modal-card-title-p{
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
 
 .modal-card-img-container{
     display: flex;
@@ -23,6 +32,9 @@
     border-radius: 20px 0 20px 0;
     box-shadow: 3px 3px 10px black;
 }
+.modal-card-span{
+    font-weight: bold;
+}
 
 .modal-card-description{
     display: flex;
@@ -36,17 +48,25 @@
     flex-direction: column;
     justify-content: space-around;
     padding: 12px 0;
+    gap: 20px;
+    font-size: 25px;
 }
 .modal-card-link-add{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 12px 0;
 }
 .modal-card-button{
     padding: 3px 40px;
     border-radius: 20px;
+    cursor: pointer;
+    font-size: 25px;
 }
 .modal-card-recipe{
     font-size: 25px;
     text-decoration: none;
+    color: black;
+    padding: 3px 40px;
+    border-radius: 20px;
+    border: 2px solid black;
 }

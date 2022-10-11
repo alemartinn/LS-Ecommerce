@@ -15,7 +15,8 @@ const boxesApi = createApi({
             transformResponse: res => res.response
         }),
         getOneBox:builder.query({
-            query: (id)=> `/boxes/${id}`
+            query: (id)=> `/boxes/${id}`,
+            transformResponse: res => res.response
         }),
         createBoxes:builder.mutation({
             query: (data)=> ({
