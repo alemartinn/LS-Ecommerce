@@ -28,7 +28,7 @@ export default function ModalCard() {
           <span className='modal-card-span'>Serves :  {item.serves} peoples</span> 
         </div>
         <div className='modal-card-link-add'>
-          <Link to={"/detail"} className="modal-card-recipe">Recipe Link</Link>
+          <Link to={`/details/${item.recipe}`} className="modal-card-recipe">Recipe Link</Link>
           <button className='modal-card-button'>Add to Cart</button>
         </div>
       </div>
