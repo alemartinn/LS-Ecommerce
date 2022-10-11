@@ -5,15 +5,16 @@ import Modal from '../components/Modal'
 import ShowForm from '../components/ShowForm';
 import DetailsCard from '../components/DetailsCard';
 import Alert from '../components/Alert';
+import ProfileMenu from '../components/ProfileMenu';
 
 function WebsiteLayout(props) {
 
   const { isOpen, modalType } = useSelector((store) => store.modal)
   const {
     alertIsOpen } = useSelector((store) => store.alert)
-  const showModal = () => {
+  const showModal = (nameModal) => {
     let InnerModal
-    switch (modalType) {
+    switch (nameModal) {
       case 'card':
         InnerModal = DetailsCard
         break;
@@ -21,7 +22,7 @@ function WebsiteLayout(props) {
         InnerModal = ShowForm
         break;
       case 'profile':
-        InnerModal = () => (<h1>Profile options</h1>)
+        InnerModal = ProfileMenu
         break;
       default:
         InnerModal = () => (<h1>no content</h1>)
@@ -29,11 +30,10 @@ function WebsiteLayout(props) {
     }
     return  (<Modal><InnerModal/></Modal>)
   }
-  
   return (
     <>
       <Header />
-      {isOpen && showModal()}
+      {isOpen && showModal(modalType)}
       {alertIsOpen? <Alert />:null}
       {props.children}
       <Footer />
