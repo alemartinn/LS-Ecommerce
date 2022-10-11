@@ -5,7 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faXmark, faTruckFast, faUser, faTag, faPlus, faMinus} from '@fortawesome/free-solid-svg-icons'
 import Form from '../components/Form'
 import { openModal, specifyModal } from '../features/modal/modalSlice'
+import Paypalbtn from '../components/Paypalbtn'
 import Card from '../components/Card'
+
 
 
 export default function CartBag() {
@@ -29,12 +31,7 @@ const modelCart = [
         {name:'Phone',label:"Phone", type: 'number', required: 'required', autoComplete: 'on'}, 
 
 ]
-const modelPaymentForm =[
-    {name:'Card Number',label:"Card Number", type: 'number', required: 'required', autoComplete: 'on'}, 
-    {name:'Name on Card',label:"Name on Card", type: 'text', required: 'required', autoComplete: 'on'}, 
-    {name:'Expiry date',label:"Expiry date", type: 'date', required: 'required', autoComplete: 'on'}, 
-    {name:'Security Code',label:"Security Code", type: 'number',  max:'3', required: 'required', autoComplete: 'on'}, 
-]
+
 const dispatch = useDispatch()
 const multiDispatcher = (modalType) => {
     dispatch(openModal())
@@ -72,7 +69,6 @@ function pressed (){
     }
 }
 
-    
 
 // const couponMaker = (discountType) => {
 //  
@@ -92,7 +88,9 @@ useEffect(() => {
     }
 }, [quantity])
 
-console.log(subTotal)
+
+
+
     return (
         <>
         <main className='cart-bag-main' style={{ backgroundColor: bcgColor, color: fontColor }}>
@@ -108,7 +106,7 @@ console.log(subTotal)
                     <div className="cart-bag-products-detail" >
                         <div className='cart-bag-product'style={{ backgroundColor: bcgColor, color: fontColor }} >
                             <div className='cart-bag-card-number' style={{ backgroundColor: bcgColor, color: fontColor }}>
-                            <img className='cart-bag-img' src='https://cocinateelmundo.com/wp-content/uploads/2018/06/comida-asiatica-cocinateelmundo-16.jpg' />
+                            <img className='cart-bag-img' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb_pzUv3NjM6j8P359yMCOqfIQgi7NnzPFTNtOh2WPRlV-KxP86gKDhNo6IWs6IpRUHY0&usqp=CAU' />
                             <p>
                             Price: ${price}
                             </p>
@@ -167,23 +165,17 @@ console.log(subTotal)
                         <select onChange={focused} className='cart-bag-select'>
                             <option  value="none"> Payment option  </option>
                             <option  name="Cash" value="Cash"> Cash </option>
-                            <option  name="Credit" value="Card"> Credit Card </option>
-                            <option  name="Debit" value="Card"> Debit Card </option>
+                            <option  name="Credit" value="Card"> Card </option>
                         </select>
                         {selectValue==='Card'?
-                        <Form modelForm={modelPaymentForm} />  
+                        <Paypalbtn />
                         : selectValue === 'Cash'?
                 
                         <div style={{ backgroundColor: bcgColor, color: fontColor }}>
                         <p className='cart-message'> Pay up when your product arrives </p> <FontAwesomeIcon icon={faTruckFast} />
-                        </div>
-                    
-                        :null}
-
-
-                    </div>
-                    <div className="cart-bag-address" style={{ backgroundColor: bcgColor, color: fontColor }}>
-                        <div style={{ backgroundColor: bcgColor, color: fontColor }}>
+                        
+                        <div className="cart-bag-address" style={{ backgroundColor: bcgColor, color: fontColor }}>
+                        
                         <p className='cart-bag-subtitle'>Shipping Address</p>
                         <select className='cart-bag-select' onChange={selected} >
                             <option value='none'> Select an Address</option>
@@ -193,19 +185,27 @@ console.log(subTotal)
                             <option value= "Ale's Penthouse"> Ale's Penthouse</option>
                             <option value= "Andy's Consortium Bag"> Andy's Consortium Bag</option>
                         </select>
-                        </div>
+                        
+                        <div>
                         <>
-                        { address? <p className='cart-message'>Will send the product to {address}</p> : null}
+                        { address? <p className='cart-message'>Will send the product to {address}</p> : <p className='cart-message'> Please select an address.</p>   }
                         </>
-                        <div style={{ backgroundColor: bcgColor, color: fontColor }}>
+                        </div>
 
                         {!open? <p className='cart-bag-subtitle '>Have a new address?</p> : null}
-                        <button className='cart-bag-addressbtn' onClick={pressed} > {!open? "Data change" : "Close"}</button>
+                        <div  className='cart-form-div'>
                         {open?
                             <Form  modelForm={modelCart} />
                             : null}
+                            <button className='cart-bag-addressbtn' onClick={pressed} > {!open? "Data change" : "Close"}</button>
                             </div>
                         
+                    </div>
+                        </div>
+                    
+                        :null}
+
+
                     </div>
                 </div>
                 <div className={`cart-bag-total ${light && "light"}`}>
@@ -242,7 +242,9 @@ console.log(subTotal)
         </main>
             <div className='cart-popular-choices'>
                 <h2> Other popular choices...</h2>
-                <p>Nacho's Apartment 🏘</p>
+                <div className='cart-choices-div'>
+                <Card />
+                </div>
             </div>
             </>
     )

@@ -18,8 +18,7 @@ const Form = ({modelForm, Title, handleSubmit}) => {
                         autoComplete:"on"
                     }}
                     style={{
-                        color: fontColor,
-                        backgroundColor: fourthColor
+                        color: fontColor
                     }}
                 />
             )}

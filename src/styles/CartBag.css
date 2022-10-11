@@ -43,7 +43,6 @@
     font-size: 40px;
 }
 .cart-bag-products div{
-    background-color: var(--main-color-dark);
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -52,9 +51,6 @@
     width: 100%;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
-}
-.cart-bag-products.light div{
-    background-color: var(--main-color);
 }
 .cart-bag-main div.cart-bag-products-detail{
     padding: 0;
@@ -282,3 +278,12 @@
     justify-content: center;
 }
 
+.cart-choices-div{
+    display: flex;
+}
+
+.cart-form-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
