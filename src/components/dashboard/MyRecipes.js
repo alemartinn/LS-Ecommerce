@@ -11,7 +11,7 @@ export default function MyRecipes(props) {
     return (
         <div style={{display:"flex",justifyContent:"center"}}>
             <div>
-                <h2>My Recipes</h2>
+                <h2 className="title">My Recipes</h2>
                 <div className="my-recipe">
                     <Link to="create" className="my-recipe-button">create a recipe</Link>
                     <Link to="edit" className="my-recipe-button">edit a recipe</Link>
