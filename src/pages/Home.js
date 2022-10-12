@@ -35,20 +35,15 @@ function Home() {
     <main className="home-main" style={{ backgroundColor: bcgColor }}>
       <div className="home-content">
         <div className="hero"
-          style={light ?
-            { backgroundImage: `url(https://www.ucsfhealth.org/-/media/project/ucsf/ucsf-health/education/hero/top-ten-foods-for-health-2x.jpg)` }
-            : { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)), url(https://www.ucsfhealth.org/-/media/project/ucsf/ucsf-health/education/hero/top-ten-foods-for-health-2x.jpg)` }
-          }
-        >
+          style={light ? { backgroundBlendMode: 'lighten' } : { backgroundBlendMode: 'darken' }}>
           <div className="hero-content">
-            <h1 className="hero-title" style={{ color: fontColor }}>
-              Healthy eating don't have to be a struggle
+            <h1 className="hero-title" style={{ color: 'white' }}>
+              Healthy eating don't have to be a struggle.
             </h1>
             <LinkRouter to="/recipes"
               className="home-banner-link"
               style={{ backgroundColor: thirdColor, color: fontColor }}
-            >*inserte frase*</LinkRouter>
+            >Check recipes</LinkRouter>
           </div>
         </div>
         <div>
