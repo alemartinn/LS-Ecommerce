@@ -59,6 +59,13 @@ export const usersAPI = createApi({
                 body:{role},
                 headers: { "Authorization": "Bearer " + token }
             })
+        }),
+        removeUser: builder.mutation({
+            query: ({ id, token }) => ({
+                url: `auth/update/remove/${id}`,
+                method: "DELETE",
+                headers: { "Authorization": "Bearer " + token }
+            })
         })
     })
 })
@@ -70,5 +77,6 @@ export const usersAPI = createApi({
             useVerifyTokenMutation,
             useGetUsersQuery,
             useGetUserQuery,
-            useUpdateRoleMutation
+            useUpdateRoleMutation,
+            useRemoveUserMutation
         } = usersAPI
