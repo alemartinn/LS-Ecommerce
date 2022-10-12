@@ -4,7 +4,7 @@ import { Outlet, Link, useNavigate } from "react-router-dom"
 import '../styles/profile/ProfileLayout.css'
     
 export default function ProfileLayout() {
-    const {fontColor,bcgColor} = useSelector(state=>state.color)
+    const {fontColor,bcgColor, light} = useSelector(state=>state.color)
     const {user} = useSelector(state=>state.user)
     const navigate = useNavigate()
     const isLogged = () => !user.name && navigate("/")
@@ -16,7 +16,10 @@ export default function ProfileLayout() {
             <div className="layout-profile-content">
                 <div
                     className="layout-profile-nav"
-                    style={{borderColor:fontColor}}>
+                    style={{
+                        borderColor: fontColor,
+                        backgroundColor: light?"var(--fifth-color)":"var(--col-green-0)" 
+                    }}>
                     <Link
                         to="/dashboard"
                         className="profile-link"
