@@ -35,9 +35,46 @@ const recipeApi = createApi({
             }),
             transformResponse: res => res.response
         }),
+        getNotApprovedRecipes: builder.mutation({
+            query: (token) => ({
+                url: "/recipes/approve",
+                headers: {"Authorization": `Bearer ${token}`}
+            }),
+            transformResponse: res => res.response
+        }),
+        getNotApprovedRecipe: builder.mutation({
+            query: ({token,id}) => ({
+                url: `/recipes/approve/${id}`,
+                headers: {"Authorization": `Bearer ${token}`}
+            })
+        }),
+        removeRecipe: builder.mutation({
+            query: ({id,token}) => ({
+                url: `/recipes/${id}`,
+                method: "DELETE",
+                headers: {"Authorization": `Bearer ${token}`}
+            })
+        }),
+        approveRecipe: builder.mutation({
+            query: ({ id, token }) => ({
+                url: `/recipes/approve/${id}`,
+                method: "PATCH",
+                headers: {"Authorization": `Bearer ${token}`}
+            })
+        })
     }),
 })
 
 
 export default recipeApi
-export const {useRecipesFromUserQuery,useGetAllRecipeQuery, useGetOneRecipeQuery, useGetRecipesByFilterQuery ,useCreateRecipeMutation} = recipeApi
+export const {
+    useRecipesFromUserQuery,
+    useGetAllRecipeQuery,
+    useGetOneRecipeQuery,
+    useGetRecipesByFilterQuery,
+    useCreateRecipeMutation,
+    useGetNotApprovedRecipesMutation,
+    useGetNotApprovedRecipeMutation,
+    useRemoveRecipeMutation,
+    useApproveRecipeMutation
+} = recipeApi
