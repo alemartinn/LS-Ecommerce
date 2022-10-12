@@ -1,46 +1,57 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faCartPlus, faCheck, faMinus, faCircleInfo,faBagShopping} from '@fortawesome/free-solid-svg-icons'
+import { faCartPlus, faCheck, faMinus, faCircleInfo, faBagShopping } from '@fortawesome/free-solid-svg-icons'
 import '../styles/Card.css'
 import { openModal, specifyModal } from '../features/modal/modalSlice';
 import { useAllBoxesQuery } from '../features/boxes/boxesApi'
 import CardInfo from './CardInfo'
-
+import { openAlert, specifyMessage } from "../features/alert/alertSlice"
+import { addToCart, removeFromCart } from '../features/cart/cartSlice'
 
 export default function Card() {
-  const {light} = useSelector(state=>state.color)
+  const { light } = useSelector(state => state.color)
   const dispatch = useDispatch()
   const multiDispatcher = (modalType) => {
     dispatch(openModal())
-    dispatch(specifyModal({name:modalType}))
+    dispatch(specifyModal({ name: modalType }))
   }
   const [isClicked, setIsClicked] = useState(false);
-  const {data:boxesRes} = useAllBoxesQuery()
+  const { data: boxesRes } = useAllBoxesQuery()
 
 
-  const [boxes, setBoxes ] = useState([])
+  const [boxes, setBoxes] = useState([])
 
   useEffect(() => {
-    if(boxesRes){
+    if (boxesRes) {
       setBoxes(boxesRes)
     }
   }, [boxesRes])
-  
+
+
+  function handleAddToCart(item) {
+    setIsClicked(true)
+    dispatch(addToCart(item))
+  }
+  function handleRemoveFromCart(item) {
+    setIsClicked(false)
+    dispatch(removeFromCart(item))
+  }
+
 
 
   const printBoxes = (item) => (
-    <div className={`card-wrapper ${light?"light":""}`} key={item.name}>
+    <div className={`card-wrapper ${light ? "light" : ""}`} key={item.name}>
       <div className="card-container">
         {/* <div className="card-top" style={{ 'background': `url(${item.recipe.image})` }}></div> */}
         <img className="card-top" src={item.recipe.image} />
         <div className={isClicked ? 'card-bottom clicked' : 'card-bottom'}>
           <div className="card-left">
             <div className="card-details">
-                <p className='card-details-p'>{item.name}</p>
-                <p className='card-details-p'>${item.price}</p>
+              <p className='card-details-p'>{item.name}</p>
+              <p className='card-details-p'>${item.price}</p>
             </div>
-            <div className="card-buy" onClick={() => setIsClicked(true)}>
+            <div className="card-buy" onClick={() => { handleAddToCart(item) }}>
               <FontAwesomeIcon icon={faBagShopping}
                 className="card-buy-icon" /></div>
           </div>
@@ -52,18 +63,18 @@ export default function Card() {
               <p className='card-details-p'>{item.name}</p>
               <p className='card-details-p'>Added to your cart</p>
             </div>
-            <div className="card-remove" onClick={() => setIsClicked(false)}> <FontAwesomeIcon icon={faMinus}
-                className="card-remove-icon" /></div>
+            <div className="card-remove" onClick={() => { handleRemoveFromCart(item) }}> <FontAwesomeIcon icon={faMinus}
+              className="card-remove-icon" /></div>
           </div>
         </div>
       </div>
       <div className="card-inside">
         <div className="card-info">
-        <FontAwesomeIcon icon={faCircleInfo}
-                className="card-info-icon" />
+          <FontAwesomeIcon icon={faCircleInfo}
+            className="card-info-icon" />
         </div>
         <div className="card-contents">
-          <CardInfo id={item.recipe._id}/>
+          <CardInfo id={item.recipe._id} />
           <button className='button-card' onClick={() => multiDispatcher('card')}>MORE INFO...</button>
         </div>
       </div>
