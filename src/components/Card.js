@@ -7,7 +7,7 @@ import { openModal, specifyModal } from '../features/modal/modalSlice';
 import { useAllBoxesQuery } from '../features/boxes/boxesApi'
 import CardInfo from './CardInfo'
 import { openAlert, specifyMessage } from "../features/alert/alertSlice"
-import { addToCart, removeItem } from '../features/cart/cartSlice'
+import { addToCart, removeFromCart } from '../features/cart/cartSlice'
 
 export default function Card() {
   const { light } = useSelector(state => state.color)
@@ -29,13 +29,13 @@ export default function Card() {
   }, [boxesRes])
 
 
-  function AddingToCart(item) {
+  function handleAddToCart(item) {
     setIsClicked(true)
     dispatch(addToCart(item))
   }
-  function RemoveFromCart(item) {
+  function handleRemoveFromCart(item) {
     setIsClicked(false)
-    dispatch(removeItem(item))
+    dispatch(removeFromCart(item))
   }
 
 
@@ -51,7 +51,7 @@ export default function Card() {
               <p className='card-details-p'>{item.name}</p>
               <p className='card-details-p'>${item.price}</p>
             </div>
-            <div className="card-buy" onClick={() => { AddingToCart(item) }}>
+            <div className="card-buy" onClick={() => { handleAddToCart(item) }}>
               <FontAwesomeIcon icon={faBagShopping}
                 className="card-buy-icon" /></div>
           </div>
@@ -63,7 +63,7 @@ export default function Card() {
               <p className='card-details-p'>{item.name}</p>
               <p className='card-details-p'>Added to your cart</p>
             </div>
-            <div className="card-remove" onClick={() => { RemoveFromCart(item) }}> <FontAwesomeIcon icon={faMinus}
+            <div className="card-remove" onClick={() => { handleRemoveFromCart(item) }}> <FontAwesomeIcon icon={faMinus}
               className="card-remove-icon" /></div>
           </div>
         </div>

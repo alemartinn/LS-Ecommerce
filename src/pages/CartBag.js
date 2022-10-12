@@ -8,6 +8,7 @@ import Form from '../components/Form'
 import Card from '../components/Card'
 import Paypalbtn from '../components/Paypalbtn'
 import { openModal, specifyModal } from '../features/modal/modalSlice'
+import { addToCart, removeFromCart } from '../features/cart/cartSlice'
 
 export default function CartBag() {
   const coupon = 3
@@ -34,6 +35,12 @@ export default function CartBag() {
   const multiDispatcher = (modalType) => {
     dispatch(openModal())
     dispatch(specifyModal({ name: modalType }))
+  }
+  function handleAddToCart(item) {
+    dispatch(addToCart(item))
+  }
+  function handleRemoveFromCart(item) {
+    dispatch(removeFromCart(item))
   }
   const {
     bcgColor,
@@ -135,9 +142,10 @@ export default function CartBag() {
                       <p>Subtotal: ${cartItem.price * cartItem.quantity}</p>
                     </div>
                     <button className='cart-bag-delete'
-                      style={{ backgroundColor: bcgColor, color: fontColor }}>
+                      style={{ backgroundColor: bcgColor, color: fontColor }}
+                      onClick={() => handleRemoveFromCart(cartItem)}
+                    >
                       <FontAwesomeIcon icon={faXmark} />remove</button>
-
                   </div>
                 ))}
               </>)
