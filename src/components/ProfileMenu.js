@@ -10,7 +10,7 @@ import "../styles/profile/ProfileMenu.css"
 
 export default function ProfileMenu() {
     const { user } = useSelector(state=>state.user)
-    const { fontColor } = useSelector(state=>state.color)
+    const { fontColor, bcgColor } = useSelector(state=>state.color)
     const dispatch = useDispatch()
     const [signOut] = useUserSignOutMutation()
     const BackMenu = () => {
@@ -52,7 +52,8 @@ export default function ProfileMenu() {
             name: "My Profile",
             Component: LinkRouter,
             props: {
-                to: "/dashboard"
+                to: "/dashboard",
+                onClick:()=>dispatch(closeModal())
             }
         },
         {
@@ -64,13 +65,15 @@ export default function ProfileMenu() {
             name: "My Recipes",
             Component: LinkRouter,
             props: {
-            to: "/dashboard/recipes"
+            to: "/dashboard/recipes",
+            onClick:()=>dispatch(closeModal())
         }},
         {
             name: "New Recipe",
             Component: LinkRouter,
             props: {
-            to: "/dashboard/recipes/create"
+            to: "/dashboard/recipes/create",
+            onClick:()=>dispatch(closeModal())
         } },
         {
             name: "Log Out",
@@ -91,7 +94,7 @@ export default function ProfileMenu() {
         )
     }
     return (
-        <div className="profile-menu-container">
+        <div className="profile-menu-container" style={{backgroundColor:bcgColor}}>
             <div className="profile-menu-user">
                 <div className="profile-menu-user-top">
                     <img src={user.photo}

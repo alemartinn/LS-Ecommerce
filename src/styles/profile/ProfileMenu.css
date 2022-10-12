@@ -45,4 +45,9 @@
     border: none;
     border-bottom: 1px solid black;
     font-size: 1rem;
+    padding: .5rem;
+    cursor: pointer;
+}
+.profile-menu-opt:hover{
+    transform: scale(1.05);
 }
