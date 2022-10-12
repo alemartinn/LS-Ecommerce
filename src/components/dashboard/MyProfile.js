@@ -16,7 +16,7 @@ export default function MyProfile() {
         </div>
     )
   return (
-    <div>
+    <div className='my-profile-container'>
         {profile(user)}
     </div>
   )

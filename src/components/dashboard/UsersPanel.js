@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom";
+import { useGetUsersQuery } from "../../features/actions/usersAPI";
 
 export default function UsersPanel() {
+    const token = localStorage.getItem("token")
+    const { data: users } = useGetUsersQuery(token)
+    const PrintUser = (user) => {
+        return (
+            <Link to={`${user._id}`}
+                key={user._id}>
+                {user.name}{" "}{user.email}</Link>
+        )
+    }
     return (
-        <div>
-            <p>users...</p>
-            <Link to="/user/633f85e48e9ab5a97a1cd1cc">Manage user</Link>
+        <div style={{display:"flex",flexDirection:"column"}}>
+            {users?.map(PrintUser)}
         </div>
     )
 }
