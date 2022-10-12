@@ -260,15 +260,17 @@
 
 .quantity-div{
     display: flex;
-    flex-direction: row;
     flex-basis: 30%;
     justify-content: center;
-    align-items: center;
     align-content: center;
 
 }
+.cart-quantity-div{
+    justify-content: center;
+}
 .cart-quantity-btn{
     display: flex;
+    align-items: center;
     flex-direction: column;
 
 }
