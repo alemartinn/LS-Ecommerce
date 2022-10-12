@@ -45,9 +45,9 @@ export default function EditProfile({user,Children}) {
     }
     return (
         <div className="edit-profile-continer">
-            <Children/>
             <p>Edit Profile</p>
             <form onSubmit={saveUser} className="edit-profile-form">
+            <Children/>
                 {basicModelForm.map((props) =>
                     <InputForm {...props}
                         style={{ color: fontColor }} />)}

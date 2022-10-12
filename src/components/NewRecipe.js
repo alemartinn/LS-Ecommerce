@@ -43,21 +43,6 @@ const NewRecipe = () => {
                 <div className='newrecipe-form'>
                     <FormRecipes/>
                 </div>
-
-                <section className='newrecipes-container-recipe' style={{backgroundColor: '#a7bb9275'}}>
-                    <div className='newrecipes-container-recipe-img'>
-                        <LinkRouter 
-                            to='/recipes' 
-                            className='recipes-container-newrecipe-button'
-                        >
-                            <span>See more recipes</span>
-                        </LinkRouter>
-                    </div>
-                    <div className='newrecipes-container-recipe-text'>
-                        <h2>Discover more recipes!</h2>
-                        <span>Are you looking for tasty dishes? Or some recipe easy-to-make? Enjoy watching our collection.</span>
-                    </div>
-                </section>
             </div>
         </div>
     );

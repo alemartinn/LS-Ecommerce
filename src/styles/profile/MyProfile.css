@@ -17,3 +17,11 @@
 .profile-bold{
     font-weight: bold;
 }
+.my-profile-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+    width: 100%;
+    height: 100%;
+}

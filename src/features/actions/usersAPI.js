@@ -35,6 +35,30 @@ export const usersAPI = createApi({
                 method: "POST",
                 headers: { "Authorization": "Bearer " + token }
             })
+        }),
+        getUsers: builder.query({
+            query: (token) => ({
+                url: "auth/",
+                method: "GET",
+                headers: { "Authorization": "Bearer " + token }
+            }),
+            transformResponse: res=> res.response
+        }),
+        getUser: builder.query({
+            query: ({id,token}) => ({
+                url: `auth/${id}`,
+                method: "GET",
+                headers: { "Authorization": "Bearer " + token }
+            }),
+            transformResponse: res=> res.response
+        }),
+        updateRole: builder.mutation({
+            query: ({ id, token, role }) => ({
+                url: `auth/update/role/${id}`,
+                method: "PUT",
+                body:{role},
+                headers: { "Authorization": "Bearer " + token }
+            })
         })
     })
 })
@@ -43,5 +67,8 @@ export const usersAPI = createApi({
             useUserSignUpMutation,
             useUserSignInMutation,
             useUserSignOutMutation,
-            useVerifyTokenMutation
+            useVerifyTokenMutation,
+            useGetUsersQuery,
+            useGetUserQuery,
+            useUpdateRoleMutation
         } = usersAPI
