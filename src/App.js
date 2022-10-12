@@ -15,11 +15,12 @@ import { useVerifyTokenMutation } from './features/actions/usersAPI'
 import { setCredentials, logOut } from "./features/user/userSlice"
 import ProfileLayout from './layouts/ProfileLayout'
 import MyRecipes from './components/dashboard/MyRecipes'
-import CreateRecipe from './components/dashboard/CreateRecipe'
 import ControlPanel from './components/dashboard/ControlPanel'
 import UserPanel from './components/dashboard/UserPanel'
 import RecipesPanel from './components/dashboard/RecipesPanel'
 import UsersPanel from './components/dashboard/UsersPanel'
+import MyProfile from './components/dashboard/MyProfile'
+import NewRecipe from './components/NewRecipe'
 
 function App() {
   const dispatch = useDispatch()
@@ -49,16 +50,16 @@ function App() {
           <Route path='/cartBag' element={<CartBag />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/recipes' element={<Recipes />} />
-          <Route path="user/:id" element={<UserPanel />} />
           <Route path='/dashboard'
             element={<ProfileLayout/>}>
-            <Route index element={<p>profile</p>} />
+            <Route index element={<MyProfile />} />
             <Route path="recipes" element={<MyRecipes/>}>
-              <Route path="create" element={<CreateRecipe />} />
+              <Route path="create" element={<NewRecipe />} />
               <Route path="edit" element={<p>edit recipe</p>} />
             </Route>
             <Route path="control-panel" element={<ControlPanel/>}>
               <Route path="users" element={<UsersPanel/>} />
+              <Route path="users/:id" element={<UserPanel />} />
               <Route path="recipes" element={<RecipesPanel/>} />
             </Route>
             </Route>

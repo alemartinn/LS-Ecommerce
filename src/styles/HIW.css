@@ -91,7 +91,7 @@
     box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.2);
 }
 
-.hiw-promo>h2,p {
+.hiw-promo>h2,.hiw-promo p {
     text-align: center;
 }
 

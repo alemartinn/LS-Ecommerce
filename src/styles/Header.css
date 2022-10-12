@@ -35,7 +35,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: .5rem;
+    gap: 20px;
     padding: 0 1rem;
     min-width: 33%
 }
@@ -69,7 +69,6 @@
 }
 .header-title{
     text-align: center;
-    min-width: 33%;
     font-family: 'Edu QLD Beginner', cursive;
 }
 
@@ -114,7 +113,7 @@
 
 }
 @media (max-width: 320px){
-    h1{
+    .headroom h1{
     font-size: 20px;
     }
     .header-buttons{

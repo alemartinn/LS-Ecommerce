@@ -1,19 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
 import { darkMode, lightMode } from "../features/theme/themeSlice";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link as LinkRouter } from "react-router-dom";
 import Headroom from "react-headroom"
 
 import "../styles/Header.css";
 import "../styles/ThemeButton.css";
 import Dropdown from "./Dropdown";
 import { openModal, specifyModal } from '../features/modal/modalSlice';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const dispatch = useDispatch()
   const multiDispatcher = (modalType) => {
     dispatch(openModal())
-    dispatch(specifyModal(modalType))
+    dispatch(specifyModal({name:modalType}))
   }
   /* Seccion para cambiar el tema de modo claro a modo oscuro */
   const [themeMode, setThemeMode] = useState(true);
@@ -63,20 +65,21 @@ function Header() {
     item.navLinks ? (
       <Dropdown name={item.name} links={item.navLinks} textColor={!light? fontColor: 'var(--fifth-color)'} key={item.name} styles={styleDropdown} />
     ) : (
-      <Link className="link" style={!light?{ color: fontColor }:{ color: 'var(--fifth-color)'}} key={item.name} to={item.to}>
+      <LinkRouter className="link" style={!light?{ color: fontColor }:{ color: 'var(--fifth-color)'}} key={item.name} to={item.to}>
         {item.name}
-      </Link>
+      </LinkRouter>
     );
 
   return (
     <Headroom wrapperStyle={{ backgroundColor: bcgColor }}>
       <div style={{ backgroundColor: fourthColor }} className="header-top-conteiner">
         <div className="header-top">
-          <div className="header-logo-container">
+          <LinkRouter to='' className="header-logo-container">
             <img src="images/logo.png" alt="logo" className="header-logo" />
-          </div>
-          <h1 className="header-title"
-            style={{ color: fontColor }}>LS FOOD CO</h1>
+          </LinkRouter>
+          <LinkRouter to='' className="header-title-link">
+            <h1 className="header-title" style={{ color: fontColor }}> LS FOOD CO </h1> 
+          </LinkRouter>
           <div className="header-buttons">
             <label className="switch">
               <input
@@ -85,22 +88,26 @@ function Header() {
               />
               <span className="slider" />
             </label>
-            <img
+            {/* <img
               onClick={() => multiDispatcher(user?.name?'profile':'signIn')}
               className="header-buttons-img"
               alt="profile"
               src={user?.photo || "https://cdn-icons-png.flaticon.com/512/6733/6733817.png"}>
-            </img>
-            <Link to={"/cartbag"} style={{textDecoration:'none'}}>
-              <div className="header-cartbag">
-                <img
-                  className="header-buttons-img"
-                  alt="cart"
-                  src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
-                ></img>
-                <span className="cartbag-quantity">3</span>
-              </div>
-            </Link>
+            </img> */}
+            <button style={{outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer', color: fontColor}}
+              onClick={() => multiDispatcher(user?.name?'profile':'signIn')}
+            >
+              <FontAwesomeIcon icon={faUser} color={fontColor} size='2x'/>  
+            </button>
+            <LinkRouter to={"/cartbag"} className="header-cartbag"style={{textDecoration:'none'}} >
+              {/* <img
+                className="header-buttons-img"
+                alt="cart"
+                src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
+              ></img> */}
+              <FontAwesomeIcon icon={faCartShopping} color={fontColor} size='2x' />
+              <span className="cartbag-quantity">3</span>
+            </LinkRouter>
           </div>
         </div>
       </div>
