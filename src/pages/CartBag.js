@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark, faTruckFast, faUser, faTag, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
+import { faXmark, faTruckFast, faUser, faTag, faPlus, faMinus, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import '../styles/CartBag.css'
 import Form from '../components/Form'
 import Card from '../components/Card'
 import Paypalbtn from '../components/Paypalbtn'
 import { openModal, specifyModal } from '../features/modal/modalSlice'
-import { addToCart, removeFromCart } from '../features/cart/cartSlice'
+import { addToCart, removeFromCart, decreaseQuantity, emptyCart, getTotals } from '../features/cart/cartSlice'
 
 export default function CartBag() {
   const coupon = 3
@@ -36,11 +36,19 @@ export default function CartBag() {
     dispatch(openModal())
     dispatch(specifyModal({ name: modalType }))
   }
-  function handleAddToCart(item) {
-    dispatch(addToCart(item))
-  }
+  // function handleAddToCart(item) {
+  //   dispatch(addToCart(item))
+  // }
   function handleRemoveFromCart(item) {
     dispatch(removeFromCart(item))
+  }
+  function handleIncreaseQuantity(item) {
+
+    dispatch(addToCart(item))
+  }
+  function handleDecreaseQuantity(item) {
+
+    dispatch(decreaseQuantity(item))
   }
   const {
     bcgColor,
@@ -86,13 +94,18 @@ export default function CartBag() {
       setSubTotal(price * quantity)
     }
   }, [quantity])
-
+  useEffect(() => {
+   dispatch(getTotals())
+  }, [cart])
   return (
     <>
       <main className='cart-bag-main' style={{ backgroundColor: bcgColor, color: fontColor }}>
         <div className='cart-bag-container'  >
           <div className={`cart-bag-products ${light && "light"}`} style={{ backgroundColor: thirdColor }}>
-            <h2>My Cart</h2>
+            <div className="cart-header">
+              <h2>My Cart</h2>
+              <FontAwesomeIcon icon={faTrashCan} onClick={() => dispatch(emptyCart())} />
+            </div>
             <div className="cart-table" style={{ backgroundColor: bcgColor, color: fontColor }}>
               <p className='cart-p'>Product</p>
               <p className='cart-p'>Price</p>
@@ -135,8 +148,8 @@ export default function CartBag() {
                       <div className='quantity-div' style={{ backgroundColor: bcgColor, color: fontColor }}>
                         <p> Quantity:  {cartItem.quantity}</p>
                         <div className='cart-quantity-btn' style={{ backgroundColor: bcgColor, color: fontColor }} >
-                          <FontAwesomeIcon className='cart-bag-quantity' icon={faPlus} onClick={() => setQuantity(quantity + 1)} />
-                          <FontAwesomeIcon className='cart-bag-quantity' icon={faMinus} onClick={() => { if (quantity >= 2) { setQuantity((quantity - 1)) } }} />
+                          <FontAwesomeIcon className='cart-bag-quantity' icon={faPlus} onClick={() => handleIncreaseQuantity(cartItem)} />
+                          <FontAwesomeIcon className='cart-bag-quantity' icon={faMinus} onClick={() => handleDecreaseQuantity(cartItem)} />
                         </div>
                       </div>
                       <p>Subtotal: ${cartItem.price * cartItem.quantity}</p>
