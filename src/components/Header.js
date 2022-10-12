@@ -91,12 +91,15 @@ function Header() {
               alt="profile"
               src={user?.photo || "https://cdn-icons-png.flaticon.com/512/6733/6733817.png"}>
             </img>
-            <Link to={"/cartbag"}>
-              <img
-                className="header-buttons-img"
-                alt="cart"
-                src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
-              ></img>
+            <Link to={"/cartbag"} style={{textDecoration:'none'}}>
+              <div className="header-cartbag">
+                <img
+                  className="header-buttons-img"
+                  alt="cart"
+                  src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
+                ></img>
+                <span className="cartbag-quantity">3</span>
+              </div>
             </Link>
           </div>
         </div>
