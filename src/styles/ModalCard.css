@@ -1,3 +1,6 @@
+.modal-card-container p,.modal-card-container span, .modal-card-container h2 {
+    text-shadow: 1px 1px #fff;
+}
 .modal-card-container{
     width: 100%;
     display: flex;
@@ -5,8 +8,17 @@
     align-items: center;
     flex-wrap: wrap;
     border: 1px solid black;
+    position: relative;
+}
+.modal-card-background{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background-image: url(https://img.freepik.com/fotos-premium/verduras-frescas-colores-coctelera-frutas-pimienta-escritorio-madera-blanca_23-2148062711.jpg);
     background-size: cover;
+    filter: blur(4px) brightness(80%);
+    z-index: -1;
 }
 .modal-card-title{
     width: 100%;
@@ -16,17 +28,17 @@
     font-size: 45px;
     font-weight: bold;
     margin-top: 25px;
+    text-shadow: 1px 1px #fff;
 }
-
-
 .modal-card-img-container{
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
     width: 50%;
+    min-width: 290px;
+    max-height: 290px;
 }
 .modal-card-img{
-    width: 100%;
-    max-width: 600px;
+    height: 100%;
     object-fit: contain;
     border: 2px solid black;
     border-radius: 20px 0 20px 0;
@@ -38,17 +50,18 @@
 
 .modal-card-description{
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
-    min-width: 50%;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
 }
 .modal-card-sub-description{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    padding: 12px 0;
+    justify-content: center;
     gap: 20px;
+    padding: 12px 0;
+    width: 50%;
     font-size: 25px;
 }
 .modal-card-link-add{
@@ -56,12 +69,7 @@
     justify-content: space-between;
     padding: 12px 0;
 }
-.modal-card-button{
-    padding: 3px 40px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 25px;
-}
+
 .modal-card-recipe{
     font-size: 25px;
     text-decoration: none;
@@ -69,4 +77,10 @@
     padding: 3px 40px;
     border-radius: 20px;
     border: 2px solid black;
+    transition: all .4s;
+    text-shadow: 1px 1px #fff;
+    box-shadow: 1px 1px 4px #fff;
+}
+.modal-card-recipe:hover{
+    transform: scale(.85);
 }
