@@ -35,16 +35,14 @@
 	text-align: center;
 }
 .contact{
-
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
 .contact-description-p{
-    font-weight: bold;
-	font-size: 1.7rem;
-
+	font-size: 1rem;
+	padding: .5rem;
 }
 .contact-map-img{
 	object-fit: cover;
@@ -58,58 +56,25 @@
 .contact-map-img:hover{
 	transform: scale(1.5);
 }
-.contact-inputs-send{
-	padding: 10px 30px;
-	font-weight: bold;
-	font-size: 18px;
-	border-radius: 0.5em;
-	cursor: pointer;
-}
 
-.contact-inputs input[type="text"] {
-	font: 15px/24px "Lato", Arial, sans-serif;
-	background-color: transparent;
+.contact-inputs .contact-input {
+	font: 1rem "Lato", Arial, sans-serif;
+	background-color: #00000003;
 	width: 100%;
 	box-sizing: border-box;
 	letter-spacing: 1px;
+	padding: .5rem;
+	border-radius: 10px;
     margin: 10px 0;
-    border: none;
+    border: 2px solid;
 	text-indent: 5px;
 }
-.contact-inputs input:focus {
-    outline:none;
+.contact-inputs .contact-input:focus {
+    outline-color:var(--third-color);
+	outline-style: solid;
 }
 
 
-.effect-1~.focus-border1 {
-	position: relative;
-	bottom: 10px;
-	left: 50%;
-	width: 0;
-	height: 3px;
-	background-color: red;
-	transition: 0.4s;
-}
-.effect-2~.focus-border2 {
-	position: relative;
-	bottom: 10px;
-	left: 50%;
-	width: 0;
-	height: 3px;
-	background-color: red;
-	transition: 0.4s;
-} 
- 
-.effect-1:hover~.focus-border1 {
-	width: 100%;
-	transition: 0.4s;
-	left: 0;
-}
-.effect-2:hover~.focus-border2{
-	width: 100%;
-	transition: 0.4s;
-	left: 0;
-}
 
 @media (max-width:320px){
 	.contact-map{
