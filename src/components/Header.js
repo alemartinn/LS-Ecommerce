@@ -15,12 +15,12 @@ function Header() {
   const dispatch = useDispatch()
   const multiDispatcher = (modalType) => {
     dispatch(openModal())
-    dispatch(specifyModal({name:modalType}))
+    dispatch(specifyModal({ name: modalType }))
   }
   /* Seccion para cambiar el tema de modo claro a modo oscuro */
   const [themeMode, setThemeMode] = useState(true);
   const { fontColor, fourthColor, bcgColor, light } = useSelector((state) => state.color);
-  const {user} = useSelector(state=>state.user)
+  const { user } = useSelector(state => state.user)
   useEffect(() => {
     if (themeMode) {
       dispatch(lightMode());
@@ -33,9 +33,9 @@ function Header() {
     { name: "HIW", to: "/hiw" },
     {
       name: "Products",
-      to: "/",
+      to: "/products",
       navLinks: [
-        { name: "All", to: "/" },
+        { name: "All", to: "/products" },
         { name: "Healthy", to: "/" },
         { name: "Vegan", to: "/" },
         { name: "Family", to: "/" },
@@ -45,11 +45,11 @@ function Header() {
       ],
     },
     {
-      name: "Blog",
-      to: "/",
+      name: "Recipes",
+      to: "/recipes",
       navLinks: [
-        { name: "All", to: "/" },
-        { name: "Healthy", to: "/" },
+        { name: "All", to: "/recipes" },
+        { name: "Healthy", to: "/recipes" },
       ],
     },
     { name: "Contact", to: "/contact" },
@@ -63,9 +63,9 @@ function Header() {
   }
   const pages = (item) =>
     item.navLinks ? (
-      <Dropdown name={item.name} links={item.navLinks} textColor={!light? fontColor: 'var(--fifth-color)'} key={item.name} styles={styleDropdown} />
+      <Dropdown name={item.name} links={item.navLinks} textColor={!light ? fontColor : 'var(--fifth-color)'} key={item.name} styles={styleDropdown} />
     ) : (
-      <LinkRouter className="link" style={!light?{ color: fontColor }:{ color: 'var(--fifth-color)'}} key={item.name} to={item.to}>
+      <LinkRouter className="link" style={!light ? { color: fontColor } : { color: 'var(--fifth-color)' }} key={item.name} to={item.to}>
         {item.name}
       </LinkRouter>
     );
@@ -78,7 +78,7 @@ function Header() {
             <img src="images/logo.png" alt="logo" className="header-logo" />
           </LinkRouter>
           <LinkRouter to='' className="header-title-link">
-            <h1 className="header-title" style={{ color: fontColor }}> LS FOOD CO </h1> 
+            <h1 className="header-title" style={{ color: fontColor }}> LS FOOD CO </h1>
           </LinkRouter>
           <div className="header-buttons">
             <label className="switch">
@@ -94,12 +94,12 @@ function Header() {
               alt="profile"
               src={user?.photo || "https://cdn-icons-png.flaticon.com/512/6733/6733817.png"}>
             </img> */}
-            <button style={{outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer', color: fontColor}}
-              onClick={() => multiDispatcher(user?.name?'profile':'signIn')}
+            <button style={{ outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer', color: fontColor }}
+              onClick={() => multiDispatcher(user?.name ? 'profile' : 'signIn')}
             >
-              <FontAwesomeIcon icon={faUser} color={fontColor} size='2x'/>  
+              <FontAwesomeIcon icon={faUser} color={fontColor} size='2x' />
             </button>
-            <LinkRouter to={"/cartbag"} className="header-cartbag"style={{textDecoration:'none'}} >
+            <LinkRouter to={"/cartbag"} className="header-cartbag" style={{ textDecoration: 'none' }} >
               {/* <img
                 className="header-buttons-img"
                 alt="cart"

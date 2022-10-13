@@ -1,5 +1,4 @@
-
-.headroom{
+.headroom {
     z-index: 300;
     top: 0;
     right: 0;
@@ -11,17 +10,21 @@
     align-items: center;
     box-shadow: 0 -1px 8px 0 rgb(0 0 0 / 20%);
 }
+
 .headroom--unfixed {
     position: relative;
     transform: translateY(0);
 }
+
 .headroom--scrolled {
     transition: transform 200ms ease-in-out;
 }
+
 .headroom--unpinned {
     position: fixed;
     transform: translateY(-100%);
 }
+
 .headroom--pinned {
     position: fixed;
     transform: translateY(0%);
@@ -31,7 +34,8 @@
     height: 2em;
     cursor: pointer;
 }
-.header-buttons{
+
+.header-buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -39,11 +43,13 @@
     padding: 0 1rem;
     min-width: 33%
 }
-.header-cartbag{
+
+.header-cartbag {
     display: flex;
     align-items: center;
 }
-.cartbag-quantity{
+
+.cartbag-quantity {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,37 +60,47 @@
     font-size: 1.2rem;
     font-weight: 700;
     margin-left: 5px;
-    
+
 }
-.header-logo-container{
+
+.header-logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 33%;
 }
-.header-logo{
+
+.header-logo {
     width: 100px;
     height: 100px;
     object-fit: contain;
 }
-.header-title{
+
+.header-title {
     text-align: center;
     font-family: 'Edu QLD Beginner', cursive;
+    text-decoration: none;
 }
 
-.link{
+.header-title-link {
+    text-decoration: none;
+}
+
+.link {
     text-decoration: none;
     padding: 10px;
     transition: all .2s;
     text-align: center;
 }
-.header-top-conteiner{
-    width:100%;
+
+.header-top-conteiner {
+    width: 100%;
     display: flex;
     justify-content: center;
     z-index: 200;
 }
-.header-top{
+
+.header-top {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -94,14 +110,16 @@
     width: 100%;
     max-width: 1400px;
 }
-.header-nav-conteiner{
-    width:100%;
+
+.header-nav-conteiner {
+    width: 100%;
     display: flex;
     justify-content: center;
     z-index: 190;
     box-shadow: 0 -1px 8px 0 rgb(0 0 0 / 20%);
 }
-.header-nav{
+
+.header-nav {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -109,14 +127,16 @@
     width: 100%;
     max-width: 1400px;
     font-weight: 800;
-    
+
 
 }
-@media (max-width: 320px){
-    .headroom h1{
-    font-size: 20px;
+
+@media (max-width: 320px) {
+    .headroom h1 {
+        font-size: 20px;
     }
-    .header-buttons{
+
+    .header-buttons {
         display: none;
     }
 }
