@@ -29,6 +29,10 @@ export default function ProfileLayout() {
                         className="profile-link"
                         style={{ color: fontColor }}>Recipies</Link>
                     {user.role === "admin" ?
+                    <Link to="boxes"
+                    className="profile-link"
+                    style={{color:fontColor}}>Boxes</Link> : null}
+                    {user.role === "admin" ?
                     <Link to="control-panel"
                     className="profile-link"
                     style={{color:fontColor}}>Control Panel</Link>

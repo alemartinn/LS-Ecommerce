@@ -19,6 +19,7 @@
 }
 .my-profile-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     align-self: flex-start;
