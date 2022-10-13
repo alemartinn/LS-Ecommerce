@@ -7,10 +7,12 @@ export default function Detail() {
     const token = localStorage.getItem("token")
     const [recipe, setRecipe] = useState({})
     const { user } = useSelector(state => state.user)
+    const { fontColor, bcgColor, thirdColor } = useSelector(state => state.color)
     const [getNotAproved] = useGetNotApprovedRecipeMutation()
     const {id} = useParams();
     const {data:recipeRes,error} = useGetOneRecipeQuery(id)
     const navigate = useNavigate()
+    
     useEffect(() => {
         recipeRes&&setRecipe(recipeRes)
         if (user.role && !recipeRes) {
@@ -23,49 +25,62 @@ export default function Detail() {
             
     },[user,error,recipeRes])
     const printRecipe = (item) => (
-        <article className='detail-article'>
-            <div className='detail-modal'>
-                <div className='detail-container'>
-                    <h2 className='detail-title'>{item.title}</h2>
-                    <div className='detail-back-add'>
-                        <button onClick={()=> navigate('/')}>Go Back</button>
-                        <button>ADD</button>
-                    </div>
+        <article className='detail-modal'
+            style={{ backgroundColor: bcgColor, color: fontColor }}>
+            <div className='detail-top'>
+                <h2 className='detail-title'>{item.title}</h2>
+            </div>
+            <div className='detail-sub-description'>
+                <p className='detail-subtitle'>{item.category}</p>
+                <p className='detail-description'>{item.description}</p>
+            </div>
+            <div className='detail-info'>
+                <div className='detail-sub-info'>
+                <p className='detail-info-p'>
+                    <span
+                        style={{ fontWeight: "bold" }}
+                    >Allergens: </span>
+                    {item.allergens.map(item => item)}
+                </p>
+                <p className='detail-info-p'>
+                    <span style={{ fontWeight: "bold" }}>
+                        Time: </span>
+                    {item.preptime} min</p>
+                <p className='detail-info-p'>
+                    <span style={{ fontWeight: "bold" }}>
+                        Calories: </span>
+                    {item.calories}</p>
                 </div>
-                <div className='detail-sub-description'>
-                    <p className='detail-subtitle'>{item.category}</p>
-                    <img className='detail-img' src={item.image} alt='img-item' />
-                    <p className='detail-description'>{item.description}</p>
-                </div>
-                <div className='detail-all-info'>
-                    <div className='detail-info'>
-                        <p className='detail-info-p'><span style={{fontWeight:"bold"}}>Allergens:</span> {item.allergens.map(item => item)}</p>
-                        <p className='detail-info-p' style={{textAlign:"center",margin:"10px 0"}}><span style={{fontWeight:"bold"}}>Ingredients:</span></p>
-                        <div>{item.ingredients.map((item, index) => (
-                            <div className='detail-table' key={index} style={{display:"flex",gap:"30px",justifyContent:"space-between",fontSize:"24px"}}>
-                                <span className='detail-info-p'>{item.quantity} </span> 
-                                <span className='detail-info-p'>{item.name}</span>
-                            </div>
-                        ))}
-                        </div>
+                <div className="detail-ingredients">
+                <p
+                    className='detail-info-p'
+                    style={{ fontWeight: "bold"}}>
+                    Ingredients:
+                </p>
+                    {item.ingredients.map((item, index) => (
+                    <div className='detail-table'
+                        key={index}
+                        style={{ background: index % 2 ? "none":thirdColor }}>
+                        <span className='detail-info-p'>
+                            {item.quantity} </span>
+                        <span className='detail-info-p'>
+                            {item.name}</span>
                     </div>
-                    <div className='detail-more-info'>
-                        <p className='detail-info-p' style={{marginTop:"10px",fontWeight:"bold"}}>Details</p>
-                        <p className='detail-info-p'><span style={{fontWeight:"bold"}}>Time:</span> {item.preptime} min</p>
-                        <p className='detail-info-p'><span style={{fontWeight:"bold"}}>Calories:</span> {item.calories}</p>
-                    </div>
+                ))}
                 </div>
             </div>
         </article>
     )
 
-  return (
-    <main className='detail-main'>
-        <div className='detail-banner'>
-            <img className='detail-banner-img' src="https://www.wellandgood.com/wp-content/uploads/2015/05/meal_delivery_provenance.jpg" alt="recipe-banner" />
-        </div>
-        {recipe.title&&printRecipe(recipe)}
-        
-    </main>
-  )
+    return (
+        <main className='detail-main'
+            style={{ backgroundColor: bcgColor, color: fontColor }}>
+            <div className='detail-content'>
+                <div className='detail-banner'>
+                    <img className='detail-banner-img' src={recipe.image} alt={recipe.title} />
+                </div>
+                {recipe.title && printRecipe(recipe)}
+            </div>
+        </main>
+    )
 }
