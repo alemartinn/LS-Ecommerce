@@ -219,15 +219,21 @@
   flex-direction: column;
   gap: 40px;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 100%;
 }
 
 .card-contents {
+  font-size: 15px;
   padding: 5%;
   opacity: 0;
   display: none;
   transition: display 0.2s, opacity 0.8s;
+}
+
+.card-contens>div{
+  height: 300px;
+  display: flex;
 }
 
 .card-contents table {
@@ -260,7 +266,6 @@
 }
 
 .box-btn-card{
-  
   font-family: Agrandir, Verdana, Geneva, sans-serif;
   margin: 10px;
   padding: 15px 30px;
@@ -272,12 +277,7 @@
   display: block;
   border: 0px;
   font-weight: 700;
-  /* background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
-  box-shadow: 0px 0px 14px -7px #f09819; */
-  cursor: pointer;
-  /* background-color: var(--main-color-dark); */
-  /* background-image: linear-gradient(45deg, var(--main-color-dark) 0%, var(--main-color)  51%, var(--main-color-dark)  100%); */
-  background-image: linear-gradient(45deg, var(--main-color) 0%, var(--main-color-dark)  51%, var(--main-color)  100%);
+  cursor: pointer;background-image: linear-gradient(45deg, var(--main-color) 0%, var(--main-color-dark)  51%, var(--main-color)  100%);
   box-shadow: 0px 0px 14px -7px var(--main-dark);
   font-size: 1rem;
 }
