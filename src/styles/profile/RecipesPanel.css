@@ -1,6 +1,7 @@
 .recipes-panel-container{
     display: flex;
     justify-content: space-around;
+
     flex-wrap: wrap;
     width: 100%;
     margin: 2rem 0;
@@ -11,6 +12,8 @@
 }
 .recipes-panel-item{
     display: flex;
+    justify-content: center;
+    align-content: center;
     flex-direction: column;
 }
 .recipes-panel-btn-approve, .recipes-panel-btn-delete{
