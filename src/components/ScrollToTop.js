@@ -1,5 +1,8 @@
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, {useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import '../styles/ScrollToTop.css'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -18,7 +21,7 @@ function ScrollToTop() {
   }
 
   return (
-        <button className='scroll-to-top' onClick={goToTop}>Scroll to Top</button>
+        <button className='scroll-to-top' onClick={goToTop}><FontAwesomeIcon icon={faArrowUp} /></button>
   )
 }
 export default ScrollToTop
