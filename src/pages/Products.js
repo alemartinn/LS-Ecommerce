@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Button from '../components/Button';
 import ButtonRecipes from '../components/ButtonRecipes';
+import Card from '../components/Card';
 import InputSearch from '../components/InputSearch';
 import { useAllBoxesQuery, useGetBoxesByFilterQuery } from '../features/boxes/boxesApi';
 import '../styles/Products.css'
@@ -45,7 +46,7 @@ const Products = () => {
             <section className='recipes-container-recipes-cards'>
                 <h2 className='recipes-container-title-category-choosed'>Category: {categorySelected ? categorySelected : 'All'} ({allFilteredBoxes.length})</h2>
                 <div className='recipes-container-recipe-card'>
-                    {boxes.map((box, index) => <p key={index}>{box.name}</p>)}
+                    {boxes.map((box, index) => <Card item={box} key={index}/>)}
                 </div>
                 <Button type='button' btnColor={'btn-main-green-light'}>More recipes</Button>
             </section>
