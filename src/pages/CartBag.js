@@ -139,8 +139,8 @@ export default function CartBag() {
                 </div>
 
               ) : (<>
-                {cart.cartItems?.map(cartItem => (
-                  <div className='cart-bag-product' style={{ backgroundColor: bcgColor, color: fontColor }} >
+                {cart.cartItems?.map((cartItem, index) => (
+                  <div className='cart-bag-product' style={{ backgroundColor: bcgColor, color: fontColor }} key={index}>
                     <div className='cart-bag-card-number' style={{ backgroundColor: bcgColor, color: fontColor }}>
                       <img className='cart-bag-img' src={cartItem.recipe.image} alt={cartItem._id} />
                       <p>

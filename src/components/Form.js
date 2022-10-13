@@ -8,7 +8,7 @@ const Form = ({modelForm, Title, handleSubmit}) => {
     return (
         <form className="form-container" onSubmit={handleSubmit}>
             <span className="form-title" style={{color:fontColor}}>{Title}</span>
-            {modelForm.map(atrib => 
+            {modelForm.map((atrib, index) => 
                 <InputForm 
                     label={atrib.label}
                     input={{
@@ -20,6 +20,7 @@ const Form = ({modelForm, Title, handleSubmit}) => {
                     style={{
                         color: fontColor
                     }}
+                    key={index}
                 />
             )}
             <Button>
