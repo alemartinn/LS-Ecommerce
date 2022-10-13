@@ -68,12 +68,13 @@
 
 .contact-inputs input[type="text"] {
 	font: 15px/24px "Lato", Arial, sans-serif;
-	color: #333;
+	background-color: transparent;
 	width: 100%;
 	box-sizing: border-box;
 	letter-spacing: 1px;
     margin: 10px 0;
     border: none;
+	text-indent: 5px;
 }
 .contact-inputs input:focus {
     outline:none;
