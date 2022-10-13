@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartPlus, faCheck, faMinus, faCircleInfo, faBagShopping } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faMinus, faCircleInfo, faBagShopping } from '@fortawesome/free-solid-svg-icons'
 import '../styles/Card.css'
 import { openModal, specifyModal } from '../features/modal/modalSlice';
-import { useAllBoxesQuery } from '../features/boxes/boxesApi'
 import CardInfo from './CardInfo'
-import { openAlert, specifyMessage } from "../features/alert/alertSlice"
 import { addToCart, removeFromCart } from '../features/cart/cartSlice'
 
-export default function Card() {
+export default function Card({item}) {
   const { light } = useSelector(state => state.color)
   const dispatch = useDispatch()
   const multiDispatcher = (modalType) => {
@@ -17,17 +15,6 @@ export default function Card() {
     dispatch(specifyModal({ name: modalType }))
   }
   const [isClicked, setIsClicked] = useState(false);
-  const { data: boxesRes } = useAllBoxesQuery()
-
-
-  const [boxes, setBoxes] = useState([])
-
-  useEffect(() => {
-    if (boxesRes) {
-      setBoxes(boxesRes)
-    }
-  }, [boxesRes])
-
 
   function handleAddToCart(item) {
     setIsClicked(true)
@@ -39,12 +26,10 @@ export default function Card() {
   }
 
 
-
-  const printBoxes = (item) => (
+  return  (
     <div className={`card-wrapper ${light ? "light" : ""}`} key={item.name}>
       <div className="card-container">
-        {/* <div className="card-top" style={{ 'background': `url(${item.recipe.image})` }}></div> */}
-        <img className="card-top" src={item.recipe.image} />
+        <img className="card-top" src={item.recipe.image} alt={'described-food-card'} />
         <div className={isClicked ? 'card-bottom clicked' : 'card-bottom'}>
           <div className="card-left">
             <div className="card-details">
@@ -79,11 +64,5 @@ export default function Card() {
         </div>
       </div>
     </div>
-  )
-
-  return (
-    <>
-      {boxes.map(printBoxes)}
-    </>
   )
 }

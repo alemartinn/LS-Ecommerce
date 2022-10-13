@@ -247,7 +247,7 @@ export default function CartBag() {
         <div className='cart-popular-choices'>
           <h2>Popular choices...</h2>
           <div className='cart-choices-div'>
-            <Card />
+            <h2>Nacho's house 😍👍👌👀🏘</h2>
           </div>
         </div>
       </main>

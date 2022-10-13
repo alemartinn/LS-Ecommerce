@@ -14,6 +14,10 @@ const boxesApi = createApi({
             query: ()=> `/boxes`,
             transformResponse: res => res.response
         }),
+        getBoxesByFilter: builder.query({
+            query: ({name, category}) => `/boxes/query/?name=${name}&category=${category}`,
+            transformResponse: res => res.response
+        }),
         getOneBox:builder.query({
             query: (id)=> `/boxes/${id}`,
             transformResponse: res => res.response
@@ -31,4 +35,4 @@ const boxesApi = createApi({
 
 
 export default boxesApi
-export const {useAllBoxesQuery,useGetOneBoxQuery,useCreateBoxesMutation} = boxesApi
+export const {useAllBoxesQuery, useGetBoxesByFilterQuery, useGetOneBoxQuery, useCreateBoxesMutation} = boxesApi

@@ -21,6 +21,7 @@ import RecipesPanel from './components/dashboard/RecipesPanel'
 import UsersPanel from './components/dashboard/UsersPanel'
 import MyProfile from './components/dashboard/MyProfile'
 import NewRecipe from './components/NewRecipe'
+import Products from './pages/Products'
 
 function App() {
   const dispatch = useDispatch()
@@ -44,6 +45,7 @@ function App() {
       <WebsiteLayout>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/products' element={<Products />} />
           <Route path='/hiw' element={<HIW />} />
           <Route path='/*' element={<NotFound />} />
           <Route path='/details/:id' element={<Detail />} />
