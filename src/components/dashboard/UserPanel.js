@@ -5,6 +5,7 @@ import { useGetUserQuery, useUpdateRoleMutation, useRemoveUserMutation } from ".
 import Button from "../Button"
 import { specifyMessage, openAlert } from "../../features/alert/alertSlice"
 import "../../styles/profile/UserPanel.css"
+import Profile from "../Profile"
 
 export default function UserPanel() {
     const { id } = useParams()
@@ -19,18 +20,6 @@ export default function UserPanel() {
     const [updateRole] = useUpdateRoleMutation()
     const [removeUser] = useRemoveUserMutation()
 
-    const Profile = ({ item }) => (
-        // remover en un futuro
-        <div className='profile-container'>
-            <img className='profile-img' src={item.photo}/>
-            <div className='profile-info'>
-                <p><span className='profile-bold'>Name:</span> {item.name}</p>
-                <p><span className='profile-bold'>LastName:</span> {item.lastname}</p>
-                <p><span className='profile-bold'>Email:</span> {item.email}</p>
-                <p><span className='profile-bold'>Role:</span> {item.role}</p>
-            </div>
-        </div>
-    )
 
     
     const submitRole = (e) => {
@@ -72,7 +61,7 @@ export default function UserPanel() {
             <p className="user-panel-title">Title...</p>
             {isSuccess ?
                 <>
-                    <Profile item={user} />
+                    <Profile userData={user} />
                     <form onSubmit={submitRole}
                         className="user-panel-form">
                         <select defaultValue={userBase.role}
