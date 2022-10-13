@@ -7,6 +7,7 @@ import { logOut } from "../features/user/userSlice"
 import { useUserSignOutMutation } from "../features/actions/usersAPI"
 import { openAlert, specifyMessage } from "../features/alert/alertSlice"
 import "../styles/profile/ProfileMenu.css"
+import Profile from "./Profile"
 
 export default function ProfileMenu() {
     const { user } = useSelector(state=>state.user)
@@ -82,22 +83,7 @@ export default function ProfileMenu() {
     return (
         <div className="profile-menu-container" style={{backgroundColor:bcgColor}}>
             <div className="profile-menu-user">
-                <div className="profile-menu-user-top">
-                    <img src={user.photo}
-                        alt={user.name}
-                        className="profile-menu-photo" />
-                    <button className="profile-menu-edit-btn">
-                        <FontAwesomeIcon
-                            icon={faPen}
-                            className="profile-menu-edit-icon" />
-                    </button>
-                </div>
-                <div className="profile-menu-user-bottom">
-                    <p>Name: {user.name}</p>
-                    {/* <p>{user.lastname}</p> */}
-                    <p>Email: {user.email}</p>
-                    <p>Role: {user.role}</p>
-                </div>
+                    <Profile  userData={user}/>
             </div>
             <div className="profile-menu-options">
                 {listOptions.map(printOptions)}
