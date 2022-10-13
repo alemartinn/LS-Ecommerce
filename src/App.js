@@ -24,6 +24,7 @@ import NewRecipe from './components/NewRecipe'
 import Products from './pages/Products'
 import BoxPanel from './components/dashboard/BoxPanel'
 import AddBox from './components/dashboard/AddBox'
+import EditBox from './components/dashboard/EditBox'
 
 function App() {
   const dispatch = useDispatch()
@@ -63,7 +64,7 @@ function App() {
             </Route>
             <Route path="boxes" element={<BoxPanel />}>
               <Route path="create" element={<AddBox />} />
-              <Route path="edit" element={<p>Edit a Box</p>} />
+              <Route path="edit" element={<EditBox />} />
             </Route>
             <Route path="control-panel" element={<ControlPanel/>}>
               <Route path="users" element={<UsersPanel/>} />

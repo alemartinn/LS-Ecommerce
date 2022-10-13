@@ -108,7 +108,7 @@ console.log(selectRecipe)
     }
 
     return (
-        <div>
+        <div className="box-panel-background">
             <h2> Box Creation!</h2>
             <select  className="user-panel-role" 
                         onLoad={e => setSelectRecipe(e.target.value)}

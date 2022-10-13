@@ -1,11 +1,14 @@
 .profile-menu-container{
     position: relative;
-    width: 90vw;
+    max-width: 85;
+    width: 80vw;
     max-width: 1400px;
     min-height: 90vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    border: solid 5px 0px 10px 0px black;
+    border-color: double black;
 }
 .profile-menu-container:before{
     content: '' ;
@@ -13,7 +16,7 @@
     left: 0;
     top: 0 ;
     opacity: 0.5;
-    background-image: url(https://st.depositphotos.com/1001069/3566/i/450/depositphotos_35665509-stock-photo-various-spices-selection.jpg)!important;
+    background-image: url(https://png.pngtree.com/background/20210715/original/pngtree-hand-drawn-line-simple-vegetable-healthy-food-background-picture-image_1300758.jpg)!important;
     background-repeat: no-repeat;
     background-size: cover;
     display: block;
@@ -65,11 +68,17 @@
     text-decoration: none;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid black;
-    font-size: 1rem;
-    padding: .5rem;
+    border-bottom: 2px solid black;
+    font-size: 1.5rem;
+    margin: .2rem;
+    padding: .8rem;
     cursor: pointer;
+    font-weight: 500;
 }
 .profile-menu-opt:hover{
-    transform: scale(1.05);
+    transition: 0.6s;
+    transform: scale(1.1);
+    font-style: oblique;
+    border-bottom: 8px double black;
 }
+
