@@ -1,0 +1,30 @@
+
+.scroll-to-top{
+    font-family: Agrandir, Verdana, Geneva, sans-serif;
+    padding: 10px 17px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    /* background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+    box-shadow: 0px 0px 14px -7px #f09819; */
+    cursor: pointer;
+    background-image: linear-gradient(45deg, var(--third-color) 0%, var(--col-green-2)  51%, var(--third-color)  100%);
+    box-shadow: 0px 0px 14px -7px var(--third-color);
+    font-size: 1.5rem;
+}
+
+.scroll-to-top:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.scroll-to-top:active {
+    transform: scale(0.95);
+}

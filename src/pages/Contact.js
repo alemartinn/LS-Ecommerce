@@ -12,7 +12,7 @@ export default function Contact() {
                         <h2 className='contact-title'>Contact</h2>
                         <p className='contact-me-p'>📨 lsfoodco@gmail.com</p>
                         <p className='contact-me-p'>📞 011-12345678</p>
-                        <p className='contact-me-p'>🏠 San Francisco Solano</p>
+                        {/* <p className='contact-me-p'>🏠 San Francisco Solano</p> */}
                     </div>
                     <div className='contact-map'>
                         <img className='contact-map-img' src='/images/map.png' alt="map-location" />

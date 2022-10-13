@@ -121,7 +121,6 @@ function Home() {
           </section>
         </div>
         <div className="home-cards-container">
-          <h2>Elvio trae manaos</h2>
         </div>
       </div>
     </main>

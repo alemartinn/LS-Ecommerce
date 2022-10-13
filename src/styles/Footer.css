@@ -8,11 +8,12 @@
 .footer-content{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     max-width: 1400px;
     min-height: 20vh;
+    padding: 20px 0;
 }
 .footer-text{
     text-align: center;
@@ -22,13 +23,38 @@
 .footer-logo{
     width: 100px;
 }
-.footer-col{
+.footer-col-social{
     margin: 1rem;
     display: flex;
     flex-wrap: wrap;
-    align-content: center;
     align-items: center;
+    gap: 10px;
 }
+
+.whatsapp-ico{
+    width: 65px;
+    height: 65px;
+    padding: 3px;
+    
+    /* border-radius: 50%; */
+    /* box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.4); */
+    /* box-shadow: 2px 2px 6px rgba(0,0,0,0.4); */
+}
+.facebook-ico{
+    width: 55px;
+    height: 55px;
+    padding: 8px;
+    margin: 0 5px;
+    /* border-radius: 50%; */
+    /* box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.4); */
+}
+
+.instagram-ico{
+    width: 42px;
+    height: 42px;
+    margin: 0 5px;
+}
+
 .footer-link{
     text-decoration: none;
     font-size: 1.2rem;
