@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 import { useGetOneBoxQuery } from '../features/boxes/boxesApi';
 import '../styles/ModalCard.css'
 
-export default function ModalCard() {
+export default function ModalCard({id}) {
 
-  const {data:boxRes} =useGetOneBoxQuery("63407e8edb54bcb45e0bc2d4")
-  console.log(boxRes)
+  const {data:boxRes} = useGetOneBoxQuery(id)
 
-  const[box,setBox] = useState([])
+  const[box,setBox] = useState({})
   useEffect(()=>{
     if(boxRes){
       setBox(boxRes)
