@@ -13,7 +13,7 @@ export default function Detail() {
     const navigate = useNavigate()
     useEffect(() => {
         recipeRes&&setRecipe(recipeRes)
-        if (user.role) {
+        if (user.role && !recipeRes) {
             user.role === "admin"&& getNotAproved({ id, token })
             .unwrap().then(res => { res.success ? setRecipe(res.response) : navigate('/') })
             .catch(err=>navigate("/"))
