@@ -99,13 +99,14 @@ function Header() {
             >
               <FontAwesomeIcon icon={faUser} color={fontColor} size='2x'/>  
             </button>
-            <LinkRouter to={"/cartbag"}>
+            <LinkRouter to={"/cartbag"} className="header-cartbag"style={{textDecoration:'none'}} >
               {/* <img
                 className="header-buttons-img"
                 alt="cart"
                 src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
               ></img> */}
               <FontAwesomeIcon icon={faCartShopping} color={fontColor} size='2x' />
+              <span className="cartbag-quantity">3</span>
             </LinkRouter>
           </div>
         </div>

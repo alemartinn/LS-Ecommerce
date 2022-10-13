@@ -9,7 +9,9 @@ export default function ControlPanel() {
     const navigate = useNavigate()
     const isAdmin = () => user.role !== "admin" && navigate("/")
     return (
-        <div className="control-panel-main" style={{color:fontColor}} onLoad={isAdmin}>
+        <div className="control-panel-main"
+            style={{ color: fontColor }}
+            onLoad={isAdmin}>
             <p className="control-panel-title">Control Panel</p>
             <div className="control-panel-nav">
                 <Link to="users"
@@ -18,7 +20,7 @@ export default function ControlPanel() {
                 <Link to="recipes"
                     className="control-panel-button"
                     style={{color:fontColor}}>Manage Recipes</Link>
-                </div>
+            </div>
             <Outlet />
         </div>
     )

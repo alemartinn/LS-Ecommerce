@@ -7,7 +7,6 @@
 .layout-profile-content{
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     width: 100%;
     max-width: 1400px;
 }
@@ -15,10 +14,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: 1rem;
     width: 20%;
     height: 100vh;
+    padding: 1rem;
     position: sticky;
     bottom: 0;
     top:0;
@@ -29,6 +29,11 @@
     padding: 1rem;
     border-radius: 20px;
     border: 1px solid;
+    cursor: pointer;
+    transition: all .7s;
+}
+.profile-link:hover{
+    transform: scale(.85);
 }
 .layout-profile-main{
     width: 80%;
@@ -39,6 +44,7 @@
         height: 20vh;
         flex-direction: row;
         flex-wrap: wrap;
+        position: relative;
     }
     .layout-profile-main{
         width: 100%;

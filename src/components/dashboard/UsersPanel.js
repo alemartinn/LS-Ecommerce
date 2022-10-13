@@ -1,18 +1,29 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useGetUsersQuery } from "../../features/actions/usersAPI";
+import "../../styles/profile/UsersPanel.css"
 
 export default function UsersPanel() {
     const token = localStorage.getItem("token")
     const { data: users } = useGetUsersQuery(token)
+    const {fontColor, thirdColor} = useSelector(state=>state.color)
     const PrintUser = (user) => {
         return (
-            <Link to={`${user._id}`}
+            <div className="users-panel-item"
+                style={{ color: fontColor, backgroundColor: thirdColor }}
                 key={user._id}>
-                {user.name}{" "}{user.email}</Link>
+                <p className="users-panel-name">
+                    {user.name}{" "}{ user.lastname }</p>
+                <Link to={`${user._id}`}
+                    className="users-panel-email"
+                    style={{color:fontColor}}>
+                    {user.email}
+                </Link>
+            </div>
         )
     }
     return (
-        <div style={{display:"flex",flexDirection:"column"}}>
+        <div className="users-panel-container">
             {users?.map(PrintUser)}
         </div>
     )

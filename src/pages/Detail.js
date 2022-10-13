@@ -1,12 +1,27 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useGetOneRecipeQuery } from '../features/recipes/recipesApi'
+import { useGetNotApprovedRecipeMutation, useGetOneRecipeQuery } from '../features/recipes/recipesApi'
 import '../styles/Detail.css'
 export default function Detail() {
+    const token = localStorage.getItem("token")
+    const [recipe, setRecipe] = useState({})
+    const { user } = useSelector(state => state.user)
+    const [getNotAproved] = useGetNotApprovedRecipeMutation()
     const {id} = useParams();
-    const {data:recipeRes} = useGetOneRecipeQuery(id)
+    const {data:recipeRes,error} = useGetOneRecipeQuery(id)
     const navigate = useNavigate()
-
+    useEffect(() => {
+        recipeRes&&setRecipe(recipeRes)
+        if (user.role) {
+            user.role === "admin"&& getNotAproved({ id, token })
+            .unwrap().then(res => { res.success ? setRecipe(res.response) : navigate('/') })
+            .catch(err=>navigate("/"))
+        } else if (error && user.role !== "admin") {
+            navigate("/")
+        }
+            
+    },[user,error,recipeRes])
     const printRecipe = (item) => (
         <article className='detail-article'>
             <div className='detail-modal'>
@@ -49,7 +64,7 @@ export default function Detail() {
         <div className='detail-banner'>
             <img className='detail-banner-img' src="https://www.wellandgood.com/wp-content/uploads/2015/05/meal_delivery_provenance.jpg" alt="recipe-banner" />
         </div>
-        { recipeRes && printRecipe(recipeRes)}
+        {recipe.title&&printRecipe(recipe)}
         
     </main>
   )
