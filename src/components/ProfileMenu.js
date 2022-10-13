@@ -38,15 +38,6 @@ export default function ProfileMenu() {
         },
         type: "button"
     }
-    const editProps = {
-        onClick: () => dispatch(specifyModal({
-            name: "edit-profile", props: {
-                user,
-                Children: BackMenu
-            }
-        })),
-        type: "button"
-    }
     const listOptions = [
         {
             name: "My Profile",
@@ -55,11 +46,6 @@ export default function ProfileMenu() {
                 to: "/dashboard",
                 onClick:()=>dispatch(closeModal())
             }
-        },
-        {
-            name: "Edit Profile",
-            Component: "button",
-            props: editProps
         },
         {
             name: "My Recipes",

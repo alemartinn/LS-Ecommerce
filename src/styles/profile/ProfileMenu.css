@@ -1,4 +1,5 @@
 .profile-menu-container{
+    position: relative;
     width: 90vw;
     max-width: 1400px;
     min-height: 90vh;
@@ -6,16 +7,33 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+.profile-menu-container:before{
+    content: '' ;
+    position: absolute ;
+    left: 0;
+    top: 0 ;
+    opacity: 0.5;
+    background-image: url(https://st.depositphotos.com/1001069/3566/i/450/depositphotos_35665509-stock-photo-various-spices-selection.jpg)!important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+
 .profile-menu-user, .profile-menu-options{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-width: 50%;
+    position: relative;
 }
 .profile-menu-photo{
     width: 150px;
     height: 150px;
+    position: relative;
 }
 .profile-menu-user-top{
     flex-grow: 1;
@@ -25,21 +43,25 @@
     border-radius: 360px;
 }
 .profile-menu-edit-btn{
+    position: relative;
     position: absolute;
     bottom: 0;
     right: 0;
 }
 .profile-menu-user-bottom{
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     
 }
 .profile-menu-user-bottom>p{
+    position: relative;
     font-size: 1rem;
     text-align: start;
 }
 .profile-menu-opt{
+    position: relative;
     text-decoration: none;
     background-color: transparent;
     border: none;

@@ -22,6 +22,8 @@ import UsersPanel from './components/dashboard/UsersPanel'
 import MyProfile from './components/dashboard/MyProfile'
 import NewRecipe from './components/NewRecipe'
 import Products from './pages/Products'
+import BoxPanel from './components/dashboard/BoxPanel'
+import AddBox from './components/dashboard/AddBox'
 
 function App() {
   const dispatch = useDispatch()
@@ -58,6 +60,10 @@ function App() {
             <Route path="recipes" element={<MyRecipes/>}>
               <Route path="create" element={<NewRecipe />} />
               <Route path="edit" element={<p>edit recipe</p>} />
+            </Route>
+            <Route path="boxes" element={<BoxPanel />}>
+              <Route path="create" element={<AddBox />} />
+              <Route path="edit" element={<p>Edit a Box</p>} />
             </Route>
             <Route path="control-panel" element={<ControlPanel/>}>
               <Route path="users" element={<UsersPanel/>} />
