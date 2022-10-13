@@ -89,13 +89,14 @@ export default function CartBag() {
   //     </div>
   //     )
   // }
+  // useEffect(() => {
+  //   if (quantity > 1) {
+  //     setSubTotal(price * quantity)
+  //   }
+  // }, [quantity])
+  
   useEffect(() => {
-    if (quantity > 1) {
-      setSubTotal(price * quantity)
-    }
-  }, [quantity])
-  useEffect(() => {
-   dispatch(getTotals())
+    dispatch(getTotals())
   }, [cart])
   return (
     <>
@@ -219,7 +220,7 @@ export default function CartBag() {
               <p className='cart-bag-subtitle'>Total</p>
             </div>
             <div className='cartBag-discount'>
-              <p className='cart-bag-data' >Default Price : ${subTotal}</p>
+              <p className='cart-bag-data' >Default Price : ${cart.cartTotalAmount}</p>
               <p className='cart-bag-data'>With coupon: ${subTotal - (coupon * quantity)}</p>
               <p className='cart-bag-discount'>% {testDiscount} of discount !</p>
             </div>

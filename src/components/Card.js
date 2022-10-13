@@ -5,9 +5,9 @@ import { faCheck, faMinus, faCircleInfo, faBagShopping } from '@fortawesome/free
 import '../styles/Card.css'
 import { openModal, specifyModal } from '../features/modal/modalSlice';
 import CardInfo from './CardInfo'
-import { addToCart, removeFromCart } from '../features/cart/cartSlice'
+import { addToCart, removeFromCart, getTotals } from '../features/cart/cartSlice'
 
-export default function Card({item}) {
+export default function Card({ item }) {
   const { light } = useSelector(state => state.color)
   const dispatch = useDispatch()
   const multiDispatcher = (modalType) => {
@@ -19,14 +19,16 @@ export default function Card({item}) {
   function handleAddToCart(item) {
     setIsClicked(true)
     dispatch(addToCart(item))
+    dispatch(getTotals())
   }
   function handleRemoveFromCart(item) {
     setIsClicked(false)
     dispatch(removeFromCart(item))
+    dispatch(getTotals())
   }
 
 
-  return  (
+  return (
     <div className={`card-wrapper ${light ? "light" : ""}`} key={item.name}>
       <div className="card-container">
         <img className="card-top" src={item.recipe.image} alt={'described-food-card'} />

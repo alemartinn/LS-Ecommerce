@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
+  const {cartTotalQuantity} = useSelector(state => state.cart)
   const dispatch = useDispatch()
   const multiDispatcher = (modalType) => {
     dispatch(openModal())
@@ -106,7 +107,7 @@ function Header() {
                 src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
               ></img> */}
               <FontAwesomeIcon icon={faCartShopping} color={fontColor} size='2x' />
-              <span className="cartbag-quantity">3</span>
+              <span className="cartbag-quantity">{cartTotalQuantity}</span>
             </LinkRouter>
           </div>
         </div>
