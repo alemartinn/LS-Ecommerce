@@ -9,19 +9,19 @@ export default function Detail() {
     const { user } = useSelector(state => state.user)
     const [getNotAproved] = useGetNotApprovedRecipeMutation()
     const {id} = useParams();
-    const {data:recipeRes} = useGetOneRecipeQuery(id)
+    const {data:recipeRes,error} = useGetOneRecipeQuery(id)
     const navigate = useNavigate()
     useEffect(() => {
-        recipeRes && setRecipe(recipeRes)
+        recipeRes&&setRecipe(recipeRes)
         if (user.role) {
-            user.role === "admin" ? getNotAproved({ id, token })
+            user.role === "admin"&& getNotAproved({ id, token })
             .unwrap().then(res => { res.success ? setRecipe(res.response) : navigate('/') })
             .catch(err=>navigate("/"))
-            :navigate("/")
-        } else {
+        } else if (error && user.role !== "admin") {
             navigate("/")
         }
-    },[user])
+            
+    },[user,error,recipeRes])
     const printRecipe = (item) => (
         <article className='detail-article'>
             <div className='detail-modal'>
