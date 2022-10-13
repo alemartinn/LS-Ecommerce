@@ -12,7 +12,7 @@ export default function Card({item}) {
   const dispatch = useDispatch()
   const multiDispatcher = (modalType) => {
     dispatch(openModal())
-    dispatch(specifyModal({ name: modalType }))
+    dispatch(specifyModal({ name: modalType, props:{id:item._id} }))
   }
   const [isClicked, setIsClicked] = useState(false);
 
