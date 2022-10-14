@@ -1,51 +1,55 @@
 .modal-card-container p,.modal-card-container span, .modal-card-container h2 {
-    text-shadow: 1px 1px #fff;
+    /* text-shadow: 1px 1px #fff; */
+    font-weight: 400;
 }
 .modal-card-container{
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    border: 1px solid black;
+    color: #fff;
+    /* border: 1px solid black; */
     position: relative;
+    padding: 25px;
+    gap: 10px;
 }
 .modal-card-background{
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: url(https://img.freepik.com/fotos-premium/verduras-frescas-colores-coctelera-frutas-pimienta-escritorio-madera-blanca_23-2148062711.jpg);
+    backdrop-filter: blur(35px);
+    /* background-color: rgba(170, 149, 53, 0.466); */
+    /* background-color: #d6893285; */
+    background-color: #4a724485;
     background-size: cover;
-    filter: blur(4px) brightness(80%);
+    border: none;
+    outline: none;
     z-index: -1;
 }
 .modal-card-title{
-    width: 100%;
+    width: 80%;
 }
 .modal-card-title-p{
     text-align: center;
     font-size: 45px;
-    font-weight: bold;
-    margin-top: 25px;
-    text-shadow: 1px 1px #fff;
+    text-shadow: 0px 0px 3px rgb(141, 69, 2);
+
 }
 .modal-card-img-container{
     display: flex;
     justify-content: center;
-    width: 50%;
-    min-width: 290px;
-    max-height: 290px;
 }
 .modal-card-img{
-    height: 100%;
+    width: 290px;
     object-fit: contain;
-    border: 2px solid black;
-    border-radius: 20px 0 20px 0;
+    border-radius: 10px;
     box-shadow: 3px 3px 10px black;
 }
 .modal-card-span{
-    font-weight: bold;
+    text-shadow: 0px 0px 3px rgb(141, 69, 2);
 }
 
 .modal-card-description{
@@ -53,13 +57,13 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    padding: 1rem;
+    gap: 20px;
 }
 .modal-card-sub-description{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
     padding: 12px 0;
     width: 50%;
     font-size: 25px;
@@ -83,4 +87,23 @@
 }
 .modal-card-recipe:hover{
     transform: scale(.85);
+}
+
+@media (max-width: 768px){
+    .modal-card-description{
+        margin: none;
+        padding: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-card-sub-description{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .modal-card-sub-description>span{
+        text-align: center;
+    }
 }

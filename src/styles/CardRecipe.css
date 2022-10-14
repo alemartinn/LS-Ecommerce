@@ -55,3 +55,11 @@
     box-shadow: 0px 0px 10px 1px #a7bb92;
     /*#a7bb92*/
 }
+
+.card-recipe-minutes{
+    position: relative;
+    width: 100%;
+    top: 20px;
+    background-color: #a7bb92;
+    z-index: 10000;
+}

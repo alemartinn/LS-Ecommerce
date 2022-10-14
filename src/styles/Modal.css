@@ -16,7 +16,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .modal-close{
