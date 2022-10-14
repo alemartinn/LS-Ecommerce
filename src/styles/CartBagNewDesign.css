@@ -165,7 +165,11 @@ img {
 .input-default:focus {
   outline: 2px solid var(--third-color);
 }
-
+.code-input{
+border:1px;
+border-radius: var(--radius);
+border-color: inherit;
+}
 .payment-form input {
   padding: 10px 15px;
   font-size: var(--fs-18);
@@ -207,20 +211,12 @@ img {
 }
 
 .btn:active {
-  transform: scale(0.99);
-}
-
-.btn:focus {
-  color: var(--white);
-  background: var(--azure);
-  outline: 2px solid var(--azure);
-  outline-offset: 2px;
+  transform: scale(0.95);
 }
 
 .btn-primary {
   background: var(--azure);
   font-weight: var(--fw-5);
-  color: var(--white);
   padding: 13px 45px;
 }
 

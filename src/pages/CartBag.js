@@ -54,6 +54,7 @@ export default function CartBag() {
     bcgColor,
     fontColor,
     thirdColor,
+    fifthColor,
     mainColor,
     light } = useSelector(state => state.color)
   function focused(e) {
@@ -274,8 +275,8 @@ export default function CartBag() {
             <div className="discount-token">
               <label for="discount-token" className="label-default">Gift card/Discount code</label>
               <div className="wrapper-flex">
-                <input type="text" name="discount-token" id="discount-token" className="input-default"  style={{backgroundColor: thirdColor}}/>
-                <button className="btn btn-outline" style={{ color: fontColor,backgroundColor: mainColor }}>Apply</button>
+                <input type="text" name="discount-token" id="discount-token" className=" code-input"  style={{borderColor: fontColor}}/>
+                <button className="btn btn-outline" style={{ color: fontColor,backgroundColor: thirdColor }}>Apply</button>
               </div>
             </div>
             <div className="amount">
