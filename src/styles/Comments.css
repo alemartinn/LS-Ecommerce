@@ -1,23 +1,29 @@
 .comment-message{
-    display:flex;
-    align-self:center;
-    background-color: rgb(181, 179, 179);
-    margin-Left:20px;
     border-radius:10px;
+    height: 116px;
+    width: 75%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 22px;
+    border-left: 1px solid var(--third-color);
+    border-radius: 0;
 }
 .comment-message-p{
     padding: 10px;
 }
 
 .comment-profile{
-    margin: 20px 10px;
-    background-color: rgb(130, 177, 162);
-    padding: 15px;
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
+    width: 25%;
+    background-color: rgba(167, 187, 146, 0.46);
 }
 .comment-container{
+    width: 100%;
     display: flex;
     text-align: center;
+    border: 1px solid var(--third-color);
+    border-radius: 10px;
 }
 .comment-img{
     width: 80px;
@@ -25,38 +31,50 @@
     border-radius: 50%;
 }
 .comment-title{
-    background-color: rgb(179, 179, 179);
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 400;
     text-align: center;
-    font-size: 40px;
-    border-radius: 10px;
-    cursor: pointer;
     /* align-self: center; */
 }
 .comment-boxcomment{
-    max-width: 1400px;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
 }
 .btn{
     display: flex;
     justify-content: center;
 }
 .comment-main{
-    align-content: center;
-    width: 1400px;
+    max-width: 1140px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    border: 1px solid var(--third-color);
+    border-radius: 10px;
+    padding: 5vh 0;
 }
 .comment-createcomment{
     display: flex;
     flex-direction: column;
+    padding: 5vh 0;
+    width: 90%;
+    max-width: 1140px;
 }
 .create-comment{
     padding: 10px;
     border-radius: 10px;
-    margin-bottom: 20px;
 }
 .buttoncomment{
     cursor: pointer;
 }
 .inputForm-input{
-
     font-family: Source Sans Pro, "Trebuchet MS", Helvetica, sans-serif;
     font-weight: 200;
     color: rgb(80, 80, 80);
@@ -69,4 +87,21 @@
     border: 1px solid var(--third-color);
     border-radius: 10px;
     margin-bottom: 25px;
+}
+
+@media (max-width: 600px) {
+    .comment-container{
+        display: flex;
+        width: 100%;
+    }
+    
+    .comment-img{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+    .comment-profile{
+        border-radius: 10px;
+        width: 25%;
+    }
 }
