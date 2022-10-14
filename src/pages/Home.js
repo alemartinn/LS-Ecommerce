@@ -34,8 +34,8 @@ function Home() {
   return (
     <main className="home-main" style={{ backgroundColor: bcgColor }}>
       <div className="home-content">
-        <div className="hero"
-          style={light ? { backgroundBlendMode: 'lighten' } : { backgroundBlendMode: 'darken' }}>
+        <div className="hero">
+          <div className='hero-background' style={{borderColor: 'white'}}/>
           <div className="hero-content">
             <h1 className="hero-title" style={{ color: 'white' }}>
               Healthy eating don't have to be a struggle.
