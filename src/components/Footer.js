@@ -24,17 +24,15 @@ function Footer() {
                 <div className="footer-col2">
                     <img src="/images/MinilogoLS.png" alt="minilogo" className="footer-logo" />
                     <p style={{ color: fontColor }}>
-                        <LinkRouter
-                            to={"/terms"}
+                        <span
                             className="footer-link"
                             style={{ color: fontColor }}
-                        >Terms </LinkRouter>
-                        /
-                        <LinkRouter
+                        >Terms & About Us </span>
+                        {/* <LinkRouter
                             to={"/about"}
                             className="footer-link"
                             style={{ color: fontColor }}
-                        > About Us</LinkRouter>
+                        > About Us</LinkRouter> */}
                     </p>
                 </div>
                 <div className="footer-col3">

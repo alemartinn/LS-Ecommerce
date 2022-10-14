@@ -218,10 +218,9 @@ export default function CartBag() {
             <h2 className="section-heading">Order summary</h2>
             {cart.cartItems.length === 0 ? (
               <div className="cart-empty">
-                <p>(empty bag)</p>
                 <img src='https://2.bp.blogspot.com/-VYC7hvhUz4U/WdcPLAr86jI/AAAAAAAABuA/G3y27JwIL_0S5OsVIp6maXjsdgLRumaTwCLcBGAs/s1600/emptycart.png'></img>
                 <div className='cart-start-shopping'>
-                  <Link to='/' >
+                  <Link to='/' style={{textDecoration: 'none'}} >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -235,7 +234,7 @@ export default function CartBag() {
                         d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
                       />
                     </svg>
-                    <span>Start shopping</span>
+                    <span className='btn-main' >Start shopping</span>
                   </Link>
                 </div>
               </div>
@@ -277,7 +276,7 @@ export default function CartBag() {
               <label className="label-default">Gift card/Discount code</label>
               <div className="wrapper-flex">
                 <input type="text" name="discount-token" id="discount-token" className=" code-input"  style={{borderColor: fontColor}}/>
-                <button className="btn btn-outline" style={{ color: fontColor,backgroundColor: thirdColor }}>Apply</button>
+                <button className="btn-main" style={{ backgroundColor: thirdColor }}>Apply</button>
               </div>
             </div>
             <div className="amount">
@@ -301,7 +300,7 @@ export default function CartBag() {
         <button className="btn btn-primary checkout-btn" style={{ color: fontColor, backgroundColor: thirdColor }}>
           <b>Checkout:</b> $ <span id="payAmount">{totalPlusTaxes}</span>
         </button>
-        <button className="btn cart-delete-btn" onClick={()=>dispatch(emptyCart())} style={{ color: fontColor, backgroundColor: mainColor}}>
+        <button className="box-btn-card" onClick={()=>dispatch(emptyCart())} >
           Empty cart
         </button>
       </div>

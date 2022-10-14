@@ -97,8 +97,10 @@ function HIW() {
 
         {/* mobile app promo section */}
         <div className="hiw-promo">
-          <h2 style={{ color: fontColor, paddingTop:'5vh' }}>Try out our mobile app!</h2>
-          <p style={{ color: fontColor }}>(available for android and ios)</p>
+          <a href="https://www.youtube.com/watch?v=FdM9HkCiCH0&t=8s&ab_channel=ElvioGaleano" style={{textAlign: 'center', textDecoration: 'none', cursor: 'pointer'}}>
+            <h2 style={{ color: fontColor, paddingTop:'5vh' }}>Try out our mobile app!</h2>
+            <p style={{ color: fontColor }}>(available for android and ios)</p>
+          </a>
           <MobileAppPreview></MobileAppPreview>
         </div>
 
