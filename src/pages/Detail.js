@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
+import Comments from '../components/Comments'
 import { useGetNotApprovedRecipeMutation, useGetOneRecipeQuery } from '../features/recipes/recipesApi'
 import '../styles/Detail.css'
 export default function Detail() {
@@ -12,6 +13,8 @@ export default function Detail() {
     const {id} = useParams();
     const {data:recipeRes,error} = useGetOneRecipeQuery(id)
     const navigate = useNavigate()
+
+
     
     useEffect(() => {
         recipeRes&&setRecipe(recipeRes)
@@ -80,6 +83,7 @@ export default function Detail() {
                     <img className='detail-banner-img' src={recipe.image} alt={recipe.title} />
                 </div>
                 {recipe.title && printRecipe(recipe)}
+                <Comments id={id} />
             </div>
         </main>
     )

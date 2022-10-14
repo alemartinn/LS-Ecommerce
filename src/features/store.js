@@ -7,6 +7,7 @@ import recipeApi from "./recipes/recipesApi";
 import boxesApi from "./boxes/boxesApi";
 import alertReducer from "./alert/alertSlice";
 import { cartReducer } from "./cart/cartSlice";
+import commentsApi from "./comments/commentsApi";
 
 
 export const store = configureStore({
@@ -19,9 +20,10 @@ export const store = configureStore({
             cart: cartReducer,
             [recipeApi.reducerPath] : recipeApi.reducer,
             [boxesApi.reducerPath] : boxesApi.reducer,
+            [commentsApi.reducerPath] : commentsApi.reducer,
         },
         middleware: (getDefaultMiddleware)=> getDefaultMiddleware({
             inmutableCheck:false,
             serializableCheck: false,
-        }).concat(usersAPI.middleware,recipeApi.middleware,boxesApi.middleware)
+        }).concat(usersAPI.middleware,recipeApi.middleware,boxesApi.middleware,commentsApi.middleware)
 })
