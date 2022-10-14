@@ -61,7 +61,7 @@ export default function Card({ item }) {
         </div>
         <div className="card-contents">
           <CardInfo id={item.recipe._id} />
-          <button className='box-btn-card' onClick={() => multiDispatcher('card')}>MORE INFO...</button>
+          <button className='box-btn-card' onClick={() => multiDispatcher('card')}>More Info</button>
         </div>
       </div>
     </div>
