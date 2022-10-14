@@ -26,9 +26,11 @@ const commentsApi = createApi({
             })       
         }),
         allComment:builder.query({
-            query: ()=> `/comments`,
-            transformResponse: res => res.response     
-        }),
+            query: (id)=>( {
+            url: `/comments/${id}`,
+            transformResponse: res => res.response   
+        })
+    }),
         edit: builder.mutation({
             query:(id,data) =>({
                 url: `/comments/${id}`,

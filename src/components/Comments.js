@@ -1,18 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useAllCommentMutation, useAllCommentQuery, useCreateMutation } from '../features/comments/commentsApi'
+import {  useAllCommentQuery, useCreateMutation } from '../features/comments/commentsApi'
 import '../styles/Comments.css'
-import NewComment from './NewComment'
-export default function Comments({id}) {
 
+
+export default function Comments({id}) {
 const divText = useRef(null)
 const [showComment,setShowCommment] = useState(false)
-const {data} = useAllCommentQuery()
+const {data} = useAllCommentQuery(id)
 const [comment,setComment] = useState()
-
+const { bcgColor, fontColor } = useSelector(state => state.color);
 useEffect(()=>{
     if(data){
-        setComment(data)
+        console.log(data.response)
+        setComment(data.response)
     }
 },[data])
 const printComment = (item)=>(
@@ -45,15 +46,21 @@ const click = ()=>{
   return ( 
     <div className='comment-main'>
         {/* <h2 className='comment-title'>Comments</h2> */}
-        <button className='comment-title' onClick={()=>click()}>Comments</button>
+        <div className='btn'>
+            <button className='btn-main ' onClick={()=>click()}>Comments</button>
+        </div>
         <div className='comment-boxcomment'>
-            {!showComment ? 
+            {showComment ? 
             <div>
-                {comment?.map(item =>printComment(item))}
+                { comment?.map(item =>printComment(item))}
                 {/* NEW COMMENT  */}
                 <div className='comment-createcomment'>
-                    <button className='create-comment buttoncomment'  type='submit' onClick={()=>sendComment()}>Create Comment</button>
-                    <input className='create-comment'  type="text"  ref={divText}></input>
+                    <div className='btn'>
+
+                    <button className='btn-main'  type='submit' onClick={()=>sendComment()}>Post comment</button>
+                    </div>
+                    <input className='inputForm-input'  type="text"  ref={divText}></input>
+                    
                 </div>
             </div>  : null }
         </div>
