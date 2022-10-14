@@ -26,7 +26,6 @@ const Products = () => {
     },[data])
 
     useEffect(()=> {
-        console.log(filteredBoxesData)
         if ( filteredBoxesData ){
             setAllFilteredBoxes(filteredBoxesData)
         }
@@ -37,7 +36,6 @@ const Products = () => {
         setBoxesByFilter({...boxesByFilter, category: category})
     }
     const handleInput = (e) => {
-        console.log(e.target.value)
         setBoxesByFilter({...boxesByFilter, name: e.target.value});
     };
 
@@ -48,7 +46,7 @@ const Products = () => {
                 <div className='recipes-container-recipe-card'>
                     {boxes.map((box, index) => <Card item={box} key={index}/>)}
                 </div>
-                <Button type='button' btnColor={'btn-main-green-light'}>More recipes</Button>
+                {/* <Button type='button' btnColor={'btn-main-green-light'}>More recipes</Button> */}
             </section>
         )
     }
