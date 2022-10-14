@@ -156,7 +156,7 @@ function HIW() {
               </h2><span className="hiw-faq-t" style={triggerStyle}></span>
             </div>
             <div className="hiw-faq-answer-wrapper">
-              <p className="hiw-faq-answer" style={{ color: fontColor }}>We offer free delivery nationwide. On day of delivery, you'll get a text with an eta but you don't need to be in to receive your box. Our insulated boxes will be keep everything fresh for up to 48 hours and your box will be left in your designated safe place.</p>
+              <p className="hiw-faq-answer" style={{ color: fontColor }}>We offer an accesible delivery nationwide. On day of delivery, you'll get a text with an eta but you don't need to be in to receive your box. Our insulated boxes will be keep everything fresh for up to 48 hours and your box will be left in your designated safe place.</p>
             </div>
           </div>
           <div className="hiw-faq-topic" style={{ borderBottom: `1px solid ${fontColor}` }}>
