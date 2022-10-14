@@ -73,7 +73,7 @@ export default function RecipesPanel() {
     
     return (
         <div className="recipes-panel-container">
-            <p className="recipes-panel-title">recipes without approval...</p>
+            <h3 className="recipes-panel-title">Recipes without approval ↓</h3>
             {recipeRes?.map(printRecipe)}
         </div>
     )

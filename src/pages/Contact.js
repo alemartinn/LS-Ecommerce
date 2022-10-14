@@ -16,7 +16,7 @@ export default function Contact() {
                         <div className='contact-me'>
                             <h2 className='contact-title'>Contact</h2>
                             <div className='contact-me-data'><FontAwesomeIcon icon={faEnvelope}/> <span>lsfoodco@gmail.com</span></div>
-                            <div className='contact-me-data'><FontAwesomeIcon icon={faLocationDot}/><span>4838 E Kings Canyon Rd, Fresno, CA 93727 +15594569050</span></div>
+                            <div className='contact-me-data'><FontAwesomeIcon icon={faLocationDot}/><span>4838 E Kings Canyon Rd, Fresno, CA 93727</span></div>
                             <div className='contact-me-data'><FontAwesomeIcon icon={faPhone}/><span>011-12345678</span></div>
                         </div>
                     </div>

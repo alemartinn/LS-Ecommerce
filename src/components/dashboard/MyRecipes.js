@@ -12,10 +12,10 @@ export default function MyRecipes() {
                 <div className="my-recipe-nav">
                 <Link to="create"
                     className="my-recipe-button"
-                    style={{color:fontColor}}>create a recipe</Link>
+                    style={{color:fontColor}}>Create a recipe</Link>
                 <Link to="edit"
                     className="my-recipe-button"
-                    style={{color:fontColor}}>edit a recipe</Link>
+                    style={{color:fontColor}}>Edit a recipe</Link>
                 </div>
                 <Outlet />
                 <div className="my-recipe">

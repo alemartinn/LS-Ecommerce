@@ -32,9 +32,9 @@ function AddBox() {
     const basicModelForm = [
         {
             label: "Name",
+            key: 'name',
             input: {
                 name: 'name',
-                key: 'name',
                 type: 'text',
                 required: 'required',
                 defaultValue: 'Name the box!',
@@ -43,9 +43,9 @@ function AddBox() {
         },
         {
             label: "Price",
+            key: 'price',
             input: {
                 name: 'price',
-                key: 'price',
                 type: 'number',
                 required: 'required',
                 autoComplete: 'off'
@@ -53,9 +53,9 @@ function AddBox() {
         },
         {
             label: "Calification",
+            key: 'calification',
             input: {
                 name: 'calification',
-                key: 'calification',
                 type: 'number',
                 required: 'required',
                 autoComplete: 'off'
@@ -63,9 +63,9 @@ function AddBox() {
         },
         {
             label: "Serves",
+            key: 'serves',
             input: {
                 name: 'serves',
-                key: 'serves',
                 type: 'number',
                 required: 'required',
                 autoComplete: 'off'
@@ -118,7 +118,7 @@ const [selectRecipe, setSelectRecipe] = useState()
             <select  className="user-panel-role" 
                         onLoad={e => setSelectRecipe(e.target.value)}
                         onChange={e => setSelectRecipe(e.target.value)}>
-            <option value="none" className="recipe-option" > Select an Approved recipe</option>
+            <option value="none" className="recipe-option" key={'selectbasic'} > Select an Approved recipe</option>
             {recipes?.map(makingSelect)}
         </select> 
         <form onSubmit={addBox} className="addbox-form">

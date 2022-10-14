@@ -49,9 +49,9 @@ useEffect(() => {
 const basicModelForm = [
     {
         label: "Name",
+        key: 'name',
         input: {
             name: 'name',
-            key: 'name',
             type: 'text',
             required: 'required',
             defaultValue:selectBox.name,
@@ -60,9 +60,9 @@ const basicModelForm = [
     },
     {
         label: "Price",
+        key: 'price',
         input: {
             name: 'price',
-            key: 'price',
             type: 'number',
             defaultValue: selectBox.price,
             required: 'required',
@@ -71,9 +71,9 @@ const basicModelForm = [
     },
     {
         label: "Calification",
+        key: 'calification',
         input: {
             name: 'calification',
-            key: 'calification',
             type: 'number',
             required: 'required',
             autoComplete: 'off'
@@ -81,9 +81,9 @@ const basicModelForm = [
     },
     {
         label: "Serves",
+        key: 'serves',
         input: {
             name: 'serves',
-            key: 'serves',
             type: 'number',
             required: 'required',
             autoComplete: 'off'

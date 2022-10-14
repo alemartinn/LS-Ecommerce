@@ -7,6 +7,8 @@
     margin: 2rem 0;
 }
 .recipes-panel-title{
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
     width: 100%;
     text-align: center;
 }

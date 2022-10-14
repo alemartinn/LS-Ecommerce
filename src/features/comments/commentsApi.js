@@ -18,14 +18,14 @@ const commentsApi = createApi({
             body: data,
         })
         }),
-        delete:builder.query({
+        delete:builder.mutation({
             query: ({id,token}) => ({
                 url: `/recipes/${id}`,
                 method: "DELETE",
                 headers: {"Authorization": `Bearer ${token}`}
             })       
         }),
-        allComment:builder.query({
+        allComment:builder.mutation({
             query: (id)=>( {
             url: `/comments/${id}`,
             transformResponse: res => res.response   
@@ -44,4 +44,4 @@ const commentsApi = createApi({
 
 
 export default commentsApi
-export const {useCreateMutation, useDeleteQuery, useEditMutation,useAllCommentQuery} = commentsApi
+export const {useCreateMutation, useDeleteMutation, useEditMutation,useAllCommentMutation} = commentsApi
