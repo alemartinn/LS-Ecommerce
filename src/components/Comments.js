@@ -1,26 +1,26 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
-import {  useAllCommentQuery, useCreateMutation } from '../features/comments/commentsApi'
+import {  useAllCommentMutation, useCreateMutation } from '../features/comments/commentsApi'
 import '../styles/Comments.css'
 
 
 export default function Comments({id}) {
 
     const [showComment,setShowCommment] = useState(false);
-    const [comment,setComment] = useState();
-    const [newcom] = useCreateMutation();
+    const [comment,setComment] = useState([]);
+    const [newcom, {data: rescomment}] = useCreateMutation();
     
     const { bcgColor, fontColor } = useSelector(state => state.color);
     const { user } = useSelector(state=>state.user);
-    const {data} = useAllCommentQuery(id);
+    const [getComments] = useAllCommentMutation();
     const divText = useRef(null);
     
     useEffect(()=>{
-        if(data){
-            console.log(data.response)
-            setComment(data.response)
-        }
-    },[data]);
+            getComments(id).unwrap().then(res=> 
+                setComment(res.response)
+                ).catch( err => {})
+
+    },[rescomment]);
 
     const printComment = (item)=>(
         <div className='comment-container' key={item._id}>
@@ -53,7 +53,7 @@ export default function Comments({id}) {
         <h2 className='comment-title'>Comments: ({comment?.length})</h2>
         <div className='btn'>
             {
-                comment && <button className='btn-main ' onClick={()=>click()}>Load comments </button>
+                comment && <button className='btn-main ' onClick={()=>click()}>{(showComment? "Show" : "Hide") + " Comments" }</button>
             }
         </div>
         {
@@ -68,7 +68,7 @@ export default function Comments({id}) {
         }
         <div className='comment-createcomment'>
             <div className='btn'>
-                <button className='btn-main' type='submit' onClick={()=>sendComment()}>Post comment</button>
+                <button className='btn-main' type='submit' onClick={()=>sendComment()}>Post a comment</button>
             </div>
             <input className='inputForm-input' type="text" ref={divText} style={{backgroundColor: bcgColor, color: fontColor}} placeholder={'Leave your comment here!'}></input>
         </div>

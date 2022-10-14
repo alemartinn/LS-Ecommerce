@@ -118,7 +118,7 @@ const [selectRecipe, setSelectRecipe] = useState()
             <select  className="user-panel-role" 
                         onLoad={e => setSelectRecipe(e.target.value)}
                         onChange={e => setSelectRecipe(e.target.value)}>
-            <option value="none" className="recipe-option" > Select an Approved recipe</option>
+            <option value="none" className="recipe-option" key={'selectbasic'} > Select an Approved recipe</option>
             {recipes?.map(makingSelect)}
         </select> 
         <form onSubmit={addBox} className="addbox-form">
