@@ -238,7 +238,11 @@ border-color: inherit;
   flex-direction: column;
   justify-content: flex-end;
 }
-
+.cart-empty{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
 .cart-item-box {
   padding: 40px var(--px);
   margin-bottom: auto;
