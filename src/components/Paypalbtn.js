@@ -1,9 +1,13 @@
 
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-
+import { useSelector } from "react-redux";
 
 export default function Paypalbtn() {
-
+    const cart = useSelector((state) => state.cart) 
+    let tax = (cart.cartTotalAmount * 0.05)
+    let shipping = 10
+    let totalPlusTaxes = (tax > 0 ? (tax + shipping + cart.cartTotalAmount) : 0)
+    
             return(
         <PayPalScriptProvider 
         onSuccess = {(details, data) => { }} options = {{ "client-id": "AYqIX5703Zwl8T3NLTCjgTs8e0OGNSdy1mpbN7w7uKEAgyjVCKCOfTzQ1EXJHjkbvgnbP1Qx9DUw5-2b" }}>
@@ -13,7 +17,7 @@ export default function Paypalbtn() {
                     purchase_units: [
                         {
                             amount: {
-                                value: "1.99",
+                                value: totalPlusTaxes,
                             },
                         },
                     ],
