@@ -34,8 +34,8 @@ export default function Detail() {
                 <h2 className='detail-title'>{item.title}</h2>
             </div>
             <div className='detail-sub-description'>
-                <p className='detail-subtitle'>{item.category}</p>
-                <p className='detail-description'>{item.description}</p>
+                <p className='detail-subtitle'>Category: {item.category}</p>
+                <p className='detail-description'>Description: {item.description}</p>
             </div>
             <div className='detail-info'>
                 <div className='detail-sub-info'>
