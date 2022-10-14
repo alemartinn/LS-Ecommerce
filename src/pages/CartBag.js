@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark, faTruckFast, faUser, faTag, faPlus, faMinus, faTrashCan } from '@fortawesome/free-solid-svg-icons'
-import '../styles/CartBag.css'
+import { faXmark, faCheckCircle, faTruckFast, faUser, faTag, faPlus, faMinus, faTrashCan } from '@fortawesome/free-solid-svg-icons'
+// import '../styles/CartBag.css'
+import '../styles/CartBagNewDesign.css'
 import Form from '../components/Form'
-import Card from '../components/Card'
 import Paypalbtn from '../components/Paypalbtn'
 import { openModal, specifyModal } from '../features/modal/modalSlice'
 import { addToCart, removeFromCart, decreaseQuantity, emptyCart, getTotals } from '../features/cart/cartSlice'
@@ -19,10 +19,12 @@ export default function CartBag() {
   const price = 5
   const [subTotal, setSubTotal] = useState(price)
   const [quantity, setQuantity] = useState(1)
+  const cardMethodRef = useRef()
+  const paypalMethodRef = useRef()
   /// just because i want to test it
   let testDiscount = coupon * quantity
   let totalValue = subTotal * ((100 - testDiscount) / 100)
-  const user = useSelector(store => store.userData)
+  const user = localStorage.getItem("token")
   const modelCart = [
     { name: 'Name', label: "Name", type: 'text', required: 'required', autoComplete: 'on' },
     { name: 'Address', label: "Address", type: 'text', required: 'required', autoComplete: 'on' },
@@ -36,24 +38,23 @@ export default function CartBag() {
     dispatch(openModal())
     dispatch(specifyModal({ name: modalType }))
   }
-  // function handleAddToCart(item) {
-  //   dispatch(addToCart(item))
-  // }
+  let tax = (cart.cartTotalAmount * 0.05)
+  let shipping = 10
+  let totalPlusTaxes = (tax > 0 ? (tax + shipping + cart.cartTotalAmount) : 0)
   function handleRemoveFromCart(item) {
     dispatch(removeFromCart(item))
   }
   function handleIncreaseQuantity(item) {
-
     dispatch(addToCart(item))
   }
   function handleDecreaseQuantity(item) {
-
     dispatch(decreaseQuantity(item))
   }
   const {
     bcgColor,
     fontColor,
     thirdColor,
+    mainColor,
     light } = useSelector(state => state.color)
   function focused(e) {
     if (focus !== true) {
@@ -73,7 +74,6 @@ export default function CartBag() {
         : setAddress(e.target.value)
     }
   }
-
   function pressed() {
     if (open !== true) {
       setOpen(true)
@@ -94,164 +94,215 @@ export default function CartBag() {
   //     setSubTotal(price * quantity)
   //   }
   // }, [quantity])
-  
+  useEffect(() => {
+    if (light) {
+      setSubTotal(price * quantity)
+    }
+  }, [light])
+
+  const [cardMethod, setCardMethod] = useState(false)
+  const [paypalMethod, setPaypalMethod] = useState(false)
+  function togglePaymentMethod(method) {
+    if (method === 'card') {
+      cardMethodRef.current.classList.add('selected')
+      cardMethodRef.current.children[2].classList.add('fill')
+      paypalMethodRef.current.classList.remove(light ? 'selected' : 'dark')
+      paypalMethodRef.current.children[2].classList.remove('fill')
+      setCardMethod(true)
+      setPaypalMethod(false)
+    } else {
+      cardMethodRef.current.classList.remove('selected')
+      cardMethodRef.current.children[2].classList.remove('fill')
+      paypalMethodRef.current.classList.add('selected')
+      paypalMethodRef.current.children[2].classList.add('fill')
+      setPaypalMethod(true)
+      setCardMethod(false)
+    }
+  }
   useEffect(() => {
     dispatch(getTotals())
   }, [cart])
   return (
-    <>
-      <main className='cart-bag-main' style={{ backgroundColor: bcgColor, color: fontColor }}>
-        <div className='cart-bag-container'  >
-          <div className={`cart-bag-products ${light && "light"}`} style={{ backgroundColor: thirdColor }}>
-            <div className="cart-header">
-              <h2>My Cart</h2>
-              <FontAwesomeIcon icon={faTrashCan} onClick={() => dispatch(emptyCart())} />
+    <main class="cart-container" style={{ color: fontColor, backgroundColor: bcgColor }}>
+      <h1 className="heading">
+        My Cart
+      </h1>
+      <div className="item-flex">
+        <section className="checkout" style={{ backgroundColor: thirdColor }}>
+          <h2 className="section-heading">Payment details</h2>
+          <div className="payment-form">
+            <div className="payment-method">
+              <button className="method selected" onClick={() => togglePaymentMethod('card')} ref={cardMethodRef}>
+                <ion-icon name="card"></ion-icon>
+                <span>Credit Card</span>
+                <FontAwesomeIcon className='checkmark fill' icon={faCheckCircle} />
+              </button>
+              <button className="method" onClick={() => togglePaymentMethod('paypal')} ref={paypalMethodRef}>
+                <ion-icon name="logo-paypal"></ion-icon>
+                <span>PayPal</span>
+                <FontAwesomeIcon className='checkmark' icon={faCheckCircle} />
+              </button>
             </div>
-            <div className="cart-table" style={{ backgroundColor: bcgColor, color: fontColor }}>
-              <p className='cart-p'>Product</p>
-              <p className='cart-p'>Price</p>
-              <p className='cart-p'>Quantity</p>
-              <p className='cart-p'>Subtotal</p>
-            </div>
-            <div className="cart-bag-products-detail" >
-              {cart.cartItems.length === 0 ? (
-                <div className="cart-empty">
-                  <p>Empty Cart Bag</p>
-                  <img src='https://2.bp.blogspot.com/-VYC7hvhUz4U/WdcPLAr86jI/AAAAAAAABuA/G3y27JwIL_0S5OsVIp6maXjsdgLRumaTwCLcBGAs/s1600/emptycart.png'></img>
-                  <div className='cart-start-shopping'>
-                    <Link to='/' >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        fill={fontColor}
-                        className="bi bi-arrow-left"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-                        />
-                      </svg>
-                      <span>Start shopping</span>
-                    </Link>
+            {!paypalMethod ? (
+              <form action="#" style={{ color: fontColor }}>
+                <div className="cardholder-name">
+                  <label for="cardholder-name" className="label-default">Cardholder name</label>
+                  <input type="text" name="cardholder-name" id="cardholder-name" className="input-default" style={{backgroundColor: bcgColor}} />
+                </div>
+                <div className="card-number">
+                  <label for="card-number" className="label-default">Card number</label>
+                  <input type="number" name="card-number" id="card-number" className="input-default" style={{backgroundColor: bcgColor}} />
+                </div>
+                <div className="input-flex">
+                  <div className="expire-date">
+                    <label for="expire-date" className="label-default">Expiration date</label>
+                    <div className="input-flex">
+                      <input type="number" name="day" id="expire-date" placeholder="mm" min="1" max="12"
+                        className="input-default"  style={{backgroundColor: bcgColor}}>
+                      </input>
+                      <input type="number" name="month" id="expire-date" placeholder="yy" min="22" max="30"
+                        className="input-default"  style={{backgroundColor: bcgColor}}></input>
+                    </div>
+                  </div>
+                  <div className="cvv">
+                    <label for="cvv" className="label-default">CVV</label>
+                    <input type="number" name="cvv" id="cvv" className="input-default"  style={{backgroundColor: bcgColor}}/>
                   </div>
                 </div>
-
-              ) : (<>
-                {cart.cartItems?.map((cartItem, index) => (
-                  <div className='cart-bag-product' style={{ backgroundColor: bcgColor, color: fontColor }} key={index}>
-                    <div className='cart-bag-card-number' style={{ backgroundColor: bcgColor, color: fontColor }}>
-                      <img className='cart-bag-img' src={cartItem.recipe.image} alt={cartItem._id} />
-                      <p>
-                        Price: ${cartItem.price}
-                      </p>
-                      <div className='quantity-div' style={{ backgroundColor: bcgColor, color: fontColor }}>
-                        <p> Quantity:  {cartItem.quantity}</p>
-                        <div className='cart-quantity-btn' style={{ backgroundColor: bcgColor, color: fontColor }} >
-                          <FontAwesomeIcon className='cart-bag-quantity' icon={faPlus} onClick={() => handleIncreaseQuantity(cartItem)} />
-                          <FontAwesomeIcon className='cart-bag-quantity' icon={faMinus} onClick={() => handleDecreaseQuantity(cartItem)} />
-                        </div>
-                      </div>
-                      <p>Subtotal: ${cartItem.price * cartItem.quantity}</p>
-                    </div>
-                    <button className='cart-bag-delete'
-                      style={{ backgroundColor: bcgColor, color: fontColor }}
-                      onClick={() => handleRemoveFromCart(cartItem)}
-                    >
-                      <FontAwesomeIcon icon={faXmark} />remove</button>
-                  </div>
-                ))}
-              </>)
-              }
+              </form>
+            ) : (
+              <Paypalbtn />
+            )}
+          </div>
+          {user ?
+            null
+            : <div className="cart-bag-login" style={{ backgroundColor: bcgColor, color: fontColor }}>
+              <p className='cart-bag-subtitle '>Already a customer?</p>
+              <FontAwesomeIcon onClick={() => multiDispatcher(user?.name ? 'profile' : 'signIn')}
+                className='cart-bag-login-icon'
+                alt="profile"
+                icon={faUser}></FontAwesomeIcon>
+              <p className="cart-log-message">Sign in with your account</p>
+            </div>}
+          <div className="cart-bag-address" style={{ backgroundColor: bcgColor, color: fontColor }}>
+            <div>
+              <p className='cart-bag-subtitle'>Shipping address</p>
             </div>
-            {user ? null
-              : <div className="cart-bag-login" style={{ backgroundColor: bcgColor, color: fontColor }}>
-                <p className='cart-bag-subtitle '>Existing Customer?</p>
-                <FontAwesomeIcon onClick={() => multiDispatcher(user?.name ? 'profile' : 'signIn')}
-                  className='cart-bag-loginicon'
-                  alt="profile"
-                  icon={faUser}></FontAwesomeIcon>
-                <p className="cart-logmessage">Sign in in your account</p>
-              </div>}
-            <div className="cart-bag-payment" style={{ backgroundColor: bcgColor, color: fontColor }}>
-              <p className='cart-bag-subtitle'>Payment</p>
-              <select onChange={focused} className='cart-bag-select'>
-                <option value="none"> Payment option  </option>
-                <option name="Cash" value="Cash"> Cash </option>
-                <option name="Credit" value="Card"> Card </option>
+            <div>
+              <select className='cart-bag-select' onChange={selected} >
+                <option value='none'> Select an Address</option>
+                <option value="Elvio's Hut"> Elvio's Hut</option>
+                <option value="Juan's Stable"> Juan's Stable</option>
+                <option value=" Daniel's Cave"> Daniel's Cave</option>
+                <option value="Ale's Penthouse"> Ale's Penthouse</option>
+                <option value="Andy's Consortium Bag"> Andy's Consortium Bag</option>
               </select>
-              {selectValue === 'Card' ?
-                <Paypalbtn />
-                : selectValue === 'Cash' ?
-                  <div style={{ backgroundColor: bcgColor, color: fontColor }}>
-                    <p className='cart-message'> Pay up when your product arrives </p> <FontAwesomeIcon icon={faTruckFast} />
-
-                    <div className="cart-bag-address" style={{ backgroundColor: bcgColor, color: fontColor }}>
-                      <p className='cart-bag-subtitle'>Shipping Address</p>
-                      <select className='cart-bag-select' onChange={selected} >
-                        <option value='none'> Select an Address</option>
-                        <option value="Elvio's Hut"> Elvio's Hut</option>
-                        <option value="Juan's Stable"> Juan's Stable</option>
-                        <option value=" Daniel's Cave"> Daniel's Cave</option>
-                        <option value="Ale's Penthouse"> Ale's Penthouse</option>
-                        <option value="Andy's Consortium Bag"> Andy's Consortium Bag</option>
-                      </select>
-                      <div>
-                        <>
-                          {address ? <p className='cart-message'>Will send the product to {address}</p> : <p className='cart-message'> Please select an address.</p>}
-                        </>
-                      </div>
-                      {!open ? <p className='cart-bag-subtitle '>Have a new address?</p> : null}
-                      <div className='cart-form-div'>
-                        {open ?
-                          <Form modelForm={modelCart} />
-                          : null}
-                        <button className='cart-bag-addressbtn' onClick={pressed} > {!open ? "Data change" : "Close"}</button>
-                      </div>
-                    </div>
-                  </div>
-                  : null}
+              <div>
+                <>
+                  {address && <p className='cart-message'>We will ship the products to {address}</p>}
+                </>
+              </div>
+            </div>
+            <div className='cart-form-div'>
+              {open ?
+                <Form modelForm={modelCart} />
+                : null}
+              <button className='cart-bag-address-btn' onClick={pressed} > {!open ? "New address" : "Close"}</button>
             </div>
           </div>
-          <div className={`cart-bag-total ${light && "light"}`}>
-            <div className='cartBag-totalPrice'>
-
-              <p className='cart-bag-subtitle'>Total</p>
-            </div>
-            <div className='cartBag-discount'>
-              <p className='cart-bag-data' >Default Price : ${cart.cartTotalAmount}</p>
-              <p className='cart-bag-data'>With coupon: ${subTotal - (coupon * quantity)}</p>
-              <p className='cart-bag-discount'>% {testDiscount} of discount !</p>
-            </div>
-            <div className='cartBag-benefits'>
-              <p className='cart-bag-data'>Info/Benefits</p>
-              <ul className='cart-list'>
-                <li><span>FREE gifts</span> from other healthy & sustainable brands</li>
-                <li>Exclusive access to our customer-only <span>Facebook comunity!</span></li>
-                <li><span>FREE weekly magazine</span> packed with recipes, offers and chefs tips</li>
-              </ul>
-              <div className='cart-benefits'>
-                {/* {couponMaker.map(coupons)} */}
-                <div className='cart-discounts'>
-                  <p className='cart-message'>Coupon 1</p>
-                  <FontAwesomeIcon icon={faTag} />
+        </section>
+        <section className="cart">
+          <div className="cart-item-box">
+            <h2 className="section-heading">Order summary</h2>
+            {cart.cartItems.length === 0 ? (
+              <div className="cart-empty">
+                <p>Empty Cart Bag</p>
+                <img src='https://2.bp.blogspot.com/-VYC7hvhUz4U/WdcPLAr86jI/AAAAAAAABuA/G3y27JwIL_0S5OsVIp6maXjsdgLRumaTwCLcBGAs/s1600/emptycart.png'></img>
+                <div className='cart-start-shopping'>
+                  <Link to='/' >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill={fontColor}
+                      className="bi bi-arrow-left"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                      />
+                    </svg>
+                    <span>Start shopping</span>
+                  </Link>
                 </div>
-                <div className='cart-discounts'>
-                  <p className='cart-message'>Coupon 2</p>
-                  <FontAwesomeIcon icon={faTag} />
+              </div>
+            ) : (<>
+              {cart.cartItems?.map((cartItem, index) => (
+                <div className="product-card">
+                  <div className="card">
+                    <div className="img-box">
+                      <img src={cartItem.recipe.image} alt={cartItem._id} width="80px" className="product-img" />
+                    </div>
+                    <div className="detail">
+                      <h4 className="product-name" style={{ color: fontColor }}>{cartItem.name} </h4>
+                      <div className="wrapper">
+                        <div className="product-qty">
+                          <button id="decrement">
+                            <FontAwesomeIcon className='cart-bag-quantity' icon={faMinus} onClick={() => handleDecreaseQuantity(cartItem)} />
+                          </button>
+                          <span id="quantity">{cartItem.quantity}</span>
+                          <button id="increment">
+                            <FontAwesomeIcon className='cart-bag-quantity' icon={faPlus} onClick={() => handleIncreaseQuantity(cartItem)} />
+                          </button>
+                        </div>
+                        <div className="price">
+                          $ <span id="price">{cartItem.price.toFixed(2)}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <button className="product-close-btn">
+                      <ion-icon name="close-outline"></ion-icon>
+                    </button>
+                  </div>
                 </div>
+              ))}
+            </>)
+            }
+          </div>
+          <div className="wrapper">
+            <div className="discount-token">
+              <label for="discount-token" className="label-default">Gift card/Discount code</label>
+              <div className="wrapper-flex">
+                <input type="text" name="discount-token" id="discount-token" className="input-default"  style={{backgroundColor: thirdColor}}/>
+                <button className="btn btn-outline" style={{ color: fontColor,backgroundColor: mainColor }}>Apply</button>
+              </div>
+            </div>
+            <div className="amount">
+              <div className="subtotal">
+                <span>Subtotal</span> <span>$ <span id="subtotal">{cart.cartTotalAmount.toFixed(2)}</span></span>
+              </div>
+              <div className="tax">
+                <span>Tax</span> <span>$<span id="tax">{tax.toFixed(2)}</span></span>
+              </div>
+              <div className="shipping">
+                <span>Shipping</span> <span>$ <span id="shipping">{cart.cartTotalAmount > 0 ? shipping.toFixed(2) : 0}</span></span>
+              </div>
+              <div className="total" style={{ color: fontColor }}>
+                <span>Total</span> <span>$ <span id="total">{totalPlusTaxes}</span></span>
               </div>
             </div>
           </div>
-        </div>
-        <div className='cart-popular-choices'>
-          <h2>Popular choices...</h2>
-          <div className='cart-choices-div'>
-            <h2>Nacho's house 😍👍👌👀🏘</h2>
-          </div>
-        </div>
-      </main>
-    </>
+        </section>
+      </div >
+      <div className='cart-bottom-btns'>
+        <button className="btn btn-primary checkout-btn" style={{ color: fontColor, backgroundColor: mainColor }}>
+          <b>Checkout:</b> $ <span id="payAmount">{totalPlusTaxes}</span>
+        </button>
+        <button className="btn cart-delete-btn" onClick={()=>dispatch(emptyCart())} style={{ color: fontColor }}>
+          Empty cart
+        </button>
+      </div>
+    </main >
   )
 }
