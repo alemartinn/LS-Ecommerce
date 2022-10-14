@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {closeModal} from "../features/modal/modalSlice"
 import { Link } from 'react-router-dom';
 import { useGetOneBoxQuery } from '../features/boxes/boxesApi';
@@ -16,14 +16,15 @@ export default function ModalCard({id}) {
     }
   },[boxRes])
 
+  const { fontColor } = useSelector(state => state.color)
+
   const printBox = (item) =>(
     <div className="modal-card-container">
-      <div className="modal-card-background" />
+      <div className="modal-card-background"></div>
       <div className='modal-card-title'>
         <p className='modal-card-title-p'>{item.name}</p>
       </div>
       <div className='modal-card-description'>
-        <h2 style={{textAlign:"center",width:"100%"}}>Description:</h2>
         <div className="modal-card-img-container">
           <img
             className='modal-card-img'
@@ -35,12 +36,12 @@ export default function ModalCard({id}) {
           <span className='modal-card-span'>Price: ${item.price}</span>
           <span className='modal-card-span'>Serves :  {item.serves} people</span> 
         </div>
+        </div>
         <div className='modal-card-link-add'>
-          <Link to={`/details/${item.recipe._id}`} className="modal-card-recipe"
+          <Link to={`/details/${item.recipe._id}`} className="btn-main" style={{textDecoration: 'none'}}
             onClick={()=> dispatch(closeModal())}
           >Recipe Details</Link>
         </div>
-      </div>
     </div>
   )
 
