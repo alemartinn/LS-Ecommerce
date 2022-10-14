@@ -124,7 +124,8 @@ export default function CartBag() {
     dispatch(getTotals())
   }, [cart])
   return (
-    <main className="cart-container" style={{ color: fontColor, backgroundColor: bcgColor }}>
+    <main  style={{ color: fontColor, backgroundColor: bcgColor }}>
+      <div className="cart-container">
       <h1 className="heading">
         My Cart
       </h1>
@@ -297,12 +298,13 @@ export default function CartBag() {
         </section>
       </div >
       <div className='cart-bottom-btns'>
-        <button className="btn btn-primary checkout-btn" style={{ color: fontColor, backgroundColor: mainColor }}>
+        <button className="btn btn-primary checkout-btn" style={{ color: fontColor, backgroundColor: thirdColor }}>
           <b>Checkout:</b> $ <span id="payAmount">{totalPlusTaxes}</span>
         </button>
-        <button className="btn cart-delete-btn" onClick={()=>dispatch(emptyCart())} style={{ color: fontColor }}>
+        <button className="btn cart-delete-btn" onClick={()=>dispatch(emptyCart())} style={{ color: fontColor, backgroundColor: mainColor}}>
           Empty cart
         </button>
+      </div>
       </div>
     </main >
   )
