@@ -54,6 +54,7 @@ export default function CartBag() {
     bcgColor,
     fontColor,
     thirdColor,
+    fifthColor,
     mainColor,
     light } = useSelector(state => state.color)
   function focused(e) {
@@ -123,7 +124,7 @@ export default function CartBag() {
     dispatch(getTotals())
   }, [cart])
   return (
-    <main class="cart-container" style={{ color: fontColor, backgroundColor: bcgColor }}>
+    <main className="cart-container" style={{ color: fontColor, backgroundColor: bcgColor }}>
       <h1 className="heading">
         My Cart
       </h1>
@@ -146,16 +147,16 @@ export default function CartBag() {
             {!paypalMethod ? (
               <form action="#" style={{ color: fontColor }}>
                 <div className="cardholder-name">
-                  <label for="cardholder-name" className="label-default">Cardholder name</label>
+                  <label className="label-default">Cardholder name</label>
                   <input type="text" name="cardholder-name" id="cardholder-name" className="input-default" style={{backgroundColor: bcgColor}} />
                 </div>
                 <div className="card-number">
-                  <label for="card-number" className="label-default">Card number</label>
+                  <label  className="label-default">Card number</label>
                   <input type="number" name="card-number" id="card-number" className="input-default" style={{backgroundColor: bcgColor}} />
                 </div>
                 <div className="input-flex">
                   <div className="expire-date">
-                    <label for="expire-date" className="label-default">Expiration date</label>
+                    <label className="label-default">Expiration date</label>
                     <div className="input-flex">
                       <input type="number" name="day" id="expire-date" placeholder="mm" min="1" max="12"
                         className="input-default"  style={{backgroundColor: bcgColor}}>
@@ -165,7 +166,7 @@ export default function CartBag() {
                     </div>
                   </div>
                   <div className="cvv">
-                    <label for="cvv" className="label-default">CVV</label>
+                    <label className="label-default">CVV</label>
                     <input type="number" name="cvv" id="cvv" className="input-default"  style={{backgroundColor: bcgColor}}/>
                   </div>
                 </div>
@@ -216,7 +217,7 @@ export default function CartBag() {
             <h2 className="section-heading">Order summary</h2>
             {cart.cartItems.length === 0 ? (
               <div className="cart-empty">
-                <p>Empty Cart Bag</p>
+                <p>(empty bag)</p>
                 <img src='https://2.bp.blogspot.com/-VYC7hvhUz4U/WdcPLAr86jI/AAAAAAAABuA/G3y27JwIL_0S5OsVIp6maXjsdgLRumaTwCLcBGAs/s1600/emptycart.png'></img>
                 <div className='cart-start-shopping'>
                   <Link to='/' >
@@ -239,7 +240,7 @@ export default function CartBag() {
               </div>
             ) : (<>
               {cart.cartItems?.map((cartItem, index) => (
-                <div className="product-card">
+                <div className="product-card" key={cartItem.name}>
                   <div className="card">
                     <div className="img-box">
                       <img src={cartItem.recipe.image} alt={cartItem._id} width="80px" className="product-img" />
@@ -272,10 +273,10 @@ export default function CartBag() {
           </div>
           <div className="wrapper">
             <div className="discount-token">
-              <label for="discount-token" className="label-default">Gift card/Discount code</label>
+              <label className="label-default">Gift card/Discount code</label>
               <div className="wrapper-flex">
-                <input type="text" name="discount-token" id="discount-token" className="input-default"  style={{backgroundColor: thirdColor}}/>
-                <button className="btn btn-outline" style={{ color: fontColor,backgroundColor: mainColor }}>Apply</button>
+                <input type="text" name="discount-token" id="discount-token" className=" code-input"  style={{borderColor: fontColor}}/>
+                <button className="btn btn-outline" style={{ color: fontColor,backgroundColor: thirdColor }}>Apply</button>
               </div>
             </div>
             <div className="amount">
