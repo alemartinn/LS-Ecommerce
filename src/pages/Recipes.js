@@ -60,7 +60,7 @@ const Recipes = () => {
                 <div className='recipes-container-recipe-card'>
                     {recipes.map((recipe, index) => <CardRecipe id={recipe._id} image={recipe.image} title={recipe.title} key={index}/>)}
                 </div>
-                <Button type='button' btnColor={'btn-main-green-light'}>More recipes</Button>
+                {/* <Button type='button' btnColor={'btn-main-green-light'}>More recipes</Button> */}
             </section>
         )
     }
@@ -88,31 +88,15 @@ const Recipes = () => {
                     allFilteredRecipes && showRecipesCards(allFilteredRecipes)
                 }
                 
-                {/* <section className='recipes-container-recommended'>
-                    <span>Recommended</span>
-                    <div className='recipes-container-recipe-card'>
-                        <CardRecipe title={'Recommended Recipe 1'}/>
-                        <CardRecipe title={'Recommended Recipe 2'}/>
-                        <CardRecipe title={'Recommended Recipe 3'}/>
-                        <CardRecipe title={'Recommended Recipe 4'}/>
-                        <CardRecipe title={'Recommended Recipe 5'}/>
-                        <CardRecipe title={'Recommended Recipe 6'}/>
-                    </div>
-                </section> */}
-
                 <section className='recipes-container-newrecipe' style={{backgroundColor: '#a7bb9275'}}>
                     <div className='recipes-container-newrecipe-text'>
                         <h2>Add your recet, make money!</h2>
                         <span>Yes, if your recet is aprooved by our professionals chefs you can get a commission for each sale!</span>
                     </div>
                     <div className='recipes-container-newrecipe-img'>
-                        <LinkRouter to='/newrecipe' className='recipes-container-newrecipe-button'><span>Let's to start</span></LinkRouter>
+                        <LinkRouter to='/dashboard/recipes/create' className='recipes-container-newrecipe-button'><span>Let's to start</span></LinkRouter>
                     </div>
                 </section>
-
-                <article className='recipes-category-described'>
-                    Some text descripting a category choosed
-                </article>
             </div>
         </main>
     );
