@@ -46,3 +46,9 @@
     width: 80%;
     
 }
+.box-panel-role{
+    width: 40%;
+    text-align: center; 
+    margin: 2rem;
+    padding: 1rem;
+}

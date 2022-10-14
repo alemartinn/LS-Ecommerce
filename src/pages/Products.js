@@ -37,7 +37,6 @@ const Products = () => {
         setBoxesByFilter({...boxesByFilter, category: category})
     }
     const handleInput = (e) => {
-        console.log(e.target.value)
         setBoxesByFilter({...boxesByFilter, name: e.target.value});
     };
 
