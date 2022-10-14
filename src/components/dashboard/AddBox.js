@@ -6,6 +6,7 @@ import { useGetAllRecipeQuery} from "../../features/recipes/recipesApi";
 import { useCreateBoxesMutation } from "../../features/boxes/boxesApi";
 import { openAlert, specifyMessage } from "../../features/alert/alertSlice";
 import { useDispatch } from "react-redux";
+import { setCredentials } from "../../features/user/userSlice";
 
 function AddBox() {
     const dispatch = useDispatch()
@@ -18,7 +19,8 @@ function AddBox() {
     useEffect(() => {
         
         if (isSuccess){
-            let dataRecipes = new Set(resRecipes.map(recipe=>recipe.title))
+            let dataRecipes = resRecipes.map(recipe=>{
+                return {title:recipe.title, id:recipe._id}})
             dataRecipes?
             setRecipes([...dataRecipes])
             : setRecipes([])
@@ -73,24 +75,23 @@ function AddBox() {
 
 const makingSelect = recipe => {
     return (
-        <option value={recipe} className="recipe-option">{recipe} </option>
+        <option value={recipe.id} className="recipe-option" key={recipe.id}>{recipe.title} </option>
     )
 }
 
 const [selectRecipe, setSelectRecipe] = useState()
-console.log(selectRecipe)
 
     const addBox = (e) => {
         e.preventDefault()
 
-        let inputs = Array.from(e.target);
-        inputs= inputs.filter((input) => input.name);
-        
-        let dataInputs = inputs.reduce((data, inputValue)=>{
+        let boxInputs = Array.from(e.target);
+        boxInputs= boxInputs.filter((input) => input.name);
+      //  console.log(boxInputs)
+        let dataInputs = boxInputs.reduce((data, inputValue)=>{
             data[inputValue.name] = inputValue.value
             return data
         },{});
-
+        //console.log(dataInputs)
             let box = {
                 name: dataInputs.name ,
                 recipe: selectRecipe,
@@ -99,12 +100,16 @@ console.log(selectRecipe)
                 serves: dataInputs.serves,
             }
             boxCreate(box).unwrap().then(res => {
+                if (res.success) {
+                    dispatch(setCredentials(res.response))
+                }
                 dispatch(specifyMessage(res.message))
                 dispatch(openAlert(res.success))
             }).catch(err => {
                 dispatch(specifyMessage(err.data.message))
                 dispatch(openAlert(false))
             })
+        
     }
 
     return (
